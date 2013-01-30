@@ -37,5 +37,5 @@ Erek Korgan
 
 3) License
 ----------
-DOVES is open source, and uses the MIT License. Please see the LICENSE.txt
+DOVES is open source, and uses the GNU GPL v3 License. Please see the LICENSE.txt
 for more information.
