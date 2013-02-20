@@ -1,0 +1,161 @@
+<%= form_for(@submission) do |f| %>
+  <% if @submission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
+
+      <ul>
+      <% @submission.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :s_degree %><br />
+    <%= f.text_field :s_degree %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_date_time %><br />
+    <%= f.datetime_select :sub_date_time %>
+  </div>
+  <div class="field">
+    <%= f.label :User_id %><br />
+    <%= f.number_field :User_id %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_fname %><br />
+    <%= f.text_field :sub_fname %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_lname %><br />
+    <%= f.text_field :sub_lname %>
+  </div>
+  <div class="field">
+    <%= f.label :species %><br />
+    <%= f.number_field :species %>
+  </div>
+  <div class="field">
+    <%= f.label :common_name %><br />
+    <%= f.text_field :common_name %>
+  </div>
+  <div class="field">
+    <%= f.label :num_of_birds %><br />
+    <%= f.number_field :num_of_birds %>
+  </div>
+  <div class="field">
+    <%= f.label :age %><br />
+    <%= f.text_field :age %>
+  </div>
+  <div class="field">
+    <%= f.label :sex %><br />
+    <%= f.text_field :sex %>
+  </div>
+  <div class="field">
+    <%= f.label :plumage %><br />
+    <%= f.text_area :plumage %>
+  </div>
+  <div class="field">
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :region %><br />
+    <%= f.text_field :region %>
+  </div>
+  <div class="field">
+    <%= f.label :sight_date_time %><br />
+    <%= f.datetime_select :sight_date_time %>
+  </div>
+  <div class="field">
+    <%= f.label :habitat %><br />
+    <%= f.text_field :habitat %>
+  </div>
+  <div class="field">
+    <%= f.label :gps %><br />
+    <%= f.text_field :gps %>
+  </div>
+  <div class="field">
+    <%= f.label :coobservers %><br />
+    <%= f.text_area :coobservers %>
+  </div>
+  <div class="field">
+    <%= f.label :length_of_obs %><br />
+    <%= f.text_field :length_of_obs %>
+  </div>
+  <div class="field">
+    <%= f.label :distance_from %><br />
+    <%= f.text_field :distance_from %>
+  </div>
+  <div class="field">
+    <%= f.label :detailed_description %><br />
+    <%= f.text_area :detailed_description %>
+  </div>
+  <div class="field">
+    <%= f.label :detailed_behavior %><br />
+    <%= f.text_area :detailed_behavior %>
+  </div>
+  <div class="field">
+    <%= f.label :distinguished_char %><br />
+    <%= f.text_area :distinguished_char %>
+  </div>
+  <div class="field">
+    <%= f.label :prev_bird_exp %><br />
+    <%= f.text_area :prev_bird_exp %>
+  </div>
+  <div class="field">
+    <%= f.label :optical_equipment %><br />
+    <%= f.text_field :optical_equipment %>
+  </div>
+  <div class="field">
+    <%= f.label :references %><br />
+    <%= f.text_field :references %>
+  </div>
+  <div class="field">
+    <%= f.label :sub_recall %><br />
+    <%= f.number_field :sub_recall %>
+  </div>
+  <div class="field">
+    <%= f.label :guide_use %><br />
+    <%= f.text_field :guide_use %>
+  </div>
+  <div class="field">
+    <%= f.label :unusual %><br />
+    <%= f.text_field :unusual %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br />
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :media %><br />
+    <%= f.text_field :media %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :rounds %><br />
+    <%= f.number_field :rounds %>
+  </div>
+  <div class="field">
+    <%= f.label :date_accepted %><br />
+    <%= f.datetime_select :date_accepted %>
+  </div>
+  <div class="field">
+    <%= f.label :date_votable %><br />
+    <%= f.datetime_select :date_votable %>
+  </div>
+  <div class="field">
+    <%= f.label :admin_notes %><br />
+    <%= f.text_area :admin_notes %>
+  </div>
+  <div class="field">
+    <%= f.label :working_notes %><br />
+    <%= f.text_area :working_notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

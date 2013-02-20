@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+ <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+<title>
+DOVES - Database for Ornithological Verification and Submission</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+<div id="container">
+<div id="title" style="clear: both">
+<%= link_to(image_tag("doves-banner.png", :alt=>"DOVES", :class=>"logo"), root_path )%>
+        <span class="header">Welcome to DOVES<span>
+	</div>
+	
+	
+	<div id="left">
+<%= link_to root_path do %><div class="nav">Home</div><% end %>
+<a href="search.html" class="navlink"><div class="nav">Search</div></a>
+<%= link_to new_submission_path do %><div class="nav">Submit</div><% end %>
+<a href="login.html" class="navlink"><div class="nav">Log In</div></a>
+<a href="about.html" class="navlink"><div class="nav">About</div></a>
+	
+</div>
+
+	<div id="content">
+		<%= yield %>
+	</div>
+	<div id="footer">
+	&copy; CS410 Blue Team 2012.  <a href = "map.html">Site Map</a>
+	</div>
+</div>
+</body>
+</html>
