@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @vote.User_id %>
+</p>
+
+<p>
+  <b>Submission:</b>
+  <%= @vote.Submission_id %>
+</p>
+
+<p>
+  <b>Round:</b>
+  <%= @vote.round %>
+</p>
+
+<p>
+  <b>Vote:</b>
+  <%= @vote.vote %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @vote.comments %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%= @vote.time %>
+</p>
+
+
+<%= link_to 'Edit', edit_vote_path(@vote) %> |
+<%= link_to 'Back', votes_path %>
