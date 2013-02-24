@@ -1,4 +1,6 @@
-
+/*
+*= require_tree ../../../vendor/assets/stylesheets
+*/
 html,body {
 	margin-top: 0px; font-family: calibri;
 	max-width: 2000px; color:#000;
@@ -11,6 +13,20 @@ html,body {
 input {
     border: solid 1px #4e82c8;
     width: 150px;
+    font: 16pt 'tahoma';
+    align: left;
+    padding: 2px;
+}
+
+select {
+    border: solid 1px #4e82c8;
+    font: 16pt 'tahoma';
+    align: left;
+    padding: 2px;
+}
+
+textarea {
+    border: solid 1px #4e82c8;
     font: 16pt 'tahoma';
     align: left;
     padding: 2px;
