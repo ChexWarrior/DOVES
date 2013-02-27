@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130220182416) do
+ActiveRecord::Schema.define(:version => 20130227192404) do
 
   create_table "birds", :force => true do |t|
     t.string   "common_name"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20130220182416) do
 
   create_table "submissions", :force => true do |t|
     t.string   "s_degree"
-    t.datetime "sub_date_time"
+    t.datetime "created_on"
     t.integer  "User_id"
     t.string   "sub_fname"
     t.string   "sub_lname"
@@ -68,10 +68,11 @@ ActiveRecord::Schema.define(:version => 20130220182416) do
     t.text     "working_notes"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+    t.datetime "updated_on"
   end
 
   create_table "users", :force => true do |t|
-    t.string   "password"
+    t.string   "encrypted_password"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "phone"
@@ -83,8 +84,9 @@ ActiveRecord::Schema.define(:version => 20130220182416) do
     t.string   "email"
     t.text     "prev_exp"
     t.string   "level"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "salt"
   end
 
   create_table "votes", :force => true do |t|
