@@ -25,7 +25,7 @@ class SubmissionsController < ApplicationController
   # GET /submissions/new.json
   def new
     @submission = Submission.new
-
+	
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @submission }
@@ -40,6 +40,7 @@ class SubmissionsController < ApplicationController
   # POST /submissions
   # POST /submissions.json
   def create
+  
     @submission = Submission.new(params[:submission])
 
     respond_to do |format|
