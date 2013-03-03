@@ -10,6 +10,35 @@ class UsersController < ApplicationController
     end
   end
 
+  def login
+	if session[:user]
+		flash[:notice] = "Already logged in as #{session[:user].first_name} #{session[:user].last_name}."
+		redirect_to(root_path)
+
+	else
+	#Login Form
+	end
+  end
+
+  def logout
+	session[:user] = nil
+	flash[:notice] = "You have been logged out."
+	redirect_to(root_path)
+  end
+  
+	def login_attempt
+		authorized_user = User.authenticate(params[:email],params[:login_password])
+		if authorized_user
+			session[:user] = authorized_user
+			flash[:notice] = "Successfully logged in as #{authorized_user.first_name} #{authorized_user.last_name}."
+			redirect_to(root_path)
+		else
+			flash[:notice] = "Invalid Username or Password"
+			flash[:color]= "invalid"
+			render "login"
+		end
+	end
+	
   # GET /users/1
   # GET /users/1.json
   def show

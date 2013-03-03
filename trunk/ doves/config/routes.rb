@@ -5,9 +5,16 @@ DOVES::Application.routes.draw do
 
   resources :votes
 
-  root :to => "pages#home"
-  resources :submissions
 
+  root :to => "pages#home"
+  
+  match "users/login", :to => "users#login"
+  match "users/logout", :to => "users#logout"
+  match "users/login_attempt", :to => "users#login_attempt"
+
+  
+  resources :submissions
+  
   resources :users
 
   match "/about.html" => "pages#about"
