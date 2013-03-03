@@ -161,6 +161,17 @@ a.navlink{text-decoration: none; font: 14pt helvetica }
 #left a {text-decoration: none; font: 14pt helvetica }
 
 
+.notice {
+	font: 14pt helvetica;
+
+}
+
+.error {
+	font: 14pt helvetica;
+	color: #f00;
+	
+}
+
 .results {
 width:100%;
 }

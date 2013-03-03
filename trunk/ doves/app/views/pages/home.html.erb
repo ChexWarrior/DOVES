@@ -1,5 +1,8 @@
 <% if flash[:notice] %>
-    <div class="notice"><%= flash[:notice] %></div>
+    <span class="notice"><%= flash[:notice] %></span>
+  <% end %>
+  <% if flash[:error] %>
+    <span class="error"><%= flash[:error] %></span>
   <% end %>
   <%= image_tag("brownpelican.jpg", :class=>"profile", :style => "background:#4e82c8; width: 45%; height: 45%") %>
 		<p>If you saw a bird, please let us know.</p>
