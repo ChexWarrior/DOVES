@@ -8,4 +8,7 @@ def page_heading(text)
   content_tag(:h1, content_for(:title){ text })
 end
 
+
+
+
 end
