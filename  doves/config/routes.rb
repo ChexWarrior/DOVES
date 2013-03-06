@@ -8,14 +8,14 @@ DOVES::Application.routes.draw do
 
   root :to => "pages#home"
   
-  match "users/login", :to => "users#login"
-  match "users/logout", :to => "users#logout"
-  match "users/login_attempt", :to => "users#login_attempt"
-
   
   resources :submissions
   
-  resources :users
+resources :users do
+	get 'logout', :on => :collection
+	get 'login', :on => :collection
+	post 'login_attempt', :on => :collection
+end
 
   match "/about.html" => "pages#about"
   
