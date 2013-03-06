@@ -15606,3 +15606,182 @@ Served asset /bannerback.png - 304 Not Modified (0ms)
 
 Started GET "/assets/CaviarDreams.ttf" for 127.0.0.1 at 2013-02-21 07:06:56 -0500
 Served asset /CaviarDreams.ttf - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-06 14:20:31 -0500
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (47.0ms)
+Compiled theme/jquery.ui.theme.css  (0ms)  (pid 14812)
+Compiled application.css  (105ms)  (pid 14812)
+Compiled jquery.js  (3ms)  (pid 14812)
+Compiled jquery_ujs.js  (0ms)  (pid 14812)
+Compiled jquery-ui.js  (26ms)  (pid 14812)
+Compiled birds.js  (0ms)  (pid 14812)
+Compiled multimedia.js  (0ms)  (pid 14812)
+Compiled pages.js  (0ms)  (pid 14812)
+Compiled submissions.js  (0ms)  (pid 14812)
+Compiled users.js  (0ms)  (pid 14812)
+Compiled votes.js  (0ms)  (pid 14812)
+Compiled application.js  (582ms)  (pid 14812)
+Completed 200 OK in 1103ms (Views: 1103.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/theme/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-03-06 14:20:36 -0500
+Served asset /theme/jquery.ui.theme.css - 200 OK (3ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:36 -0500
+Served asset /jquery.js - 200 OK (3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-06 14:20:36 -0500
+Served asset /application.css - 200 OK (9ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:36 -0500
+Served asset /jquery_ujs.js - 200 OK (5ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:36 -0500
+Served asset /jquery-ui.js - 200 OK (9ms)
+
+
+Started GET "/assets/birds.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:36 -0500
+Served asset /birds.js - 200 OK (3ms)
+
+
+Started GET "/assets/multimedia.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:36 -0500
+Served asset /multimedia.js - 200 OK (3ms)
+
+
+Started GET "/assets/submissions.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:36 -0500
+Served asset /submissions.js - 200 OK (3ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:36 -0500
+Served asset /pages.js - 200 OK (3ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:36 -0500
+Served asset /users.js - 200 OK (21ms)
+
+
+Started GET "/assets/votes.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:36 -0500
+Served asset /votes.js - 200 OK (1ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:36 -0500
+Served asset /application.js - 200 OK (23ms)
+
+
+Started GET "/assets/bannerback.png" for 127.0.0.1 at 2013-03-06 14:20:36 -0500
+Served asset /bannerback.png - 200 OK (80ms)
+
+
+Started GET "/assets/doves-banner.png" for 127.0.0.1 at 2013-03-06 14:20:36 -0500
+Served asset /doves-banner.png - 200 OK (93ms)
+
+
+Started GET "/assets/brownpelican.jpg" for 127.0.0.1 at 2013-03-06 14:20:36 -0500
+Served asset /brownpelican.jpg - 200 OK (58ms)
+
+
+Started GET "/assets/CaviarDreams.ttf" for 127.0.0.1 at 2013-03-06 14:20:36 -0500
+Served asset /CaviarDreams.ttf - 200 OK (116ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-03-06 14:20:39 -0500
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 23ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:39 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/birds.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:39 -0500
+Served asset /birds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:39 -0500
+Served asset /jquery-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:39 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/multimedia.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:39 -0500
+Served asset /multimedia.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:39 -0500
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/submissions.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:39 -0500
+Served asset /submissions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:39 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/votes.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:39 -0500
+Served asset /votes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:39 -0500
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/submissions/new" for 127.0.0.1 at 2013-03-06 14:20:42 -0500
+Processing by SubmissionsController#new as HTML
+  Rendered submissions/_form.html.erb (153.0ms)
+  Rendered submissions/new.html.erb within layouts/application (207.0ms)
+Completed 200 OK in 251ms (Views: 220.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:43 -0500
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:43 -0500
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:43 -0500
+Served asset /jquery-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/birds.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:43 -0500
+Served asset /birds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/multimedia.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:43 -0500
+Served asset /multimedia.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:43 -0500
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/submissions.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:43 -0500
+Served asset /submissions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:43 -0500
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/votes.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:43 -0500
+Served asset /votes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-06 14:20:43 -0500
+Served asset /application.js - 304 Not Modified (2ms)
+
+
+Started GET "/assets/theme/images/ui-bg_inset-hard_100_fcfdfd_1x100.png" for 127.0.0.1 at 2013-03-06 14:20:44 -0500
+Served asset /theme/images/ui-bg_inset-hard_100_fcfdfd_1x100.png - 200 OK (168ms)
