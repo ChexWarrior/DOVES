@@ -1,0 +1,16 @@
+<div class= "Sign_Form">
+<h1>Log in</h1>
+
+<% if flash[:notice] %>
+    <span class="notice"><%= flash[:notice] %></span>
+  <% end %>
+  <% if flash[:error] %>
+    <span class="error"><%= flash[:error] %></span>
+	  <% end %>
+
+<%= form_tag(:action => 'login_attempt') do %>
+<p>Email:</br> <%= text_field_tag(:email) %></p>
+<p>Password:</br> <%= password_field_tag :login_password %></p>
+<%= submit_tag("Log In") %>
+<% end %>
+</div>
