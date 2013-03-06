@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 			flash[:notice] = "Successfully logged in as #{authorized_user.first_name} #{authorized_user.last_name}."
 			redirect_to(root_path)
 		else
-			flash[:error] = "Invalid Username or Password"
+			flash.now[:error] = "Invalid Username or Password"
 			render "login"
 		end
 	end
