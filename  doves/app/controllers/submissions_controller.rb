@@ -82,3 +82,7 @@ class SubmissionsController < ApplicationController
     end
   end
 end
+
+  def search
+    @submission = Submission.search params[:search]
+  end
