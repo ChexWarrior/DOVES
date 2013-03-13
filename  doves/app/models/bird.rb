@@ -6,7 +6,7 @@ validate :yesorno
 
 
 def yesorno
-	if reviewable.downcase != "yes" && reviewable.downcase != "no"
+	if reviewable == nil
 		errors.add(:reviewable, "must be either \"yes\" or \"no\"")
 	end
 end
