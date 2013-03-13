@@ -80,4 +80,15 @@ class BirdsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def toggle
+    @bird = Bird.find(params[:id])
+	@bird.toggle
+	
+    respond_to do |format|
+      format.html { redirect_to birds_url }
+      format.json { head :no_content }
+	end
+	end
+  
 end

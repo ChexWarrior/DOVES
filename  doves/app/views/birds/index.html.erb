@@ -11,7 +11,7 @@
     <th></th>
     <th></th>
     <!-- Third column removed - we don't want 'destroy'<th></th>-->
-	<th></th><!-- New third column: toggle reviewable -->
+	<th>Toggle Reviewable</th><!-- New third column: toggle reviewable -->
   </tr>
 
 <% @birds.each do |bird| %>
@@ -21,6 +21,7 @@
     <td><%= link_to 'Show', bird %></td>
     <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
     <!--No longer allowing 'destroy'<td><%= link_to 'Destroy', bird, confirm: 'Are you sure?', method: :delete %></td>-->
+	<td><%= link_to 'Toggle', bird, method: :toggle %></td>
   </tr>
 <% end %>
 </table>
