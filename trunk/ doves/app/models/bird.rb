@@ -1,5 +1,7 @@
 class Bird < ActiveRecord::Base
 
+belongs_to :submission
+
 validates :common_name, :presence => true, :uniqueness => true
 validates :reviewable, :presence => true
 validate :yesorno

@@ -6,6 +6,7 @@
 
 <table>
   <tr>
+	<th>ID</th>
     <th>Common name</th>
     <th>Reviewable</th>
     <th></th>
@@ -16,6 +17,7 @@
 
 <% @birds.each do |bird| %>
   <tr>
+	<td><%= bird.id %></td>
     <td><%= bird.common_name %></td>
     <td><%= bird.reviewable %></td>
     <td><%= link_to 'Show', bird %></td>
