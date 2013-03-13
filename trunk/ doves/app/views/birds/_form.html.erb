@@ -17,7 +17,8 @@
   </div>
   <div class="field">
     <%= f.label :reviewable %><br />
-    <%= f.text_field :reviewable %>
+    Yes<%= f.radio_button :reviewable, "yes" %>
+    No<%= f.radio_button :reviewable, "no" %>
   </div>
   <div class="actions">
     <%= f.submit %>
