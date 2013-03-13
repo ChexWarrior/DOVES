@@ -35,7 +35,7 @@
   <div class="field">
     <%= f.label :common_name %><br />
     <!--<%= f.text_field :common_name %>-->  
-	<%= f.collection_select :common_name, Bird.all, :common_name, :common_name  %> <!-- EREK NEEDS HELP UNDERSTANDING HOW THIS WORKS-->
+	<%= f.collection_select :common_name, Bird.where(:reviewable => "yes"), :common_name, :common_name  %> <!-- EREK NEEDS HELP UNDERSTANDING HOW THIS WORKS-->
 
   </div>
   <div class="field">
