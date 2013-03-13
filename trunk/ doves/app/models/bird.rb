@@ -10,7 +10,7 @@ validate :yesorno
 #just make it a check box instead. - Erek
 
 def yesorno
-	if :reviewable.downcase != "yes" || :reviewable.downcase != "no"
+	if reviewable.downcase != "yes" && reviewable.downcase != "no"
 		errors.add(:reviewable, "must be either \"yes\" or \"no\"")
 	end
 end
