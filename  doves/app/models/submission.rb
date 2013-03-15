@@ -1,14 +1,10 @@
 class Submission < ActiveRecord::Base
 
-has_one :bird
+belongs_to :bird
 
-def created_on
-	return "now"
-end
-
-end
-
-def self.search(search)
+def self.subsearch(search)
   search_condition = "%" + search + "%"
-  find(:all, :conditions => ['title LIKE ? OR description LIKE ?', search_condition, search_condition])
+  Submission.joins(:bird).where("birds.common_name LIKE ?", search_condition)
+ end
 end
+

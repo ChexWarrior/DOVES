@@ -81,8 +81,13 @@ class SubmissionsController < ApplicationController
       format.json { head :no_content }
     end
   end
-end
+
 
   def search
-    @submission = Submission.search params[:search]
+     @submissions = Submission.subsearch params[:search] if !params[:search].nil?
+	 respond_to do |format|
+      format.html # search.html.erb
+      format.json { render json: @submissions }
+    end
   end
+end
