@@ -1,15 +1,23 @@
 class MultimediaController < ApplicationController
   # GET /multimedia
   # GET /multimedia.json
+  
+  # def index
+  #  @multimedia = Multimedium.all
+
+  # respond_to do |format|
+  #    format.html # index.html.erb
+  #    format.json { render json: @multimedia }
+  #  end
+  #end
+ 
   def index
-    @multimedia = Multimedium.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @multimedia }
-    end
+     render :file => 'app\views\multimedia\uploadfile.html.erb'
   end
-
+  def uploadFile
+    post = multimedia.save(params[:upload])
+    render :text => "File has been uploaded successfully"
+  end
   # GET /multimedia/1
   # GET /multimedia/1.json
   def show
@@ -67,8 +75,7 @@ class MultimediaController < ApplicationController
         format.json { render json: @multimedium.errors, status: :unprocessable_entity }
       end
     end
-  end
-
+   end
   # DELETE /multimedia/1
   # DELETE /multimedia/1.json
   def destroy
@@ -81,3 +88,4 @@ class MultimediaController < ApplicationController
     end
   end
 end
+
