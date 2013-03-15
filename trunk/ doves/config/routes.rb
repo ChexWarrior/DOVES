@@ -9,7 +9,10 @@ DOVES::Application.routes.draw do
   root :to => "pages#home"
   
   
-  resources :submissions
+resources :submissions do
+	get 'search', :on => :collection
+	post 'search', :on => :collection
+end
   
 resources :users do
 	get 'logout', :on => :collection

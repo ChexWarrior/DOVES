@@ -7,7 +7,6 @@
     <th>User</th>
     <th>Sub fname</th>
     <th>Sub lname</th>
-    <th>Species</th>
     <th>Common name</th>
     <th>Num of birds</th>
     <th>Age</th>
@@ -17,7 +16,6 @@
     <th>Region</th>
     <th>Sight date time</th>
     <th>Habitat</th>
-    <th>Gps</th>
     <th>Coobservers</th>
     <th>Length of obs</th>
     <th>Distance from</th>
@@ -50,8 +48,7 @@
     <td><%= submission.User_id %></td>
     <td><%= submission.sub_fname %></td>
     <td><%= submission.sub_lname %></td>
-    <td><%= submission.species %></td>
-    <td><%= submission.common_name %></td>
+    <td><%= submission.bird.common_name %></td>
     <td><%= submission.num_of_birds %></td>
     <td><%= submission.age %></td>
     <td><%= submission.sex %></td>
@@ -60,7 +57,6 @@
     <td><%= submission.region %></td>
     <td><%= submission.sight_date_time %></td>
     <td><%= submission.habitat %></td>
-    <td><%= submission.gps %></td>
     <td><%= submission.coobservers %></td>
     <td><%= submission.length_of_obs %></td>
     <td><%= submission.distance_from %></td>

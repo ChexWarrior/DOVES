@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130227192404) do
+ActiveRecord::Schema.define(:version => 20130315173004) do
 
   create_table "birds", :force => true do |t|
     t.string   "common_name"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(:version => 20130227192404) do
     t.integer  "User_id"
     t.string   "sub_fname"
     t.string   "sub_lname"
-    t.integer  "species"
+    t.integer  "bird_id"
     t.string   "common_name"
     t.integer  "num_of_birds"
     t.string   "age"

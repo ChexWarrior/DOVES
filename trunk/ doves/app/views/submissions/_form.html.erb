@@ -28,14 +28,11 @@
     <%= f.label :sub_lname %><br />
     <%= f.text_field :sub_lname %>
   </div>
-  <!--<div class="field">
-    <%= f.label :species %><br />
-    <%= f.number_field :species %>
-  </div>-->
+
   <div class="field">
     <%= f.label :common_name %><br />
     <!--<%= f.text_field :common_name %>-->  
-	<%= f.collection_select :common_name, Bird.where(:reviewable => "yes"), :common_name, :common_name  %> <!-- EREK NEEDS HELP UNDERSTANDING HOW THIS WORKS-->
+	<%= f.collection_select(:bird_id, Bird.where(:reviewable => "yes"), :id, :common_name)  %> <!-- EREK NEEDS HELP UNDERSTANDING HOW THIS WORKS-->
 
   </div>
   <div class="field">
