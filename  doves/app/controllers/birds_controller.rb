@@ -81,6 +81,8 @@ class BirdsController < ApplicationController
     end
   end
   
+  # TOGGLE /birds/1
+  # TOGGLE /birds/1.json
   def toggle
     @bird = Bird.find(params[:id])
 	@bird.toggle

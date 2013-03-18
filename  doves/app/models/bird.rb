@@ -17,7 +17,6 @@ def toggle
 	else 
 		reviewable = "yes"
 	end
-	return true
 end
 
 end
