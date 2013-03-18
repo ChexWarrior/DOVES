@@ -29,7 +29,9 @@ DOVES - Database for Ornithological Verification and Submission</title>
      link_to(content_tag(:div, "Log Out", :class=>"nav"), { :controller => "users", :action => "logout"})
    end
 %>
+<%= link_to birds_path do %><div class="nav">Reviewable Birds</div><% end %>
 <a href="about.html" class="navlink"><div class="nav">About</div></a>
+
 	
 </div>
 
