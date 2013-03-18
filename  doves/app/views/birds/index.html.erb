@@ -4,7 +4,10 @@
 	<div id="notice" ><%= flash[:notice] %></div>
 <% end %>
 
-<% if session[:user].nil? loggedin = false else loggedin = true%>You are not logged in<% end %><br>
+<% if session[:user].nil? 
+	loggedin = false 
+   else loggedin = true %>You are not logged in<br>
+	<% end %>
 
 <table>
   <tr>
