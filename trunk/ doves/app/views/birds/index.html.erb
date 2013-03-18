@@ -4,6 +4,8 @@
 	<div id="notice" ><%= flash[:notice] %></div>
 <% end %>
 
+<% if session[:user].nil? %>You are not logged in<% end %><br>
+
 <table>
   <tr>
 	<th>ID</th>
