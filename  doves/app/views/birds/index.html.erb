@@ -4,17 +4,19 @@
 	<div id="notice" ><%= flash[:notice] %></div>
 <% end %>
 
-<% if session[:user].nil? %>You are not logged in<% end %><br>
+<% if session[:user].nil? loggedin = false else loggedin = true%>You are not logged in<% end %><br>
 
 <table>
   <tr>
 	<th>ID</th>
     <th>Common name</th>
     <th>Reviewable</th>
+	<% if loggedin %>
     <th></th>
     <th></th>
     <!-- Third column removed - we don't want 'destroy'<th></th>-->
 	<th>Toggle Reviewable</th><!-- New third column: toggle reviewable -->
+	<% end %>
   </tr>
 
 <% @birds.each do |bird| %>
@@ -22,10 +24,12 @@
 	<td><%= bird.id %></td>
     <td><%= bird.common_name %></td>
     <td><%= bird.reviewable %></td>
+	<% if loggedin %>
     <td><%= link_to 'Show', bird %></td>
     <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
     <!--No longer allowing 'destroy'<td><%= link_to 'Destroy', bird, confirm: 'Are you sure?', method: :delete %></td>-->
 	<td><%= link_to 'Toggle', bird, method: :toggle %></td>
+	<% end %>
   </tr>
 <% end %>
 </table>

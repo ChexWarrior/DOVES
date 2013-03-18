@@ -20,8 +20,10 @@ resources :users do
 	post 'login_attempt', :on => :collection
 end
 
-  match "/about.html" => "pages#about"
-  
+resources :pages do
+	get 'about', :on=> :collection
+	get 'home', :on=> :collection
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
