@@ -48,6 +48,8 @@ class SubmissionsController < ApplicationController
   
     @submission = Submission.new(params[:submission])
 	@submission.user_id = session[:user].id
+	@bird = Bird.find_by_common_name(@submission.common_name)
+	@submission.bird_id = @bird.id
 
     respond_to do |format|
       if @submission.save

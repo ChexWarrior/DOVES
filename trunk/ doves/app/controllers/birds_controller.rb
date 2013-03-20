@@ -1,4 +1,6 @@
 class BirdsController < ApplicationController
+
+before_filter :ensure_admin, :except => :index
   # GET /birds
   # GET /birds.json
   def index

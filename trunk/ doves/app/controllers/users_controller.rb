@@ -1,7 +1,14 @@
 class UsersController < ApplicationController
+	
+  before_filter :ensure_admin_or_self, :only => [:index, :show, :edit]
+  
+  
+  
   # GET /users
   # GET /users.json
   def index
+  
+  
     @users = User.all
 
     respond_to do |format|
