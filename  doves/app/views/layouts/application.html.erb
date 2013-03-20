@@ -9,6 +9,7 @@
 DOVES - Database for Ornithological Verification and Submission</title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 </head>
 <body>
 
@@ -25,11 +26,19 @@ DOVES - Database for Ornithological Verification and Submission</title>
 <%= link_to new_submission_path do %><div class="nav">Submit</div><% end %>
 
 <%=
-   link_to_if(session[:user].nil?, content_tag(:div, "Log In", :class=>"nav"), { :controller => "users", :action => "login" }) do
+   link_to_if(!loggedin?, content_tag(:div, "Log In", :class=>"nav"), { :controller => "users", :action => "login" }) do
      link_to(content_tag(:div, "Log Out", :class=>"nav"), { :controller => "users", :action => "logout"})
    end
 %>
 <%= link_to birds_path do %><div class="nav">Reviewable Birds</div><% end %>
+<%=
+if isadmin?
+     link_to(content_tag(:div, "Users", :class=>"nav"), { :controller => "users"})
+	 end
+%>
+<%= link_to submissions_path do %><div class="nav">Submissions</div><% end %>
+
+
 <%= link_to about_pages_path do %><div class="nav">About</div></a><% end %>
 </div>
 
@@ -37,7 +46,7 @@ DOVES - Database for Ornithological Verification and Submission</title>
 		<%= yield %>
 	</div>
 	<div id="footer">
-	&copy; CS411 Blue Team 2013.  <a href = "map.html">Site Map</a>
+	&copy; CS411 Blue Team 2013.  :M
 	</div>
 </div>
 </body>

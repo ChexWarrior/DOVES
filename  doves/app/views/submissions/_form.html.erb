@@ -1,3 +1,13 @@
+
+<script>
+  $(document).ready(function() {
+    $( "#submission_common_name" ).autocomplete({
+        source: birdArray
+    });
+});
+   var birdArray = <%= Bird.all.map(&:common_name).sort.to_json.html_safe %>;
+
+</script>
 <%= form_for(@submission) do |f| %>
   <% if @submission.errors.any? %>
     <div id="error_explanation">
@@ -19,8 +29,8 @@
 
   <div class="field">
     <%= f.label :common_name %><br />
-    <!--<%= f.text_field :common_name %>-->  
-	<%= f.collection_select(:bird_id, Bird.where(:reviewable => "yes"), :id, :common_name)  %> <!-- EREK NEEDS HELP UNDERSTANDING HOW THIS WORKS-->
+    <%= f.text_field :common_name %>
+	<!--<%= f.collection_select(:bird_id, Bird.where(:reviewable => "yes"), :id, :common_name)  %> EREK NEEDS HELP UNDERSTANDING HOW THIS WORKS-->
 
   </div>
   <div class="field">
