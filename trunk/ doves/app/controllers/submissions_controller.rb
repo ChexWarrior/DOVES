@@ -24,6 +24,11 @@ class SubmissionsController < ApplicationController
   # GET /submissions/new
   # GET /submissions/new.json
   def new
+  
+	if !loggedin?
+	flash[:notice] = "You must be logged in to submit a sighting."
+	redirect_to login_users_path and return
+	end
     @submission = Submission.new
 	
     respond_to do |format|
@@ -42,6 +47,7 @@ class SubmissionsController < ApplicationController
   def create
   
     @submission = Submission.new(params[:submission])
+	@submission.user_id = session[:user].id
 
     respond_to do |format|
       if @submission.save

@@ -14,7 +14,8 @@
 	<th>ID</th>
     <th>Common name</th>
     <th>Reviewable</th>
-	<% if loggedin %>
+
+	<% if loggedin? %>
     <th></th>
     <th></th>
     <!-- Third column removed - we don't want 'destroy'<th></th>-->
@@ -27,11 +28,11 @@
 	<td><%= bird.id %></td>
     <td><%= bird.common_name %></td>
     <td><%= bird.reviewable %></td>
-	<% if loggedin %>
+	<% if loggedin? %>
     <td><%= link_to 'Show', bird %></td>
     <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
     <!--No longer allowing 'destroy'<td><%= link_to 'Destroy', bird, confirm: 'Are you sure?', method: :delete %></td>-->
-	<td><%= link_to 'Toggle', bird, method: :toggle %></td>
+	<td><%= link_to 'Toggle', toggle_bird_path(bird) %></td>
 	<% end %>
   </tr>
 <% end %>
@@ -39,6 +40,6 @@
 
 <br />
 
-<%= if loggedin 
+<%= if loggedin? 
 	link_to 'New Bird', new_bird_path 
 	end %>

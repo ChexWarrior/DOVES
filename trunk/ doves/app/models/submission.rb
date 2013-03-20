@@ -1,6 +1,7 @@
 class Submission < ActiveRecord::Base
 
 belongs_to :bird
+belongs_to :user
 
 def self.subsearch(search)
   search_condition = "%" + search + "%"

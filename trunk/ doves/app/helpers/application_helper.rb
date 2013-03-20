@@ -9,6 +9,8 @@ def page_heading(text)
 end
 
 
-
+def loggedin
+	true
+ end
 
 end
