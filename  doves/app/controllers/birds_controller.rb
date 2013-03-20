@@ -9,7 +9,7 @@ class BirdsController < ApplicationController
       format.json { render json: @birds }
     end
   end
-
+  
   # GET /birds/1
   # GET /birds/1.json
   def show
@@ -88,8 +88,13 @@ class BirdsController < ApplicationController
 	@bird.toggle
 	
     respond_to do |format|
-      format.html { redirect_to birds_url }
+	if @bird.update_attributes(params[:bird])
+        format.html { redirect_to birds_url, notice: @bird.common_name + ' was successfully updated.' }
+        format.json { head :no_content }
+      else
+      format.html { redirect_to birds_url, notice: 'Bird update failed.' }
       format.json { head :no_content }
+	end
 	end
 	end
   

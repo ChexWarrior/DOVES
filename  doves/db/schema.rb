@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130315173004) do
+ActiveRecord::Schema.define(:version => 20130320111515) do
 
   create_table "birds", :force => true do |t|
     t.string   "common_name"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(:version => 20130315173004) do
   create_table "submissions", :force => true do |t|
     t.string   "s_degree"
     t.datetime "created_on"
-    t.integer  "User_id"
+    t.integer  "user_id"
     t.string   "sub_fname"
     t.string   "sub_lname"
     t.integer  "bird_id"

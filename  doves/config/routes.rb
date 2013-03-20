@@ -1,7 +1,9 @@
 DOVES::Application.routes.draw do
   resources :multimedia
 
-  resources :birds
+  resources :birds do 
+	get 'toggle', :on => :member
+end
 
   resources :votes
 

@@ -12,10 +12,10 @@ def yesorno
 end
 
 def toggle
-	if reviewable.downcase == "yes"
-		reviewable = "no"
+	if self.reviewable.downcase == "yes"
+		self.reviewable = "no"
 	else 
-		reviewable = "yes"
+		self.reviewable = "yes"
 	end
 end
 
