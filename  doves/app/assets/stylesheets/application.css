@@ -13,14 +13,14 @@ html,body {
 input {
     border: solid 1px #4e82c8;
     width: 150px;
-    font: 16pt 'tahoma';
+    font: 12pt 'tahoma';
     align: left;
     padding: 2px;
 }
 
 select {
     border: solid 1px #4e82c8;
-    font: 16pt 'tahoma';
+    font: 12pt 'tahoma';
     align: left;
     padding: 2px;
 }
@@ -127,6 +127,10 @@ p {
 	text-indent:3em;
 }
 
+.subHead {
+	font-size:18pt;
+	border-bottom: 2px solid black;
+}
 
 
 blockquote {
@@ -174,6 +178,11 @@ a.navlink{text-decoration: none; font: 14pt helvetica }
 
 .results {
 width:100%;
+}
+
+.subLabel {
+	font-size:14pt;
+	line-height:30px;
 }
 
 td {
