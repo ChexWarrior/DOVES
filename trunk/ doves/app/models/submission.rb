@@ -28,7 +28,7 @@ validates :unusual, :presence => true
 
 def self.subsearch(search)
   search_condition = "%" + search + "%"
-  Submission.joins(:bird).where("birds.common_name LIKE ?", search_condition)
+  Submission.joins(:bird, :user).where("birds.common_name LIKE ? || users.first_name LIKE ? || users.last_name LIKE ? || users.email LIKE ?", search_condition)
  end
 end
 
