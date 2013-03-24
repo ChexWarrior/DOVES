@@ -63939,3 +63939,886 @@ Served asset /application.js - 304 Not Modified (2ms)
 
 Started GET "/assets/doves-banner.png" for 127.0.0.1 at 2013-03-24 14:59:13 -0400
 Served asset /doves-banner.png - 304 Not Modified (0ms)
+
+
+Started POST "/submissions/search?method=post" for 127.0.0.1 at 2013-03-24 15:04:00 -0400
+Processing by SubmissionsController#search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZzISHoN8vtK0LEUT6AVtvjMjIDcXsFSNg22vr1PB51s=", "search"=>"amir", "method"=>"post"}
+  [1m[36mSubmission Load (0.0ms)[0m  [1mSELECT "submissions".* FROM "submissions" INNER JOIN "birds" ON "birds"."id" = "submissions"."bird_id" WHERE (birds.common_name LIKE '%amir%')[0m
+  Rendered submissions/search.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 21ms (Views: 20.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/theme/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-03-24 15:04:01 -0400
+Served asset /theme/jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-24 15:04:01 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:01 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:01 -0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:01 -0400
+Served asset /jquery-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/birds.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:01 -0400
+Served asset /birds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/multimedia.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:02 -0400
+Served asset /multimedia.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/submissions.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:02 -0400
+Served asset /submissions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:02 -0400
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:03 -0400
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:03 -0400
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/votes.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:03 -0400
+Served asset /votes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/doves-banner.png" for 127.0.0.1 at 2013-03-24 15:04:03 -0400
+Served asset /doves-banner.png - 304 Not Modified (0ms)
+
+
+Started POST "/submissions/search?method=post" for 127.0.0.1 at 2013-03-24 15:04:06 -0400
+Processing by SubmissionsController#search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZzISHoN8vtK0LEUT6AVtvjMjIDcXsFSNg22vr1PB51s=", "search"=>"duck", "method"=>"post"}
+  [1m[35mSubmission Load (0.0ms)[0m  SELECT "submissions".* FROM "submissions" INNER JOIN "birds" ON "birds"."id" = "submissions"."bird_id" WHERE (birds.common_name LIKE '%duck%')
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mBird Load (0.0ms)[0m  SELECT "birds".* FROM "birds" WHERE "birds"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mBird Load (0.0ms)[0m  SELECT "birds".* FROM "birds" WHERE "birds"."id" = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mBird Load (0.0ms)[0m  SELECT "birds".* FROM "birds" WHERE "birds"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "birds".* FROM "birds" WHERE "birds"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "birds".* FROM "birds" WHERE "birds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mBird Load (0.0ms)[0m  SELECT "birds".* FROM "birds" WHERE "birds"."id" = 17 LIMIT 1
+  Rendered submissions/index.html.erb (66.0ms)
+  Rendered submissions/search.html.erb within layouts/application (104.0ms)
+Completed 200 OK in 114ms (Views: 113.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/theme/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-03-24 15:04:07 -0400
+Served asset /theme/jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:07 -0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-24 15:04:07 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:08 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:08 -0400
+Served asset /jquery-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/birds.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:08 -0400
+Served asset /birds.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/multimedia.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:08 -0400
+Served asset /multimedia.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:08 -0400
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/submissions.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:09 -0400
+Served asset /submissions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:09 -0400
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:09 -0400
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/votes.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:09 -0400
+Served asset /votes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/doves-banner.png" for 127.0.0.1 at 2013-03-24 15:04:09 -0400
+Served asset /doves-banner.png - 304 Not Modified (0ms)
+
+
+Started POST "/submissions/search?method=post" for 127.0.0.1 at 2013-03-24 15:04:16 -0400
+Processing by SubmissionsController#search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZzISHoN8vtK0LEUT6AVtvjMjIDcXsFSNg22vr1PB51s=", "search"=>"Ake", "method"=>"post"}
+  [1m[36mSubmission Load (0.0ms)[0m  [1mSELECT "submissions".* FROM "submissions" INNER JOIN "birds" ON "birds"."id" = "submissions"."bird_id" WHERE (birds.common_name LIKE '%Ake%')[0m
+  Rendered submissions/search.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 11ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/theme/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-03-24 15:04:17 -0400
+Served asset /theme/jquery.ui.theme.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:17 -0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-24 15:04:17 -0400
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/birds.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:17 -0400
+Served asset /birds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:18 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:18 -0400
+Served asset /jquery-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/multimedia.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:18 -0400
+Served asset /multimedia.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/submissions.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:19 -0400
+Served asset /submissions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:19 -0400
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/votes.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:19 -0400
+Served asset /votes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:19 -0400
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-24 15:04:19 -0400
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/doves-banner.png" for 127.0.0.1 at 2013-03-24 15:04:19 -0400
+Served asset /doves-banner.png - 304 Not Modified (0ms)
+
+
+Started GET "/submissions/search" for 127.0.0.1 at 2013-03-24 15:09:58 -0400
+Processing by SubmissionsController#search as HTML
+  Rendered submissions/search.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 12ms (Views: 12.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/theme/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-03-24 15:09:58 -0400
+Served asset /theme/jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-24 15:09:59 -0400
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-24 15:09:59 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-24 15:09:59 -0400
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-03-24 15:09:59 -0400
+Served asset /jquery-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/multimedia.js?body=1" for 127.0.0.1 at 2013-03-24 15:09:59 -0400
+Served asset /multimedia.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/birds.js?body=1" for 127.0.0.1 at 2013-03-24 15:09:59 -0400
+Served asset /birds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:00 -0400
+Served asset /pages.js - 304 Not Modified (35ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:01 -0400
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/votes.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:01 -0400
+Served asset /votes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/theme/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-03-24 15:10:01 -0400
+Served asset /theme/jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/submissions.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:01 -0400
+Served asset /submissions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:01 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:01 -0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:02 -0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-24 15:10:02 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/birds.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:02 -0400
+Served asset /birds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:02 -0400
+Served asset /jquery-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:03 -0400
+Served asset /pages.js - 200 OK (0ms)
+
+
+Started GET "/assets/multimedia.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:03 -0400
+Served asset /multimedia.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:03 -0400
+Served asset /users.js - 200 OK (0ms)
+
+
+Started GET "/assets/submissions.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:03 -0400
+Served asset /submissions.js - 200 OK (0ms)
+
+
+Started GET "/assets/votes.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:03 -0400
+Served asset /votes.js - 200 OK (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:03 -0400
+Served asset /application.js - 200 OK (0ms)
+
+
+Started GET "/assets/doves-banner.png" for 127.0.0.1 at 2013-03-24 15:10:03 -0400
+Served asset /doves-banner.png - 304 Not Modified (0ms)
+
+
+Started POST "/submissions/search?method=post" for 127.0.0.1 at 2013-03-24 15:10:27 -0400
+Processing by SubmissionsController#search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZzISHoN8vtK0LEUT6AVtvjMjIDcXsFSNg22vr1PB51s=", "search"=>"Ake", "method"=>"post"}
+  [1m[35mSubmission Load (1.0ms)[0m  SELECT "submissions".* FROM "submissions" INNER JOIN "birds" ON "birds"."id" = "submissions"."bird_id" WHERE (birds.common_name LIKE '%Ake%')
+  Rendered submissions/search.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 25ms (Views: 23.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-24 15:10:28 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:28 -0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/theme/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-03-24 15:10:28 -0400
+Served asset /theme/jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/birds.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:29 -0400
+Served asset /birds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:29 -0400
+Served asset /jquery-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:29 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/multimedia.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:29 -0400
+Served asset /multimedia.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/doves-banner.png" for 127.0.0.1 at 2013-03-24 15:10:30 -0400
+Served asset /doves-banner.png - 304 Not Modified (0ms)
+
+
+Started GET "/submissions" for 127.0.0.1 at 2013-03-24 15:10:31 -0400
+Processing by SubmissionsController#index as HTML
+  [1m[36mSubmission Load (1.0ms)[0m  [1mSELECT "submissions".* FROM "submissions" [0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mBird Load (0.0ms)[0m  [1mSELECT "birds".* FROM "birds" WHERE "birds"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mBird Load (0.0ms)[0m  [1mSELECT "birds".* FROM "birds" WHERE "birds"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+  [1m[36mBird Load (0.0ms)[0m  [1mSELECT "birds".* FROM "birds" WHERE "birds"."id" = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "birds".* FROM "birds" WHERE "birds"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mBird Load (0.0ms)[0m  [1mSELECT "birds".* FROM "birds" WHERE "birds"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "birds".* FROM "birds" WHERE "birds"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mBird Load (1.0ms)[0m  [1mSELECT "birds".* FROM "birds" WHERE "birds"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1
+  [1m[36mBird Load (0.0ms)[0m  [1mSELECT "birds".* FROM "birds" WHERE "birds"."id" = 17 LIMIT 1[0m
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1
+  [1m[36mBird Load (0.0ms)[0m  [1mSELECT "birds".* FROM "birds" WHERE "birds"."id" = 24 LIMIT 1[0m
+  Rendered submissions/index.html.erb within layouts/application (27.0ms)
+Completed 200 OK in 40ms (Views: 35.0ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/theme/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-03-24 15:10:32 -0400
+Served asset /theme/jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-24 15:10:33 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:33 -0400
+Served asset /jquery.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:33 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:33 -0400
+Served asset /jquery-ui.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/birds.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:33 -0400
+Served asset /birds.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/multimedia.js?body=1" for 127.0.0.1 at 2013-03-24 15:10:33 -0400
+Served asset /multimedia.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/doves-banner.png" for 127.0.0.1 at 2013-03-24 15:10:33 -0400
+Served asset /doves-banner.png - 304 Not Modified (0ms)
+
+
+Started GET "/submissions" for 127.0.0.1 at 2013-03-24 15:11:29 -0400
+Processing by SubmissionsController#index as HTML
+  [1m[35mSubmission Load (1.0ms)[0m  SELECT "submissions".* FROM "submissions" 
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mBird Load (0.0ms)[0m  SELECT "birds".* FROM "birds" WHERE "birds"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mBird Load (0.0ms)[0m  SELECT "birds".* FROM "birds" WHERE "birds"."id" = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+  [1m[35mBird Load (0.0ms)[0m  SELECT "birds".* FROM "birds" WHERE "birds"."id" = 1 LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "birds".* FROM "birds" WHERE "birds"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mBird Load (1.0ms)[0m  SELECT "birds".* FROM "birds" WHERE "birds"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "birds".* FROM "birds" WHERE "birds"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mBird Load (0.0ms)[0m  SELECT "birds".* FROM "birds" WHERE "birds"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1[0m
+  [1m[35mBird Load (0.0ms)[0m  SELECT "birds".* FROM "birds" WHERE "birds"."id" = 17 LIMIT 1
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1[0m
+  [1m[35mBird Load (0.0ms)[0m  SELECT "birds".* FROM "birds" WHERE "birds"."id" = 24 LIMIT 1
+  Rendered submissions/index.html.erb within layouts/application (83.0ms)
+Completed 200 OK in 145ms (Views: 92.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:30 -0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/theme/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-03-24 15:11:30 -0400
+Served asset /theme/jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:30 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:30 -0400
+Served asset /jquery-ui.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-24 15:11:30 -0400
+Served asset /application.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/birds.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:30 -0400
+Served asset /birds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/multimedia.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:31 -0400
+Served asset /multimedia.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:31 -0400
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:31 -0400
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/votes.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:31 -0400
+Served asset /votes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/submissions.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:31 -0400
+Served asset /submissions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:32 -0400
+Served asset /application.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/doves-banner.png" for 127.0.0.1 at 2013-03-24 15:11:32 -0400
+Served asset /doves-banner.png - 304 Not Modified (1ms)
+
+
+Started GET "/submissions/search" for 127.0.0.1 at 2013-03-24 15:11:34 -0400
+Processing by SubmissionsController#search as HTML
+  Rendered submissions/search.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 10ms (Views: 10.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-03-24 15:11:35 -0400
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:35 -0400
+Served asset /jquery-ui.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/theme/jquery.ui.theme.css?body=1" for 127.0.0.1 at 2013-03-24 15:11:35 -0400
+Served asset /theme/jquery.ui.theme.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:35 -0400
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:35 -0400
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/birds.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:36 -0400
+Served asset /birds.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/submissions.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:36 -0400
+Served asset /submissions.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/pages.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:36 -0400
+Served asset /pages.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/multimedia.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:37 -0400
+Served asset /multimedia.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:37 -0400
+Served asset /users.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/votes.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:37 -0400
+Served asset /votes.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-03-24 15:11:37 -0400
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/doves-banner.png" for 127.0.0.1 at 2013-03-24 15:11:37 -0400
+Served asset /doves-banner.png - 304 Not Modified (0ms)
+
+
+Started POST "/submissions/search?method=post" for 127.0.0.1 at 2013-03-24 15:11:39 -0400
+Processing by SubmissionsController#search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZzISHoN8vtK0LEUT6AVtvjMjIDcXsFSNg22vr1PB51s=", "search"=>"ake", "method"=>"post"}
+Completed 500 Internal Server Error in 1ms
+
+ActiveRecord::PreparedStatementInvalid (wrong number of bind variables (2 for 1) in: birds.common_name LIKE ? || ):
+  app/models/submission.rb:32:in `subsearch'
+  app/controllers/submissions_controller.rb:96:in `search'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.0ms)
+
+
+Started POST "/submissions/search?method=post" for 127.0.0.1 at 2013-03-24 15:12:08 -0400
+Processing by SubmissionsController#search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZzISHoN8vtK0LEUT6AVtvjMjIDcXsFSNg22vr1PB51s=", "search"=>"ake", "method"=>"post"}
+  [1m[36mSubmission Load (0.0ms)[0m  [1mSELECT "submissions".* FROM "submissions" INNER JOIN "birds" ON "birds"."id" = "submissions"."bird_id" WHERE (birds.common_name LIKE '%ake%' || users.first_name LIKE '%ake%')[0m
+SQLite3::SQLException: no such column: users.first_name: SELECT "submissions".* FROM "submissions" INNER JOIN "birds" ON "birds"."id" = "submissions"."bird_id" WHERE (birds.common_name LIKE '%ake%' || users.first_name LIKE '%ake%')
+  Rendered submissions/search.html.erb within layouts/application (16.0ms)
+Completed 500 Internal Server Error in 20ms
+
+ActionView::Template::Error (SQLite3::SQLException: no such column: users.first_name: SELECT "submissions".* FROM "submissions" INNER JOIN "birds" ON "birds"."id" = "submissions"."bird_id" WHERE (birds.common_name LIKE '%ake%' || users.first_name LIKE '%ake%')):
+    4: 	  <input type="reset"/>
+    5: <% end %> 
+    6: 
+    7: <% if (@submissions.length >0) then%>
+    8:  <div id="search">
+    9:     <%= render :file => 'submissions/index' %>
+    10:  </div>
+  app/views/submissions/search.html.erb:7:in `_app_views_submissions_search_html_erb__484076441_38029572'
+  app/controllers/submissions_controller.rb:97:in `search'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.0ms)
+
+
+Started POST "/submissions/search?method=post" for 127.0.0.1 at 2013-03-24 15:12:29 -0400
+Processing by SubmissionsController#search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZzISHoN8vtK0LEUT6AVtvjMjIDcXsFSNg22vr1PB51s=", "search"=>"ake", "method"=>"post"}
+  [1m[35mSubmission Load (1.0ms)[0m  SELECT "submissions".* FROM "submissions" INNER JOIN "birds" ON "birds"."id" = "submissions"."bird_id" WHERE (birds.common_name LIKE '%ake%' || first_name LIKE '%ake%')
+SQLite3::SQLException: no such column: first_name: SELECT "submissions".* FROM "submissions" INNER JOIN "birds" ON "birds"."id" = "submissions"."bird_id" WHERE (birds.common_name LIKE '%ake%' || first_name LIKE '%ake%')
+  Rendered submissions/search.html.erb within layouts/application (11.0ms)
+Completed 500 Internal Server Error in 14ms
+
+ActionView::Template::Error (SQLite3::SQLException: no such column: first_name: SELECT "submissions".* FROM "submissions" INNER JOIN "birds" ON "birds"."id" = "submissions"."bird_id" WHERE (birds.common_name LIKE '%ake%' || first_name LIKE '%ake%')):
+    4: 	  <input type="reset"/>
+    5: <% end %> 
+    6: 
+    7: <% if (@submissions.length >0) then%>
+    8:  <div id="search">
+    9:     <%= render :file => 'submissions/index' %>
+    10:  </div>
+  app/views/submissions/search.html.erb:7:in `_app_views_submissions_search_html_erb__484076441_38029572'
+  app/controllers/submissions_controller.rb:97:in `search'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.0ms)
+
+
+Started POST "/submissions/search?method=post" for 127.0.0.1 at 2013-03-24 15:13:09 -0400
+Processing by SubmissionsController#search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZzISHoN8vtK0LEUT6AVtvjMjIDcXsFSNg22vr1PB51s=", "search"=>"ake", "method"=>"post"}
+  Rendered submissions/search.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 12ms
+
+ActionView::Template::Error (Association named 'self' was not found; perhaps you misspelled it?):
+    4: 	  <input type="reset"/>
+    5: <% end %> 
+    6: 
+    7: <% if (@submissions.length >0) then%>
+    8:  <div id="search">
+    9:     <%= render :file => 'submissions/index' %>
+    10:  </div>
+  app/views/submissions/search.html.erb:7:in `_app_views_submissions_search_html_erb__484076441_38029572'
+  app/controllers/submissions_controller.rb:97:in `search'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (4.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (9.0ms)
+
+
+Started POST "/submissions/search?method=post" for 127.0.0.1 at 2013-03-24 15:13:20 -0400
+Processing by SubmissionsController#search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZzISHoN8vtK0LEUT6AVtvjMjIDcXsFSNg22vr1PB51s=", "search"=>"ake", "method"=>"post"}
+  Rendered submissions/search.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (Association named 'submission' was not found; perhaps you misspelled it?):
+    4: 	  <input type="reset"/>
+    5: <% end %> 
+    6: 
+    7: <% if (@submissions.length >0) then%>
+    8:  <div id="search">
+    9:     <%= render :file => 'submissions/index' %>
+    10:  </div>
+  app/views/submissions/search.html.erb:7:in `_app_views_submissions_search_html_erb__484076441_38029572'
+  app/controllers/submissions_controller.rb:97:in `search'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.0ms)
+
+
+Started POST "/submissions/search?method=post" for 127.0.0.1 at 2013-03-24 15:13:28 -0400
+Processing by SubmissionsController#search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZzISHoN8vtK0LEUT6AVtvjMjIDcXsFSNg22vr1PB51s=", "search"=>"ake", "method"=>"post"}
+  Rendered submissions/search.html.erb within layouts/application (6.0ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (Association named 'submissions' was not found; perhaps you misspelled it?):
+    4: 	  <input type="reset"/>
+    5: <% end %> 
+    6: 
+    7: <% if (@submissions.length >0) then%>
+    8:  <div id="search">
+    9:     <%= render :file => 'submissions/index' %>
+    10:  </div>
+  app/views/submissions/search.html.erb:7:in `_app_views_submissions_search_html_erb__484076441_38029572'
+  app/controllers/submissions_controller.rb:97:in `search'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (11.0ms)
+
+
+Started POST "/submissions/search?method=post" for 127.0.0.1 at 2013-03-24 15:13:38 -0400
+Processing by SubmissionsController#search as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZzISHoN8vtK0LEUT6AVtvjMjIDcXsFSNg22vr1PB51s=", "search"=>"ake", "method"=>"post"}
+  Rendered submissions/search.html.erb within layouts/application (7.0ms)
+Completed 500 Internal Server Error in 11ms
+
+ActionView::Template::Error (Association named 'Submission' was not found; perhaps you misspelled it?):
+    4: 	  <input type="reset"/>
+    5: <% end %> 
+    6: 
+    7: <% if (@submissions.length >0) then%>
+    8:  <div id="search">
+    9:     <%= render :file => 'submissions/index' %>
+    10:  </div>
+  app/views/submissions/search.html.erb:7:in `_app_views_submissions_search_html_erb__484076441_38029572'
+  app/controllers/submissions_controller.rb:97:in `search'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (5.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (10.0ms)
+
+
+Started GET "/submissions/search" for 127.0.0.1 at 2013-03-24 15:43:14 -0400
+
+SyntaxError (C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:36: syntax error, unexpected keyword_if, expecting ')'
+  if (option == "last_name")
+    ^
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:37: syntax error, unexpected ',', expecting ')'
+  find ( :all, :conditions => ['sub_lname LIKE ?', search_condition]
+              ^
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:39: syntax error, unexpected ',', expecting ')'
+  find ( :all, :conditions => ['email LIKE ?', search_condition]
+              ^
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:42: syntax error, unexpected $end, expecting keyword_end):
+  app/controllers/submissions_controller.rb:1:in `<top (required)>'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.0ms)
+
+
+Started GET "/submissions/search" for 127.0.0.1 at 2013-03-24 15:44:20 -0400
+
+SyntaxError (C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:37: syntax error, unexpected keyword_end, expecting ')'
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:39: syntax error, unexpected ',', expecting ')'
+  then find ( :all, :conditions => ['sub_lname L...
+                   ^
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:42: syntax error, unexpected ',', expecting ')'
+  then find ( :all, :conditions => ['email LIKE ?', search_condition]
+                   ^
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:46: syntax error, unexpected $end, expecting keyword_end):
+  app/controllers/submissions_controller.rb:1:in `<top (required)>'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.0ms)
+
+
+Started GET "/submissions/search" for 127.0.0.1 at 2013-03-24 15:44:26 -0400
+
+NoMethodError (undefined method `key?' for nil:NilClass):
+  actionpack (3.2.1) lib/action_controller/metal/hide_actions.rb:36:in `visible_action?'
+  actionpack (3.2.1) lib/action_controller/metal/hide_actions.rb:18:in `method_for_action'
+  actionpack (3.2.1) lib/action_controller/metal/implicit_render.rb:14:in `method_for_action'
+  actionpack (3.2.1) lib/action_controller/metal/compatibility.rb:61:in `method_for_action'
+  actionpack (3.2.1) lib/abstract_controller/base.rb:115:in `process'
+  actionpack (3.2.1) lib/abstract_controller/rendering.rb:45:in `process'
+  actionpack (3.2.1) lib/action_controller/metal.rb:203:in `dispatch'
+  actionpack (3.2.1) lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  actionpack (3.2.1) lib/action_controller/metal.rb:246:in `block in action'
+  actionpack (3.2.1) lib/action_dispatch/routing/route_set.rb:66:in `call'
+  actionpack (3.2.1) lib/action_dispatch/routing/route_set.rb:66:in `dispatch'
+  actionpack (3.2.1) lib/action_dispatch/routing/route_set.rb:30:in `call'
+  journey (1.0.4) lib/journey/router.rb:68:in `block in call'
+  journey (1.0.4) lib/journey/router.rb:56:in `each'
+  journey (1.0.4) lib/journey/router.rb:56:in `call'
+  actionpack (3.2.1) lib/action_dispatch/routing/route_set.rb:589:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+  rack (1.4.5) lib/rack/etag.rb:23:in `call'
+  rack (1.4.5) lib/rack/conditionalget.rb:25:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/head.rb:14:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/flash.rb:242:in `call'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:210:in `context'
+  rack (1.4.5) lib/rack/session/abstract/id.rb:205:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/cookies.rb:338:in `call'
+  activerecord (3.2.1) lib/active_record/query_cache.rb:64:in `call'
+  activerecord (3.2.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:443:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `_run__737578500__call__690503555__callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:405:in `__run_callback'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:385:in `_run_call_callbacks'
+  activesupport (3.2.1) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (3.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/reloader.rb:65:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/remote_ip.rb:31:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.1) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.1) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.5) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.5) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.1) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.5) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.1) lib/action_dispatch/middleware/static.rb:53:in `call'
+  railties (3.2.1) lib/rails/engine.rb:479:in `call'
+  railties (3.2.1) lib/rails/application.rb:220:in `call'
+  rack (1.4.5) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.1) lib/rails/rack/log_tailer.rb:14:in `call'
+  rack (1.4.5) lib/rack/handler/webrick.rb:59:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  C:/RailsInstaller/Ruby1.9.3/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.0ms)
+
+
+Started GET "/submissions/search" for 127.0.0.1 at 2013-03-24 15:45:08 -0400
+
+SyntaxError (C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:37: syntax error, unexpected keyword_end, expecting ')'
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:39: syntax error, unexpected ',', expecting ')'
+  then find ( :all, :conditions => ['sub_lname L...
+                   ^
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:42: syntax error, unexpected ',', expecting ')'
+  then find ( :all, :conditions => ['email LIKE ?', search_condition]
+                   ^
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:47: syntax error, unexpected keyword_end, expecting $end):
+  app/controllers/submissions_controller.rb:1:in `<top (required)>'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (20.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (25.0ms)
+
+
+Started GET "/submissions/search" for 127.0.0.1 at 2013-03-24 15:46:04 -0400
+
+SyntaxError (C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:39: syntax error, unexpected ',', expecting ')'
+  then find ( :all, :conditions => ['sub_lname L...
+                   ^
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:39: syntax error, unexpected ')', expecting keyword_end
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:42: syntax error, unexpected ',', expecting ')'
+  then find ( :all, :conditions => ['email LIKE ?', search_condition])
+                   ^
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:42: syntax error, unexpected ')', expecting keyword_end):
+  app/controllers/submissions_controller.rb:1:in `<top (required)>'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.0ms)
+
+
+Started GET "/submissions/search" for 127.0.0.1 at 2013-03-24 15:48:30 -0400
+
+SyntaxError (C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:39: syntax error, unexpected ',', expecting ')'
+  find ( :all, :conditions => ['sub_lname LIKE ?', search_condition])
+              ^
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:39: syntax error, unexpected ')', expecting keyword_end
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:42: syntax error, unexpected ',', expecting ')'
+  find ( :all, :conditions => ['email LIKE ?', search_condition])
+              ^
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:42: syntax error, unexpected ')', expecting keyword_end):
+  app/controllers/submissions_controller.rb:1:in `<top (required)>'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.0ms)
+
+
+Started GET "/submissions/search" for 127.0.0.1 at 2013-03-24 15:49:50 -0400
+
+SyntaxError (C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:39: syntax error, unexpected tASSOC, expecting ')'
+  find (:conditions => ['sub_lname LIKE ?', search_condition])
+                      ^
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:39: syntax error, unexpected ',', expecting keyword_end
+  find (:conditions => ['sub_lname LIKE ?', search_condition])
+                                           ^
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:42: syntax error, unexpected tASSOC, expecting ')'
+  find (:conditions => ['email LIKE ?', search_condition])
+                      ^
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:42: syntax error, unexpected ',', expecting keyword_end
+  find (:conditions => ['email LIKE ?', search_condition])
+                                       ^):
+  app/controllers/submissions_controller.rb:1:in `<top (required)>'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.0ms)
+
+
+Started GET "/submissions/search" for 127.0.0.1 at 2013-03-24 15:51:05 -0400
+
+SyntaxError (C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:39: syntax error, unexpected ',', expecting ')'
+  Submission.find (:all, :conditions => ['sub_lname L...
+                        ^
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:39: syntax error, unexpected ')', expecting keyword_end
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:42: syntax error, unexpected ',', expecting ')'
+  Submission.find (:all, :conditions => ['email LIKE ...
+                        ^
+C:/Users/William/Desktop/doves/ doves/app/models/submission.rb:42: syntax error, unexpected ')', expecting keyword_end):
+  app/controllers/submissions_controller.rb:1:in `<top (required)>'
+
+
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+  Rendered C:/RailsInstaller/Ruby1.9.3/lib/ruby/gems/1.9.1/gems/actionpack-3.2.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.0ms)
