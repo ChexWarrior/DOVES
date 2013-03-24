@@ -1,0 +1,12 @@
+<%= form_tag :controller => 'submissions', :action => 'search', :method => 'post' do %>
+
+     <%= text_field_tag :search, params[:search], :id => 'search_field' %>
+      <%= submit_tag "Search", :name => nil %> 
+	  <input type="reset"/>
+<% end %> 
+
+<% if (@submissions.length >0) then%>
+ <div id="search">
+    <%= render :file => 'submissions/index' %>
+ </div>
+ <% end %>
