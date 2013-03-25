@@ -37,8 +37,6 @@
   <div class="subGroup" id="birdInfo">
 	<br><br>
   	<div style="float:left; margin-right:20px;">
-		<span class="subLabel">Degree</span>
-		<br><br>
 		<span class="subLabel">Common Name</span>
 		<br><br>
 		<span class="subLabel">Number of Birds</span>
@@ -58,8 +56,6 @@
 		<span class="subLabel">Habitat Description</span>
 	</div>
     <div>
-		<%= f.text_field :s_degree %>
-		<br><br>
 		<%= f.text_field :common_name %>
 		<br><br>
 		<%= f.number_field :num_of_birds %>
@@ -90,7 +86,7 @@
 		<br><br>
 		<span class="subLabel">GPS Coordinates</span>
 		<br><br>
-		<span class="subLabel">Date</span>
+		<span class="subLabel">Sight Date Time</span>
 		<br><br>
 		<span class="subLabel">Length of Observation</span>
 		<br><br>
@@ -119,7 +115,7 @@
 		<br><br>
 		<%= f.text_field :gps %>
 		<br><br>
-		<%= f.text_field :sight_date_time %>
+		<%= f.datetime_select :sight_date_time %>
 		<br><br>
 		<%= f.text_field :length_of_obs %>
 		<br><br>
@@ -127,66 +123,80 @@
 		<br><br>
 		<%= f.text_field :optical_equipment %>
 		<br><br>
-		<%= f.text_field :detailed_behavior %>
-		<br><br>
-		<%= f.text_field :distinguished_char %>
-		<br><br>
 		<%= f.text_field :references %>
 		<br><br>
 		<%= f.number_field :sub_recall %>
+		<br><br>
+		<%= f.text_field :unusual %>
+		<br><br>
+		<%= f.text_field :guide_use %>		
+		<br><br>
+		<%= f.text_field :prev_bird_exp %>
 		<br><br>
 		<%= f.text_field :notes %>
 		<br><br>
 		<%= f.text_field :media %>
 	</div>
   </div>
+  <br><br><br><br>
+  <span style="float:left;" id="adminInfoTitle" class="subHead">Administrator Information</span>
+  <div class="subGroup" id="adminInfo">
+	<br><br>
+  	<div style="float:left; margin-right:20px;">
+		<span class="subLabel">Working Notes</span>
+		<br><br>
+		<span class="subLabel">Category of Acceptance</span>
+		<br><br>
+		<span class="subLabel">Region</span>
+		<br><br>
+		<span class="subLabel">Voting Date</span>
+		<br><br>
+		<span class="subLabel">Submission Status</span>
+	</div>
+    <div>
+		<%= f.text_field :working_notes %>
+		<br><br>
+		<%= f.text_field :s_degree %>
+		<br><br>
+		<%= f.text_field :region %>
+		<br><br>
+		<%= f.datetime_select :date_votable %>
+		<br><br>
+		<%= f.text_field :status %>
+	</div>
+  </div>
+  <br><br><br>
+  <span style="float:left;" id="votingInfoTitle" class="subHead">Voting Information</span>
+  <div class="subGroup" id="votingInfo">
+	<br><br>
+  	<div style="float:left; margin-right:20px;">
+		<span class="subLabel">Previous Comments</span>
+		<br><br>
+		<span class="subLabel">Voting Round</span>
+		<br><br>
+		<span class="subLabel">Vote Option</span>
+		<br><br>
+		<span class="subLabel">Voting Comments</span>
+		<br><br>
+		<span class="subLabel">Administrator Notes</span>
+		<br><br>
+		<span class="subLabel">Date Accepted</span>
+	</div>
+    <div>
+		<span>PREV COMMENTS!!</span>
+		<br><br>
+		<%= f.number_field :rounds %>
+		<br><br>
+		<%= f.text_field :region %>
+		<br><br>
+		<%= f.datetime_select :date_votable %>
+		<br><br>
+		<%= f.text_field :admin_notes %>
+		<br><br>
+		<%= f.datetime_select :date_accepted %>
+	</div>
+  </div>
   <br><br>
-<div style="display:none;">
-  <div class="field">
-    <%= f.label :region %><br />
-    <%= f.text_field :region %>
-  </div>
-  <div class="field">
-    <%= f.label :prev_bird_exp %><br />
-    <%= f.text_area :prev_bird_exp %>
-  </div>
-  <div class="field">
-    <%= f.label :sub_recall %><br />
-    
-  </div>
-  <div class="field">
-    <%= f.label :guide_use %><br />
-    <%= f.text_field :guide_use %>
-  </div>
-  <div class="field">
-    <%= f.label :unusual %><br />
-    <%= f.text_field :unusual %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br />
-    <%= f.text_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :rounds %><br />
-    <%= f.number_field :rounds %>
-  </div>
-  <div class="field">
-    <%= f.label :date_accepted %><br />
-    <%= f.datetime_select :date_accepted %>
-  </div>
-  <div class="field">
-    <%= f.label :date_votable %><br />
-    <%= f.datetime_select :date_votable %>
-  </div>
-  <div class="field">
-    <%= f.label :admin_notes %><br />
-    <%= f.text_area :admin_notes %>
-  </div>
-  <div class="field">
-    <%= f.label :working_notes %><br />
-    <%= f.text_area :working_notes %>
-  </div>
- </div>
   <div class="actions">
     <%= f.submit %>
   </div>
