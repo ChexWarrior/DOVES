@@ -2,22 +2,16 @@ class MultimediaController < ApplicationController
   # GET /multimedia
   # GET /multimedia.json
   
-  # def index
-  #  @multimedia = Multimedium.all
-
-  # respond_to do |format|
-  #    format.html # index.html.erb
-  #    format.json { render json: @multimedia }
-  #  end
-  #end
- 
   def index
-     render :file => 'app\views\multimedia\uploadfile.html.erb'
+    @multimedia = Multimedium.all
+
+   respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @multimedia }
+    end
   end
-  def uploadFile
-    post = multimedia.save(params[:upload])
-    render :text => "File has been uploaded successfully"
-  end
+ 
+  
   # GET /multimedia/1
   # GET /multimedia/1.json
   def show
