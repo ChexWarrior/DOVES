@@ -54,6 +54,8 @@
 		<span class="subLabel">Detailed Behavior</span>
 		<br><br>
 		<span class="subLabel">Distinguishing Characteristics</span>
+		<br><br>
+		<span class="subLabel">Habitat Description</span>
 	</div>
     <div>
 		<%= f.text_field :s_degree %>
@@ -73,9 +75,11 @@
 		<%= f.text_field :detailed_behavior %>
 		<br><br>
 		<%= f.text_field :distinguished_char %>
+		<br><br>
+		<%= f.text_field :habitat %>
 	</div>
   </div>
-  <br><br>
+  <br><br><br>
   <span style="float:left;" id="subInfoTitle" class="subHead">Submission Information</span>
   <div class="subGroup" id="subInfo">
 	<br><br>
@@ -109,7 +113,7 @@
 		<span class="subLabel">Multimedia</span>
 	</div>
     <div>
-		<%= f.text_area :coobservers %>
+		<%= f.text_field :coobservers %>
 		<br><br>
 		<%= f.text_field :location %>
 		<br><br>
@@ -126,56 +130,29 @@
 		<%= f.text_field :detailed_behavior %>
 		<br><br>
 		<%= f.text_field :distinguished_char %>
+		<br><br>
+		<%= f.text_field :references %>
+		<br><br>
+		<%= f.number_field :sub_recall %>
+		<br><br>
+		<%= f.text_field :notes %>
+		<br><br>
+		<%= f.text_field :media %>
 	</div>
   </div>
-
-  <div class="field">
-    <%= f.label :location %><br />
-    
-  </div>
+  <br><br>
+<div style="display:none;">
   <div class="field">
     <%= f.label :region %><br />
     <%= f.text_field :region %>
-  </div>
-  <div class="field">
-    <%= f.label :sight_date_time %><br />
-    
-  </div>
-  <div class="field">
-    <%= f.label :habitat %><br />
-    <%= f.text_field :habitat %>
-  </div>
-  <div class="field">
-    <%= f.label :gps %><br />
-    
-  </div>
-  <div class="field">
-    <%= f.label :coobservers %><br />
-    
-  </div>
-  <div class="field">
-    <br />
-    
-  </div>
-  <div class="field">
-    <%= f.label :distance_from %><br />
-    
   </div>
   <div class="field">
     <%= f.label :prev_bird_exp %><br />
     <%= f.text_area :prev_bird_exp %>
   </div>
   <div class="field">
-    <%= f.label :optical_equipment %><br />
-    
-  </div>
-  <div class="field">
-    <%= f.label :references %><br />
-    <%= f.text_field :references %>
-  </div>
-  <div class="field">
     <%= f.label :sub_recall %><br />
-    <%= f.number_field :sub_recall %>
+    
   </div>
   <div class="field">
     <%= f.label :guide_use %><br />
@@ -184,14 +161,6 @@
   <div class="field">
     <%= f.label :unusual %><br />
     <%= f.text_field :unusual %>
-  </div>
-  <div class="field">
-    <%= f.label :notes %><br />
-    <%= f.text_area :notes %>
-  </div>
-  <div class="field">
-    <%= f.label :media %><br />
-    <%= f.text_field :media %>
   </div>
   <div class="field">
     <%= f.label :status %><br />
@@ -217,6 +186,7 @@
     <%= f.label :working_notes %><br />
     <%= f.text_area :working_notes %>
   </div>
+ </div>
   <div class="actions">
     <%= f.submit %>
   </div>
