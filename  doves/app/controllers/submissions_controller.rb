@@ -94,6 +94,8 @@ class SubmissionsController < ApplicationController
   def search
 	@submissions = []
      @submissions = Submission.subsearch(params[:search], params[:field]) if !params[:search].nil?
+	 @selected = params[:field]
+	 
 	 respond_to do |format|
       format.html # search.html.erb
       format.json { render json: @submissions }
