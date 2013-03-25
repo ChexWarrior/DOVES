@@ -1,4 +1,4 @@
-<%= form_for(@multimedium) do |f| %>
+<%= form_for @multimedium, :html =>{:multipart => true} do |f| %>
   <% if @multimedium.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@multimedium.errors.count, "error") %> prohibited this multimedium from being saved:</h2>
@@ -26,6 +26,9 @@
   <div class="field">
     <%= f.label :size %><br />
     <%= f.number_field :size %>
+  </div>
+  <div>
+	<%= f.file_field :image %>
   </div>
   <div class="actions">
     <%= f.submit %>

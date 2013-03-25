@@ -20,6 +20,10 @@
   <%= @multimedium.size %>
 </p>
 
+<p>
+  <b>Image:</b>
+  <%= image_tag @multimedium.image_url.to_s %>
+</p>
 
 <%= link_to 'Edit', edit_multimedium_path(@multimedium) %> |
 <%= link_to 'Back', multimedia_path %>
