@@ -29,19 +29,19 @@ validates :guide_use, :presence => true
 validates :unusual, :presence => true
 
 def self.subsearch(search, option)
-  search_condition = "%" + search + "%"
-  #Submission.joins(:bird, :user).where("birds.common_name LIKE ? || users.first_name LIKE ? || users.last_name LIKE ? || users.email LIKE ?", search_condition)
-  if option == "common_name"
-  Submission.joins(:bird).where("birds.common_name LIKE ?", search_condition)
-  end
-  if option == "first_name"
-  Submission.find(:all, :conditions => ['sub_fname LIKE ?', search_condition])
-  end
-  if option == "last_name"
-  Submission.find (:all, :conditions => ['sub_lname LIKE ?', search_condition])
-  end 
-  if option == "email"
-  Submission.find (:all, :conditions => ['email LIKE ?', search_condition])
-  end
+  # search_condition = "%" + search + "%"
+  # #Submission.joins(:bird, :user).where("birds.common_name LIKE ? || users.first_name LIKE ? || users.last_name LIKE ? || users.email LIKE ?", search_condition)
+  # if option == "common_name"
+  # Submission.joins(:bird).where("birds.common_name LIKE ?", search_condition)
+  # end
+  # if option == "first_name"
+  # Submission.find(:all, :conditions => ['sub_fname LIKE ?', search_condition])
+  # end
+  # if option == "last_name"
+  # Submission.find (:all, :conditions => ['sub_lname LIKE ?', search_condition])
+  # end 
+  # if option == "email"
+  # Submission.find (:all, :conditions => ['email LIKE ?', search_condition])
+  # end
  end
 end
