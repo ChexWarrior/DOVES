@@ -25,7 +25,8 @@ end
 resources :pages do
 	get 'about', :on=> :collection
 	get 'home', :on=> :collection
-  end
+	get 'sitemap', :on=> :collection	
+end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
