@@ -1,5 +1,7 @@
 class Submission < ActiveRecord::Base
 
+has_many :multimedia
+
 belongs_to :bird
 belongs_to :user
 

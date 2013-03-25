@@ -2,8 +2,8 @@
 
 <table>
   <tr>
-    <th>Submission</th>
-    <th>Type</th>
+    <th>Thumb</th>
+	<th>Submission</th>
     <th>Time</th>
     <th>Size</th>
     <th></th>
@@ -13,8 +13,8 @@
 
 <% @multimedia.each do |multimedium| %>
   <tr>
-    <td><%= multimedium.Submission_id %></td>
-    <td><%= multimedium.type %></td>
+    <td><%= image_tag multimedium.image_url(:thumb).to_s %></td>
+	<td><%= multimedium.Submission_id %></td>
     <td><%= multimedium.time %></td>
     <td><%= multimedium.size %></td>
     <td><%= link_to 'Show', multimedium %></td>
