@@ -1,6 +1,8 @@
 class Submission < ActiveRecord::Base
 
 has_many :multimedia
+accepts_nested_attributes_for :multimedia
+
 has_many :votes
 
 belongs_to :bird

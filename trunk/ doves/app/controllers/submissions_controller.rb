@@ -30,6 +30,7 @@ class SubmissionsController < ApplicationController
 	redirect_to login_users_path and return
 	end
     @submission = Submission.new
+	5.times {@submission.multimedia.build}
 	
     respond_to do |format|
       format.html # new.html.erb
@@ -51,7 +52,7 @@ class SubmissionsController < ApplicationController
 	@submission.user_id = session[:user].id
 	@bird = Bird.find_by_common_name(@submission.common_name)
 	@submission.bird_id = @bird.id
-	
+	5.times {@submission.multimedia.build}
 	
 
     respond_to do |format|

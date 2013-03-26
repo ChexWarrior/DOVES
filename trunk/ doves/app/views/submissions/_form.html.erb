@@ -20,7 +20,7 @@
    var birdArray = <%= Bird.all.map(&:common_name).sort.to_json.html_safe %>;
 
 </script>
-<%= form_for(@submission) do |f| %>
+<%= form_for @submission, :html => { :multipart => true } do |f| %>
   <% if @submission.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
@@ -135,7 +135,9 @@
 		<br><br>
 		<%= f.text_field :notes %>
 		<br><br>
-		<%= f.text_field :media %>
+		<%= f.fields_for :multimedia do |multimedia_fields| %>
+			<br />Image: <%= multimedia_fields.file_field :image %><br />
+		<% end %>
 	</div>
   </div>
   <br><br><br><br>
