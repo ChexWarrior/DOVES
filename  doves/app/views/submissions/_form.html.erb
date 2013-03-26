@@ -10,196 +10,227 @@
 		var divName = titleName.replace("Title","");
 		
 		if($("#" + divName).is(":visible")) {
-			$("#" + divName).hide();
+			$("#" + divName).slideUp();
 		}
 		else {
-			$("#" + divName).show();
+			$("#" + divName).slideDown();
 		}
 	});
+	
 });
    var birdArray = <%= Bird.all.map(&:common_name).sort.to_json.html_safe %>;
+   
 
 </script>
-<%= form_for @submission, :html => { :multipart => true } do |f| %>
-  <% if @submission.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
 
-      <ul>
-      <% @submission.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+  <%= form_for(@submission) do |f| %>
+  <% if @submission.errors.any? %>
+	<div id="error_explanation">
+	  <h2><%= pluralize(@submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
+
+	  <ul>
+	  <% @submission.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+	  <% end %>
+	  </ul>
+	</div>
   <% end %>
 
   <span style="float:left;" id="birdInfoTitle" class="subHead">Bird Information</span>
+  <br><br>
   <div class="subGroup" id="birdInfo">
-	<br><br>
-  	<div style="float:left; margin-right:20px;">
-		<span class="subLabel">Common Name</span>
-		<br><br>
-		<span class="subLabel">Number of Birds</span>
-		<br><br>
-		<span class="subLabel">Age of Bird(s)</span>
-		<br><br>
-		<span class="subLabel">Sex of Bird(s)</span>
-		<br><br>
-		<span class="subLabel">Plumage</span>
-		<br><br>
-		<span class="subLabel">Detailed Description</span>
-		<br><br>
-		<span class="subLabel">Detailed Behavior</span>
-		<br><br>
-		<span class="subLabel">Distinguishing Characteristics</span>
-		<br><br>
-		<span class="subLabel">Habitat Description</span>
-	</div>
-    <div>
+  	<div class="subLabel">
+		<span>Common Name</span>
 		<%= f.text_field :common_name %>
-		<br><br>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Number of Birds</span>
 		<%= f.number_field :num_of_birds %>
-		<br><br>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Age of Bird(s)</span>
 		<%= f.text_field :age %>
-		<br><br>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Sex of Bird(s)</span>
 		<%= f.text_field :sex %>
-		<br><br>
-		<%= f.text_field :plumage %>
-		<br><br>
-		<%= f.text_field :detailed_description %>
-		<br><br>
-		<%= f.text_field :detailed_behavior %>
-		<br><br>
-		<%= f.text_field :distinguished_char %>
-		<br><br>
-		<%= f.text_field :habitat %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:90px;">Plumage</span>
+		<%= f.text_area :plumage, :rows => "5", :cols => "35" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:90px;">Detailed Description</span>
+		<%= f.text_area :detailed_description, :rows => "5", :cols => "35" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:90px;">Detailed Behavior</span>
+		<%= f.text_area :detailed_behavior, :rows => "5", :cols => "35" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:70px;">Distinguishing Characteristics</span>
+		<%= f.text_area :distinguished_char, :rows => "5", :cols => "35" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:95px;">Habitat Description</span>
+		<%= f.text_area :habitat, :rows => "5", :cols => "35" %>
 	</div>
   </div>
-  <br><br><br>
+  
+  <br>
+  
   <span style="float:left;" id="subInfoTitle" class="subHead">Submission Information</span>
+  <br><br>
   <div class="subGroup" id="subInfo">
-	<br><br>
-  	<div style="float:left; margin-right:20px;">
-		<span class="subLabel">Co-observers</span>
-		<br><br>
-		<span class="subLabel">Location</span>
-		<br><br>
-		<span class="subLabel">GPS Coordinates</span>
-		<br><br>
-		<span class="subLabel">Sight Date Time</span>
-		<br><br>
-		<span class="subLabel">Length of Observation</span>
-		<br><br>
-		<span class="subLabel">Distance from Bird</span>
-		<br><br>
-		<span class="subLabel">Optical Equipment Used</span>
-		<br><br>
-		<span class="subLabel">References Used</span>
-		<br><br>
-		<span class="subLabel">Submission Made</span>
-		<br><br>
-		<span class="subLabel">Unusual Sighting</span>
-		<br><br>
-		<span class="subLabel">Field Guide Used</span>
-		<br><br>
-		<span class="subLabel">Previous experience with species</span>
-		<br><br>
-		<span class="subLabel">Notes</span>
-		<br><br>
-		<span class="subLabel">Multimedia</span>
-	</div>
-    <div>
+	<div class="subLabel">
+		<span>Co-observers</span>
 		<%= f.text_field :coobservers %>
-		<br><br>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Location</span>
 		<%= f.text_field :location %>
-		<br><br>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>GPS Coordinates</span>
 		<%= f.text_field :gps %>
-		<br><br>
-		<%= f.datetime_select :sight_date_time %>
-		<br><br>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Sight Date Time</span>
+		<%= f.text_field :sight_date_time %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Length of Observation</span>
 		<%= f.text_field :length_of_obs %>
-		<br><br>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Distance from Bird</span>
 		<%= f.text_field :distance_from %>
-		<br><br>
-		<%= f.text_field :optical_equipment %>
-		<br><br>
-		<%= f.text_field :references %>
-		<br><br>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:95px;">Optical Equipment Used</span>
+		<%= f.text_area :optical_equipment, :rows => "5", :cols => "35" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:95px;">References Used</span>
+		<%= f.text_area :references, :rows => "5", :cols => "35" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Sub Recall</span>
 		<%= f.number_field :sub_recall %>
-		<br><br>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Unusual Sighting</span>
 		<%= f.text_field :unusual %>
-		<br><br>
-		<%= f.text_field :guide_use %>		
-		<br><br>
-		<%= f.text_field :prev_bird_exp %>
-		<br><br>
-		<%= f.text_field :notes %>
-		<br><br>
-		<%= f.fields_for :multimedia do |multimedia_fields| %>
-			<br />Image: <%= multimedia_fields.file_field :image %><br />
-		<% end %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:95px;">Field Guide Used</span>
+		<%= f.text_area :guide_use, :rows => "5", :cols => "35" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:95px;">Previous Experience</span>
+		<%= f.text_area :prev_bird_exp, :rows => "5", :cols => "35" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:95px;">Notes</span>
+		<%= f.text_area :notes, :rows => "5", :cols => "35" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Multimedia</span>
+		<%= f.text_field :media %>
 	</div>
   </div>
-  <br><br><br><br>
+  
+  <br>
+  
   <span style="float:left;" id="adminInfoTitle" class="subHead">Administrator Information</span>
+  <br><br>
   <div class="subGroup" id="adminInfo">
-	<br><br>
-  	<div style="float:left; margin-right:20px;">
-		<span class="subLabel">Working Notes</span>
-		<br><br>
-		<span class="subLabel">Category of Acceptance</span>
-		<br><br>
-		<span class="subLabel">Region</span>
-		<br><br>
-		<span class="subLabel">Voting Date</span>
-		<br><br>
-		<span class="subLabel">Submission Status</span>
+	<div class="subLabel">
+		<span style="position:relative; bottom:95px;">Working Notes</span>
+		<%= f.text_area :working_notes, :rows => "5", :cols => "35" %>
 	</div>
-    <div>
-		<%= f.text_field :working_notes %>
-		<br><br>
+	<br>
+	<div class="subLabel">
+		<span>Category of Acceptance</span>
 		<%= f.text_field :s_degree %>
-		<br><br>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Region</span>
 		<%= f.text_field :region %>
-		<br><br>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Voting Date</span>
 		<%= f.datetime_select :date_votable %>
-		<br><br>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Submission Status</span>
 		<%= f.text_field :status %>
 	</div>
   </div>
-  <br><br><br>
+  
+  <br>
+  
   <span style="float:left;" id="votingInfoTitle" class="subHead">Voting Information</span>
   <div class="subGroup" id="votingInfo">
 	<br><br>
-  	<div style="float:left; margin-right:20px;">
-		<span class="subLabel">Previous Comments</span>
-		<br><br>
-		<span class="subLabel">Voting Round</span>
-		<br><br>
-		<span class="subLabel">Vote Option</span>
-		<br><br>
-		<span class="subLabel">Voting Comments</span>
-		<br><br>
-		<span class="subLabel">Administrator Notes</span>
-		<br><br>
-		<span class="subLabel">Date Accepted</span>
+		<div class="subLabel">
+			<span>Previous Comments</span>
+			<span>TEST</span>
+		</div>
+		<br>
+		<div class="subLabel">
+			<span>Voting Round</span>
+			<%= f.number_field :rounds %>
+		</div>
+		<br>
+		<div class="subLabel">
+			<span>Vote Option</span>
+			<%= f.text_field :region %>
+		</div>
+		<br>
+		<div class="subLabel">
+			<span>Voting Comments</span>
+			<%= f.datetime_select :date_votable %>
+		</div>
+		<br>
+		<div class="subLabel">
+			<span style="position:relative; bottom:95px;">Administrator Notes</span>
+			<%= f.text_area :admin_notes, :rows => "5", :cols => "35" %>
+		</div>
+		<br>
+		<div class="subLabel">
+			<span>Date Accepted</span>
+			<%= f.datetime_select :date_accepted %>
+		</div>
 	</div>
-    <div>
-		<span>PREV COMMENTS!!</span>
-		<br><br>
-		<%= f.number_field :rounds %>
-		<br><br>
-		<%= f.text_field :region %>
-		<br><br>
-		<%= f.datetime_select :date_votable %>
-		<br><br>
-		<%= f.text_field :admin_notes %>
-		<br><br>
-		<%= f.datetime_select :date_accepted %>
+	
+	<br><br>
+	
+	<div class="actions">
+		<%= f.submit %>
 	</div>
-  </div>
-  <br><br>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+	<% end %>
