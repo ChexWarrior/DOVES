@@ -158,6 +158,10 @@
 	<div class="subLabel">
 		<span>Multimedia</span>
 		<%= f.text_field :media %>
+		<br />
+		<%= f.fields_for :multimedia do |multimedia_fields| %>
+			<br />Image: <%= multimedia_fields.file_field :image %><br />
+		<% end %>
 	</div>
   </div>
   
