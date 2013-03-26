@@ -1,185 +1,209 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>S degree:</b>
-  <%= @submission.s_degree %>
-</p>
-
-<p>
-  <b>Submission date time:</b>
-  <%= @submission.created_on %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @submission.user_id %>
-</p>
-
-<p>
-  <b>Sub fname:</b>
-  <%= @submission.user.first_name %>
-</p>
-
-<p>
-  <b>Sub lname:</b>
-  <%= @submission.user.last_name %>
-</p>
-
-<p>
-  <b>Species id:</b>
-  <%= @submission.bird_id %>
-</p>
-
-<p>
-  <b>Common name:</b>
-  <%= @submission.bird.common_name %>
-</p>
-
-<p>
-  <b>Num of birds:</b>
-  <%= @submission.num_of_birds %>
-</p>
-
-<p>
-  <b>Age:</b>
-  <%= @submission.age %>
-</p>
-
-<p>
-  <b>Sex:</b>
-  <%= @submission.sex %>
-</p>
-
-<p>
-  <b>Plumage:</b>
-  <%= @submission.plumage %>
-</p>
-
-<p>
-  <b>Location:</b>
-  <%= @submission.location %>
-</p>
-
-<p>
-  <b>Region:</b>
-  <%= @submission.region %>
-</p>
-
-<p>
-  <b>Sight date time:</b>
-  <%= @submission.sight_date_time %>
-</p>
-
-<p>
-  <b>Habitat:</b>
-  <%= @submission.habitat %>
-</p>
-
-<p>
-  <b>Gps:</b>
-  <%= @submission.gps %>
-</p>
-
-<p>
-  <b>Coobservers:</b>
-  <%= @submission.coobservers %>
-</p>
-
-<p>
-  <b>Length of obs:</b>
-  <%= @submission.length_of_obs %>
-</p>
-
-<p>
-  <b>Distance from:</b>
-  <%= @submission.distance_from %>
-</p>
-
-<p>
-  <b>Detailed description:</b>
-  <%= @submission.detailed_description %>
-</p>
-
-<p>
-  <b>Detailed behavior:</b>
-  <%= @submission.detailed_behavior %>
-</p>
-
-<p>
-  <b>Distinguished char:</b>
-  <%= @submission.distinguished_char %>
-</p>
-
-<p>
-  <b>Prev bird exp:</b>
-  <%= @submission.prev_bird_exp %>
-</p>
-
-<p>
-  <b>Optical equipment:</b>
-  <%= @submission.optical_equipment %>
-</p>
-
-<p>
-  <b>References:</b>
-  <%= @submission.references %>
-</p>
-
-<p>
-  <b>Sub recall:</b>
-  <%= @submission.sub_recall %>
-</p>
-
-<p>
-  <b>Guide use:</b>
-  <%= @submission.guide_use %>
-</p>
-
-<p>
-  <b>Unusual:</b>
-  <%= @submission.unusual %>
-</p>
-
-<p>
-  <b>Notes:</b>
-  <%= @submission.notes %>
-</p>
-
-<p>
-  <b>Media:</b>
-  <%= @submission.media %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @submission.status %>
-</p>
-
-<p>
-  <b>Rounds:</b>
-  <%= @submission.rounds %>
-</p>
-
-<p>
-  <b>Date accepted:</b>
-  <%= @submission.date_accepted %>
-</p>
-
-<p>
-  <b>Date votable:</b>
-  <%= @submission.date_votable %>
-</p>
-
-<p>
-  <b>Admin notes:</b>
-  <%= @submission.admin_notes %>
-</p>
-
-<p>
-  <b>Working notes:</b>
-  <%= @submission.working_notes %>
-</p>
+<script>
+  $(document).ready(function() {
+	$(".subHead").on("click",function(event) {
+		var titleName = $(this).attr("id");
+		var divName = titleName.replace("Title","");
+		
+		if($("#" + divName).is(":visible")) {
+			$("#" + divName).slideUp();
+		}
+		else {
+			$("#" + divName).slideDown();
+		}
+	});
+	
+});
+</script>
 
 
+  <span id="birdInfoTitle" class="subHead">Bird Information</span>
+  <br><br>
+  <div class="subGroup" id="birdInfo">
+  	<div class="subLabel">
+		<span>Common Name</span>
+		<%= @submission.common_name %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Number of Birds</span>
+		<%= @submission.num_of_birds %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Age of Bird(s)</span>
+		<%= @submission.age %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Sex of Bird(s)</span>
+		<%= @submission.sex %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position.relative; bottom.90px;">Plumage</span>
+		<%= @submission.plumage%>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position.relative; bottom.90px;">Detailed Description</span>
+		<%= @submission.detailed_description %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position.relative; bottom.90px;">Detailed Behavior</span>
+		<%= @submission.detailed_behavior %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position.relative; bottom.70px;">Distinguishing Characteristics</span>
+		<%= @submission.distinguished_char %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span >Habitat Description</span>
+		<%= @submission.habitat%>
+	</div>
+  </div>
+  
+  <br>
+  
+  <span id="subInfoTitle" class="subHead">Submission Information</span>
+  <br><br>
+  <div class="subGroup" id="subInfo">
+	<div class="subLabel">
+		<span>Co-observers</span>
+		<%= @submission.coobservers %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Location</span>
+		<%= @submission.location %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>GPS Coordinates</span>
+		<%= @submission.gps %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Sight Date Time</span>
+		<%= @submission.sight_date_time %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Length of Observation</span>
+		<%= @submission.length_of_obs %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Distance from Bird</span>
+		<%= @submission.distance_from %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span >Optical Equipment Used</span>
+		<%= @submission.optical_equipment%>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span >References Used</span>
+		<%= @submission.references%>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Sub Recall</span>
+		<%= @submission.sub_recall %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Unusual Sighting</span>
+		<%= @submission.unusual %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span >Field Guide Used</span>
+		<%= @submission.guide_use %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span >Previous Experience</span>
+		<%= @submission.prev_bird_exp%>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span >Notes</span>
+		<%= @submission.notes%>
+	</div>
+	<br>
+  </div>
+  
+  <br>
+  
+  <span id="adminInfoTitle" class="subHead">Administrator Information</span>
+  <br><br>
+  <div class="subGroup" id="adminInfo">
+	<div class="subLabel">
+		<span >Working Notes</span>
+		<%= @submission.working_notes %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Category of Acceptance</span>
+		<%= @submission.s_degree %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Region</span>
+		<%= @submission.region %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Voting Date</span>
+		<%= @submission.date_votable %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Submission Status</span>
+		<%= @submission.status %>
+	</div>
+  </div>
+  
+  <br>
+  
+  <span id="votingInfoTitle" class="subHead">Voting Information</span>
+  <div class="subGroup" id="votingInfo">
+	<br><br>
+		<div class="subLabel">
+			<span>Previous Comments</span>
+			<span>TEST</span>
+		</div>
+		<br>
+		<div class="subLabel">
+			<span>Voting Round</span>
+			<%= @submission.rounds %>
+		</div>
+		<br>
+		<div class="subLabel">
+			<span>Vote Option</span>
+			<%= @submission.region %>
+		</div>
+		<br>
+		<div class="subLabel">
+			<span>Voting Comments</span>
+			<%= @submission.date_votable %>
+		</div>
+		<br>
+		<div class="subLabel">
+			<span >Administrator Notes</span>
+			<%= @submission.admin_notes %>
+		</div>
+		<br>
+		<div class="subLabel">
+			<span>Date Accepted</span>
+			<%= @submission.date_accepted %>
+		</div>
+	</div>
+	
+	<br><br>
 <%= link_to 'Edit', edit_submission_path(@submission) %> |
 <%= link_to 'Back', submissions_path %>
