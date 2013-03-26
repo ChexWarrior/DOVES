@@ -8,7 +8,6 @@ html,body {
 	margin-left:auto;
 	margin-right:auto;
 	height:100%;
-	overflow-y:scroll;
 	}
 
 input {
@@ -28,7 +27,7 @@ select {
 
 textarea {
     border: solid 1px #4e82c8;
-    font: 16pt 'tahoma';
+    font: 12pt 'tahoma';
     align: left;
     padding: 2px;
 }
@@ -93,7 +92,7 @@ min-width: 90px;
 	z-index:2;
     min-height: 80%;
     position: relative;
-	
+	overflow-y:hidden;
 }
 
 .nav span {
@@ -183,8 +182,16 @@ width:100%;
 
 .subLabel {
 	font-size:14pt;
-	line-height:30px;
 }
+
+.subLabel span, .subLabel input {
+	display: inline-block;
+}
+
+.subLabel span {
+	width:200px;
+}
+
 
 td {
 margin: 0px;
