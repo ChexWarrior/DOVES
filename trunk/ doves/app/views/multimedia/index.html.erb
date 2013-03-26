@@ -14,9 +14,7 @@
 <% @multimedia.each do |multimedium| %>
   <tr>
     <td><%= image_tag multimedium.image_url(:thumb).to_s %></td>
-	<td><%= multimedium.Submission_id %></td>
-    <td><%= multimedium.time %></td>
-    <td><%= multimedium.size %></td>
+	<td><%= multimedium.submission_id %></td>
     <td><%= link_to 'Show', multimedium %></td>
     <td><%= link_to 'Edit', edit_multimedium_path(multimedium) %></td>
     <td><%= link_to 'Destroy', multimedium, confirm: 'Are you sure?', method: :delete %></td>
