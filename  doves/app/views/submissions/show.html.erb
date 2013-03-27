@@ -166,6 +166,14 @@
 		<span>Submission Status</span>
 		<%= @submission.status %>
 	</div>
+	<br>
+	<div class="subLabel">
+		<span>Multimedia</span>
+		<% for multimedium in @submission.multimedia %>
+			<%= link_to image_tag(multimedium.image_url(:thumb)), multimedium.image_url.to_s if multimedium.image?%>
+		<% end %>
+	</div>	
+	
   </div>
   
   <br>
