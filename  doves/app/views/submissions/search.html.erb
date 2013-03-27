@@ -6,11 +6,12 @@
       <%= submit_tag "Search", :name => nil %> 
 	  <input type="reset"/>
 <% end %> 
-
+<% if (!params[:search].nil?) then %>
 <% if (@submissions.length > 0) then%>
  <div id="search">
     <%= render :file => 'submissions/index' %>
  </div>
  <% else %><br><br>
  <div>No Results</div>
+ <% end %>
  <% end %>

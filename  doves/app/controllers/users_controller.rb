@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def login
 	if session[:user]
-		flash[:notice] = "Already logged in as #{session[:user].first_name} #{session[:user].last_name}."
+		flash[:notice] = "Already logged in as #{session[:user].first_name} #{session[:user].last_name} (#{session[:user].email})."
 		redirect_to(root_path)
 
 	else
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 		authorized_user = User.authenticate(params[:email],params[:login_password])
 		if authorized_user
 			session[:user] = authorized_user
-			flash[:notice] = "Successfully logged in as #{authorized_user.first_name} #{authorized_user.last_name}."
+			flash[:notice] = "Successfully logged in as #{authorized_user.first_name} #{authorized_user.last_name} (#{session[:user].email})."
 			redirect_to(root_path)
 		else
 			flash.now[:error] = "Invalid Username or Password"
@@ -70,6 +70,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+	@currentlevel = @user.level
   end
 
   # POST /users

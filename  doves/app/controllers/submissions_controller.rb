@@ -46,9 +46,8 @@ class SubmissionsController < ApplicationController
   # POST /submissions
   # POST /submissions.json
   def create
-  
-
     @submission = Submission.new(params[:submission])
+	
 	@submission.user_id = session[:user].id
 	@bird = Bird.find_by_common_name(@submission.common_name)
 	@submission.bird_id = @bird.id
