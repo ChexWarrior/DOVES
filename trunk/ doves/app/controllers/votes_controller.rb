@@ -1,4 +1,6 @@
 class VotesController < ApplicationController
+before_filter :ensure_reviewer_or_admin
+
   # GET /votes
   # GET /votes.json
   def index
