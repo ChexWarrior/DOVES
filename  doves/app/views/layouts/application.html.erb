@@ -38,6 +38,11 @@ if isadmin?
 %>
 <%= link_to submissions_path do %><div class="nav">Submissions</div><% end %>
 
+<%=
+if isreviewer?
+	link_to(content_tag(:div, "Votes", :class=>"nav"), { :controller => "votes"})
+	end
+%>
 
 <%= link_to about_pages_path do %><div class="nav">About</div></a><% end %>
 </div>
