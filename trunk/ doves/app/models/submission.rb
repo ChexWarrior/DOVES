@@ -1,6 +1,6 @@
 class Submission < ActiveRecord::Base
 
-has_many :multimedia
+has_many :multimedia, :dependent => :destroy
 accepts_nested_attributes_for :multimedia
 
 has_many :votes
