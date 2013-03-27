@@ -1,3 +1,5 @@
+<h1>Search </h1>
+
 <%= form_tag :controller => 'submissions', :action => 'search', :method => 'post' do %>
 	<%= select_tag :field, options_for_select(search_params, @selected) %>
      <%= text_field_tag :search, params[:search], :id => 'search_field' %>
