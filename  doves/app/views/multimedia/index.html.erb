@@ -13,7 +13,7 @@
 
 <% @multimedia.each do |multimedium| %>
   <tr>
-    <td><%= image_tag multimedium.image_url(:thumb).to_s %></td>
+    <td><%= image_tag multimedium.image_url(:thumb).to_s if multimedium.image? %></td>
 	<td><%= multimedium.submission_id %></td>
     <td><%= link_to 'Show', multimedium %></td>
     <td><%= link_to 'Edit', edit_multimedium_path(multimedium) %></td>
