@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper_method :loggedin?
   helper_method :isadmin?
+  helper_method :isreviewer?
   
   def loggedin?
 	!!session[:user]
@@ -13,8 +14,8 @@ class ApplicationController < ActionController::Base
   end
   
   def isreviewer?
-	return false if !loggedin?
-	session[:user].level == "reviewer"
+  return false if !loggedin?
+  session[:user].level == "reviewer"
   end
   
   def ensure_admin_or_self
