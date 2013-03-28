@@ -20,6 +20,12 @@
 });
    var birdArray = <%= Bird.all.map(&:common_name).sort.to_json.html_safe %>;
    
+   function validateSubmission()
+   {
+		alert("TEST FUNCTION: validateSubmission");
+		return true;
+   }
+   
 
 </script>
 
@@ -93,6 +99,7 @@
 	<div class="subLabel">
 		<span>Co-observers</span>
 		<%= f.text_field :coobservers %>
+
 	</div>
 	<br>
 	<div class="subLabel">
@@ -106,8 +113,9 @@
 	</div>
 	<br>
 	<div class="subLabel">
-		<span>Sight Date Time</span>
-		<%= f.text_field :sight_date_time %>
+		<span>Sighting Date</span>
+		<%= f.text_field :sight_date_time, :class => "datep" %> 
+		<!-- %= f.time_select :sight_date_time, :ignore_date => true, :ampm => true % -->
 	</div>
 	<br>
 	<div class="subLabel">
@@ -131,13 +139,15 @@
 	</div>
 	<br>
 	<div class="subLabel">
-		<span>Sub Recall</span>
-		<%= f.number_field :sub_recall %>
+		<span>Submission made</span>
+		<%= f.radio_button :sub_recall,"0",:style =>"width:20px;",:checked => true %>During Sighting
+		<br>
+		<%= f.radio_button :sub_recall,"1",:style =>"margin-left:209px;width:20px;" %>After Sighting
 	</div>
 	<br>
 	<div class="subLabel">
-		<span>Unusual Sighting</span>
-		<%= f.text_field :unusual %>
+		<span>Is an unusual sighting?</span>
+		<%= f.check_box :unusual, :style => "width:20px;" %>
 	</div>
 	<br>
 	<div class="subLabel">
@@ -194,54 +204,22 @@
 	<br>
 	<div class="subLabel">
 		<span>Voting Date</span>
-		<%= f.datetime_select :date_votable %>
+		<%= f.text_field :date_votable, :class => "datep" %>
+		<!-- %= f.time_select :date_votable, :ignore_date => true, :ampm => true %-->
 	</div>
 	<br>
 	<div class="subLabel">
 		<span>Submission Status</span>
-		<%= f.text_field :status %>
+		<%= f.label :status%>
 	</div>
   </div>
   
   <br>
   
-  <span id="votingInfoTitle" class="subHead">Voting Information</span>
-  <div class="subGroup" id="votingInfo">
-	<br><br>
-		<div class="subLabel">
-			<span>Previous Comments</span>
-			<span>TEST</span>
-		</div>
-		<br>
-		<div class="subLabel">
-			<span>Voting Round</span>
-			<%= f.number_field :rounds %>
-		</div>
-		<br>
-		<div class="subLabel">
-			<span>Vote Option</span>
-			<%= f.text_field :region %>
-		</div>
-		<br>
-		<div class="subLabel">
-			<span>Voting Comments</span>
-			<%= f.datetime_select :date_votable %>
-		</div>
-		<br>
-		<div class="subLabel">
-			<span style="position:relative; bottom:95px;">Administrator Notes</span>
-			<%= f.text_area :admin_notes, :rows => "5", :cols => "35" %>
-		</div>
-		<br>
-		<div class="subLabel">
-			<span>Date Accepted</span>
-			<%= f.datetime_select :date_accepted %>
-		</div>
-	</div>
 	
-	<br><br>
+<br><br>
 	
 	<div class="actions">
-		<%= f.submit %>
+		<%= f.submit "Submit", :onclick => "return validateSubmission();" %>
 	</div>
 	<% end %>
