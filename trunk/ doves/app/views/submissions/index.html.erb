@@ -48,7 +48,10 @@
     <td><%= submission.user_id %></td>
     <td><%= submission.user.first_name%></td>
     <td><%= submission.user.last_name %></td>
-    <td><%= submission.bird.common_name %></td>
+    <td><%= submission.bird.common_name %>
+		<% if submission.bird_id == 31 %>
+		(<%= submission.common_name %>)
+		<% end %></td>
     <td><%= submission.num_of_birds %></td>
     <td><%= submission.age %></td>
     <td><%= submission.sex %></td>
