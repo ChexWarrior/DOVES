@@ -27,6 +27,10 @@ class ApplicationController < ActionController::Base
 	redirect_to root_path, notice: "You are not authorized for that action." and return if !isadmin?
   end
   
+  def ensure_logged_in
+	redirect_to login_users_path, notice: "You must log in to do that." and return if !loggedin?
+  end
+  
   def ensure_reviewer_or_admin
 	redirect_to root_path, notice: "You are not authorized for that action." and return if !isreviewer? and !isadmin?
   end

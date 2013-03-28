@@ -1,4 +1,8 @@
 class SubmissionsController < ApplicationController
+
+	before_filter :ensure_logged_in, :except => [:show, :search]
+	before_filter :ensure_admin_or_self, :except => [:show, :new, :search, :create]
+	
   # GET /submissions
   # GET /submissions.json
   def index
@@ -25,10 +29,6 @@ class SubmissionsController < ApplicationController
   # GET /submissions/new.json
   def new
   
-	if !loggedin?
-	flash[:notice] = "You must be logged in to submit a sighting."
-	redirect_to login_users_path and return
-	end
     @submission = Submission.new
 	5.times {@submission.multimedia.build}
 	
@@ -100,7 +100,7 @@ class SubmissionsController < ApplicationController
 
 
   def search
-	@submissions = []
+	 @submissions = []
      @submissions = Submission.subsearch(params[:search], params[:field]) if !params[:search].nil?
 	 @selected = params[:field]
 	 
