@@ -21,7 +21,10 @@
   <div class="subGroup" id="birdInfo">
   	<div class="subLabel">
 		<span>Common Name</span>
-		<%= @submission.common_name %>
+		<%= @submission.bird.common_name %>
+		<% if @submission.bird_id == 31 %>
+		(<%= @submission.common_name %>)
+		<% end %>
 	</div>
 	<br>
 	<div class="subLabel">
