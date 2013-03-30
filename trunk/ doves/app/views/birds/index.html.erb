@@ -1,13 +1,23 @@
 <h1>Listing birds</h1>
 
+<script>
+	$(document).ready(function(){
+	$("#reset").bind("click", function (){
+		$("#search_field").val("");
+	});
+	});
+</script>
+
 <% if flash[:notice] %>
 	<div id="notice" ><%= flash[:notice] %></div>
 <% end %>
 
-<% if session[:user].nil? or session[:user].level.downcase != "admin"
-	loggedin = false 
-   else loggedin = true
-	end %>
+<%= form_tag birds_path, :method => 'get' do %>
+     <%= text_field_tag :search, params[:search], :id => 'search_field'	 %>
+      <%= submit_tag "Search", :name => nil %> 
+	  <input type ="button" value="Reset" id="reset"/>
+<% end %> 
+	  <%= link_to "Show All", birds_path, :class => "button", :method => :get  %><br />
 
 <table>
   <tr>

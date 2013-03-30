@@ -44,7 +44,7 @@ encrypted_password == BCrypt::Engine.hash_secret(login_password, salt)
 end
 
 def self.search(search, option)
-  search_condition = "%" + search + "%"
+  search_condition = "%#{search}%"
   case option
 	when "first_name"
 		User.where("first_name LIKE ?", search_condition)
@@ -52,6 +52,8 @@ def self.search(search, option)
 		User.where("last_name LIKE ?", search_condition)
 	when "email"
 		User.where("email LIKE ?", search_condition)
+	else
+		User.all
   end
 end
 
