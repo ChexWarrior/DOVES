@@ -3,7 +3,6 @@
 <%end%>
 
 <h1>Search </h1>
-
 <%= form_tag search_submissions_path, :method => 'get' do %>
 	<%= select_tag :field, options_for_select(search_params, params[:field]) %>
      <%= text_field_tag :search, params[:search] %>
