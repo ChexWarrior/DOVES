@@ -33,7 +33,7 @@ DOVES - Database for Ornithological Verification and Submission</title>
 <%= link_to birds_path do %><div class="nav">Reviewable Birds</div><% end %>
 <%=
 if isadmin?
-     link_to(content_tag(:div, "Users", :class=>"nav"), { :controller => "users"})
+     link_to(content_tag(:div, "Admin Tools", :class=>"nav"), { :controller => "pages", :action => "admin"})
 	 end
 %>
 <%= link_to submissions_path do %><div class="nav">Submissions</div><% end %>

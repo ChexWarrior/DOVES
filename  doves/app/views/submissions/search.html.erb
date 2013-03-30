@@ -1,8 +1,12 @@
+<% if isadmin? %>
+<%= link_to 'Back to Admin Tools', admin_pages_path %>
+<%end%>
+
 <h1>Search </h1>
 
-<%= form_tag :controller => 'submissions', :action => 'search', :method => 'post' do %>
-	<%= select_tag :field, options_for_select(search_params, @selected) %>
-     <%= text_field_tag :search, params[:search], :id => 'search_field' %>
+<%= form_tag search_submissions_path, :method => 'get' do %>
+	<%= select_tag :field, options_for_select(search_params, params[:field]) %>
+     <%= text_field_tag :search, params[:search] %>
       <%= submit_tag "Search", :name => nil %> 
 	  <input type="reset"/>
 <% end %> 
