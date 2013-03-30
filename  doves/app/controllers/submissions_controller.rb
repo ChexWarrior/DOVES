@@ -1,3 +1,4 @@
+require 'will_paginate/array'
 class SubmissionsController < ApplicationController
 
 	before_filter :ensure_logged_in, :except => [:show, :search]
@@ -7,6 +8,7 @@ class SubmissionsController < ApplicationController
   # GET /submissions.json
   def index
     @submissions = Submission.all
+	 @submissions = @submissions.paginate(:page => params[:page], :per_page => 3)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -103,6 +105,7 @@ class SubmissionsController < ApplicationController
   def search
 	 @submissions = []
      @submissions = Submission.subsearch(params[:search], params[:field]) if !params[:search].nil?
+	 @submissions = @submissions.paginate(:page => params[:page], :per_page => 3)
 	 @selected = params[:field]
 	 
 	 respond_to do |format|
