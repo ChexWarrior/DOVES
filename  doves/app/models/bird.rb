@@ -19,4 +19,13 @@ def toggle
 	end
 end
 
+def self.search(search)
+	if search
+	search_condition = "%" + search + "%"
+	Bird.where("common_name LIKE ?", search_condition)
+	else
+	Bird.all
+	end
+end
+
 end
