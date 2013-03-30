@@ -1,5 +1,17 @@
+
+
 <%= page_heading "User List" %>
+
+<%= link_to 'Back to Admin Tools', admin_pages_path %>
+
 <h1>Listing users</h1>
+
+<%= form_tag users_path, :method => 'get', :remote => true do%>
+	<%= select_tag :field, options_for_select(user_search_params, params[:field]) %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name=> nil%> 
+	<input type="reset"/>
+<% end%> 
 
 <table>
   <tr>

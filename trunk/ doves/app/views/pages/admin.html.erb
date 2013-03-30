@@ -1,0 +1,22 @@
+<h1>User Administration</h1>
+<%= form_tag users_path, :method => 'get' do%>
+<%= select_tag :field, options_for_select(user_search_params, params[:field]) %>
+     <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name=> nil%> 
+	  <input type="reset"/>
+<% end%> 
+
+
+
+<h1>Submission Administration</h1>
+
+<%= form_tag search_submissions_path, :method => 'get' do %>
+	<%= select_tag :field, options_for_select(search_params, params[:field]) %>
+     <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %> 
+	  <input type="reset"/>
+<% end %> 
+
+<h1>Vote Administration</h1>
+	   
+<%= render :file => '/votes/index' %>

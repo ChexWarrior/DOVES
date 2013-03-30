@@ -1,15 +1,14 @@
 class UsersController < ApplicationController
 	
   before_filter :ensure_admin_or_self, :only => [:index, :show, :edit]
-  
+  before_filter :ensure_admin, :only => :search
   
   
   # GET /users
   # GET /users.json
   def index
   
-  
-    @users = User.all
+  @users = User.search(params[:search], params[:field])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -116,5 +115,8 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  
+  
   
 end
