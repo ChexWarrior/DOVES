@@ -8,4 +8,17 @@ def search_params
       ['Common Name', 'common_name']
     ]
 end
+
+def submission_statuses
+    [
+      ['Incomplete', 'incomplete'],
+      ['New', 'new'],
+      ['Pending', 'pending'],
+	  ['Accepted', 'accepted'],
+      ['Verified', 'verified'],
+      ['Rejected', 'rejected'],
+	  ['Not Reviewable', 'not_reviewable']
+	  
+    ]
+end
 end

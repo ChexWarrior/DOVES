@@ -41,6 +41,7 @@ class SubmissionsController < ApplicationController
   # GET /submissions/1/edit
   def edit
     @submission = Submission.find(params[:id])
+	@common_name=@submission.bird.common_name
   end
 
   # POST /submissions
