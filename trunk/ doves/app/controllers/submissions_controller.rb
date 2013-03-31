@@ -8,7 +8,7 @@ class SubmissionsController < ApplicationController
   # GET /submissions.json
   def index
     @submissions = Submission.all
-	 @submissions = @submissions.paginate(:page => params[:page], :per_page => 3)
+	 @submissions = @submissions.paginate(:page => params[:page], :per_page => 25)
 
     respond_to do |format|
       format.html # index.html.erb

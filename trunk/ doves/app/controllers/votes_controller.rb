@@ -38,12 +38,18 @@ before_filter :ensure_reviewer_or_admin
   def edit
     @vote = Vote.find(params[:id])
   end
+  
+  # Pending submission controller
+  def pending
+  # Get user role to determine reviewer and id to determine which results to show.
+  @votes = Vote.find(:all, :conditions =>{:User_id => session[:user].id})
+  end
 
   # POST /votes
   # POST /votes.json
   def create
     @vote = Vote.new(params[:vote])
-
+	@vote.User_id = session[:user].id
     respond_to do |format|
       if @vote.save
         format.html { redirect_to @vote, notice: 'Vote was successfully created.' }
