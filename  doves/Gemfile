@@ -7,7 +7,7 @@ gem 'rails', '3.2.1'
 
 gem 'sqlite3'
 gem 'sass-rails'
-gem 'bootstrap-sass', :git => 'git://github.com/thomas-mcdonald/bootstrap-sass.git'
+gem 'bootstrap-sass'
 
 # For supporting file uploads
 gem 'carrierwave'
