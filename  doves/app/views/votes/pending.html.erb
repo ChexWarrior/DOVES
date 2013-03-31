@@ -1,16 +1,64 @@
-<h1>Vote needed</h1>
+<h1>Vote Needed</h1>
 <table>
   <tr>
+    <th>S degree</th>
+    <th>Sub date time</th>
     <th>User</th>
-    <th>Submission</th>
-    <th>Round</th>
-    <th>Time</th>
+    <th>Sub fname</th>
+    <th>Sub lname</th>
+    <th>Common name</th>
+    <th>Num of birds</th>
+    <th>Age</th>
+    <th>Sex</th>
+    <th>Plumage</th>
+    <th>Location</th>
+    <th>Region</th>
+    <th>Sight date time</th>
+    <th>Habitat</th>
+    <th>Status</th>
+    <th>Rounds</th>
+    <th>Date accepted</th>
+    <th>Date votable</th>
+    <th>Admin notes</th>
+    <th>Working notes</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<h2>Recent votes</h2>
+<% @pending.each do |submission| %>
+  <tr>
+    <td><%= submission.s_degree %></td>
+    <td><%= submission.created_on%></td>
+    <td><%= submission.user_id %></td>
+    <td><%= submission.user.first_name%></td>
+    <td><%= submission.user.last_name %></td>
+    <td><%= submission.bird.common_name %>
+		<% if submission.bird_id == 31 %>
+		(<%= submission.common_name %>)
+		<% end %></td>
+    <td><%= submission.num_of_birds %></td>
+    <td><%= submission.age %></td>
+    <td><%= submission.sex %></td>
+    <td><%= submission.plumage %></td>
+    <td><%= submission.location %></td>
+    <td><%= submission.region %></td>
+    <td><%= submission.sight_date_time %></td>
+    <td><%= submission.habitat %></td>
+    <td><%= submission.status %></td>
+    <td><%= submission.rounds %></td>
+    <td><%= submission.date_accepted %></td>
+    <td><%= submission.date_votable %></td>
+    <td><%= submission.admin_notes %></td>
+    <td><%= submission.working_notes %></td>
+    <td><%= link_to 'Show', submission %></td>
+    <td><%= link_to 'Edit', edit_submission_path(submission) %></td>
+    <td><%= link_to 'Destroy', submission, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<h2>Past Votes</h2>
 
 <table>
   <tr>
