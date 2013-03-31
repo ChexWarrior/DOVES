@@ -20,10 +20,24 @@
 });
    var birdArray = <%= Bird.all.map(&:common_name).sort.to_json.html_safe %>;
    
+   
    function validateSubmission()
    {
-		alert("TEST FUNCTION: validateSubmission");
-		return true;
+		var isValid = true;
+		
+		//format time correctly
+		var sightTime = $("#sightTime").val();
+		var sightDate = $("#sight_date_time").val();
+		
+		$("#sight_date_time").val(sightDate + " " + sightTime);
+		//3:00 
+		//YYYY-MM-DD hh:mm:ss
+		
+		//alert(sightTime);
+		
+		
+		
+		return isValid;
    }
    
 
@@ -62,7 +76,7 @@
 	<br>
 	<div class="subLabel">
 		<span>Sex of Bird(s)</span>
-		<%= f.text_field :sex %>
+		<%= f.select :sex, [["Unknown","Unknown"],["Male","Male"],["Female","Female"]] %>
 	</div>
 	<br>
 	<div class="subLabel">
@@ -114,8 +128,7 @@
 	<br>
 	<div class="subLabel">
 		<span>Sighting Date</span>
-		<%= f.text_field :sight_date_time, :class => "datep" %> 
-		<!-- %= f.time_select :sight_date_time, :ignore_date => true, :ampm => true % -->
+		<%= f.datetime_select :sight_date_time, :ampm =>true%> 
 	</div>
 	<br>
 	<div class="subLabel">
@@ -167,7 +180,6 @@
 	<br>
 	<div class="subLabel">
 		<span>Multimedia</span>
-		<%= f.text_field :media %>
 		<br />
 		<%= f.fields_for :multimedia do |multimedia_fields| %>
 			<%= image_tag(multimedia_fields.object.image_url(:thumb)) if multimedia_fields.object.image? %>			
@@ -183,6 +195,8 @@
   </div>
   
   <br>
+
+  <% if isadmin? && params[:action] != "new"%>
   
   <span id="adminInfoTitle" class="subHead">Administrator Information</span>
   <br><br>
@@ -205,7 +219,6 @@
 	<div class="subLabel">
 		<span>Voting Date</span>
 		<%= f.text_field :date_votable, :class => "datep" %>
-		<!-- %= f.time_select :date_votable, :ignore_date => true, :ampm => true %-->
 	</div>
 	<br>
 	<div class="subLabel">
@@ -213,11 +226,9 @@
 		<%= f.label :status%>
 	</div>
   </div>
-  
+  <% end %>
   <br>
   
-	
-<br><br>
 	
 	<div class="actions">
 		<%= f.submit "Submit", :onclick => "return validateSubmission();" %>

@@ -9,9 +9,25 @@
 		}
 		else {
 			$("#" + divName).slideDown();
-		}
+		}	
 	});
 	
+	var subRecall = $("#sub_recall").html();
+	var unusual = $("#unusual").html();
+	
+	if(subRecall == "1") {
+		$("#sub_recall").html("During Sighting");
+	}
+	else {
+		$("#sub_recall").html("After Sighting");
+	}
+	
+		if(unusual == "1") {
+		$("#unusual").html("Is unusual");
+	}
+	else {
+		$("#unusual").html("Not unusual");	
+	}	
 });
 </script>
 
@@ -114,13 +130,13 @@
 	</div>
 	<br>
 	<div class="subLabel">
-		<span>Sub Recall</span>
-		<%= @submission.sub_recall %>
+		<span>Submission Made</span>
+		<span id="sub_recall"><%= @submission.sub_recall %></span>
 	</div>
 	<br>
 	<div class="subLabel">
-		<span>Unusual Sighting</span>
-		<%= @submission.unusual %>
+		<span>Is an unusual Sighting</span>
+		<span id="unusual"><%= @submission.unusual %></span>
 	</div>
 	<br>
 	<div class="subLabel">
@@ -148,6 +164,7 @@
   
   <br>
   
+  <% if isadmin? %>
   <span id="adminInfoTitle" class="subHead">Administrator Information</span>
   <br><br>
   <div class="subGroup" id="adminInfo">
@@ -176,9 +193,10 @@
 		<%= @submission.status %>
 	</div>
   </div>
-  
+  <% end %>
   <br>
   
+  <% if isadmin? || isreviewer? %>
   <span id="votingInfoTitle" class="subHead">Voting Information</span>
   <div class="subGroup" id="votingInfo">
 	<br><br>
@@ -212,7 +230,7 @@
 			<%= @submission.date_accepted %>
 		</div>
 	</div>
+	<% end %>
 	
 	<br><br>
 <%= link_to 'Edit', edit_submission_path(@submission) %> |
-<%= link_to 'Back', submissions_path %>
