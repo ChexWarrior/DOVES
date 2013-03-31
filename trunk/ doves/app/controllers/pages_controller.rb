@@ -8,6 +8,11 @@ def admin
 	@votes = Vote.all
 end
 
+def home
+	@multimedia_all = Multimedium.where("multimedia.image IS NOT NULL")
+	@multimedia = @multimedia_all.sample(3)
+end
+
 def user_search
 	@users = User.all
      #@users = User.search(params[:search], params[:field]) if !params[:search].nil?

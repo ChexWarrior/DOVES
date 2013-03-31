@@ -14,10 +14,17 @@
 		</ol>
 		<!-- Carousel items -->
 		<div class="carousel-inner">
-			<div class="active item"><%= image_tag("image1.jpg", :class=>"profile", :style => "height: 400px; width: 600px") %></div>
-			<div class="item"><%= image_tag("image1.jpg", :class=>"profile", :style => "height: 400px; width: 600px") %></div>
-			<div class="item"><%= image_tag("image1.jpg", :class=>"profile", :style => "height: 400px; width: 600px") %></div>
+			<% @multimedia.each_with_index do |item_image, index| %>
+				<div class="<% if index == 0 %>
+					active item
+				<% else %>
+					item
+				<% end %>">
+					<%= image_tag(item_image.image_url(:carousel), :class=>"profile") %>
+				</div>
+			<% end %>
 		</div>
+
 		<!-- Carousel nav -->
 			<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
 			<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
