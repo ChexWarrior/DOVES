@@ -17,7 +17,11 @@
       <%= submit_tag "Search", :name => nil %> 
 	  <input type ="button" value="Reset" id="reset"/>
 <% end %> 
+
+<% if params[:search] %>
 	  <%= link_to "Show All", birds_path, :class => "button", :method => :get  %><br />
+<% end %> 
+
 
 <table>
   <tr>
