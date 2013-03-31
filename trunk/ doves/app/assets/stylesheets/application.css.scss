@@ -1,6 +1,4 @@
-/*
-*= require_tree ../../../vendor/assets/stylesheets
-*/
+@import 'bootstrap';
 html,body {
 	margin-top: 0px; font-family: calibri;
 	max-width: 2000px; color:#000;
@@ -14,21 +12,18 @@ input {
     border: solid 1px #4e82c8;
     width: 150px;
     font: 12pt 'tahoma';
-    align: left;
     padding: 2px;
 }
 
 select {
     border: solid 1px #4e82c8;
     font: 12pt 'tahoma';
-    align: left;
     padding: 2px;
 }
 
 textarea {
     border: solid 1px #4e82c8;
     font: 12pt 'tahoma';
-    align: left;
     padding: 2px;
 }
 
@@ -150,7 +145,8 @@ ul {
 	width:190px;
 	margin:0px;
 	padding:5px;
-	padding-right:none; text-decoration: none
+	padding-right:0px;
+	text-decoration: none;
     padding-left: 25px;
 }
 a {
