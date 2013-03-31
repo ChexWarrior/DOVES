@@ -39,6 +39,10 @@ class ImageUploader < CarrierWave::Uploader::Base
    version :thumb do
      process :resize_to_fill => [100, 100]
    end
+   
+   version :carousel do
+	 process :resize_to_fill => [1040, 650]
+   end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
@@ -57,6 +61,6 @@ class ImageUploader < CarrierWave::Uploader::Base
     ivar = "@#{mounted_as}_secure_token"    
     token = model.instance_variable_get(ivar)
     token ||= model.instance_variable_set(ivar, random_token)
-    "#{model.id}_#{token}.jpg" if original_filename
+    "#{token}.jpg" if original_filename
   end
 end
