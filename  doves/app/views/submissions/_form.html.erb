@@ -61,7 +61,7 @@
   <div class="subGroup" id="birdInfo">
   	<div class="subLabel">
 		<span>Common Name</span>
-		<%= f.text_field :common_name %>
+		<%= f.text_field :common_name, :value=>@common_name%>
 	</div>
 	<br>
 	<div class="subLabel">
@@ -223,7 +223,7 @@
 	<br>
 	<div class="subLabel">
 		<span>Submission Status</span>
-		<%= f.label :status%>
+		<%= f.select :status, options_for_select(submission_statuses, @submission.status)%>
 	</div>
   </div>
   <% end %>
