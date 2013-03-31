@@ -19,6 +19,17 @@ class SubmissionsController < ApplicationController
   # GET /submissions/1
   # GET /submissions/1.json
   def show
+  
+  #if (admin or reviewer) AND (submission is pending and date votable is today or before today)
+  # pull in all vote information about this submission and display 
+  # if reviewer has voted in this round displayr reviewers vote and all previous round info
+  # if reviewer has not voted display option to vote anda ll previous round info
+  # vote array (votes)
+  # INFO TO DISPLAY: submissions voting date,
+  #					 each reviewers vote and comments from previous rounds
+  #					 current round
+  #					 option to vote if reviewer has not voted yet
+  
     @submission = Submission.find(params[:id])
 
     respond_to do |format|
@@ -114,4 +125,5 @@ class SubmissionsController < ApplicationController
       format.json { render json: @submissions }
     end
   end
-end
+
+  end
