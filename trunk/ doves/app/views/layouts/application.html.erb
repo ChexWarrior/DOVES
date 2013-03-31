@@ -40,7 +40,7 @@ if isadmin?
 
 <%=
 if isreviewer?
-	link_to(content_tag(:div, "Votes", :class=>"nav"), { :controller => "votes"})
+	link_to(content_tag(:div, "Votes", :class=>"nav"), pending_votes_path)
 	end
 %>
 
