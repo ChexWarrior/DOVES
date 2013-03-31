@@ -49,6 +49,7 @@ class SubmissionsController < ApplicationController
   # POST /submissions
   # POST /submissions.json
   def create
+  
     @submission = Submission.new(params[:submission])
 	
 	@submission.user_id = session[:user].id
