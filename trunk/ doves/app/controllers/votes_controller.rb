@@ -82,4 +82,42 @@ before_filter :ensure_reviewer_or_admin
       format.json { head :no_content }
     end
   end
+  
+  
+  def recommend_action
+
+  #find submissions current round
+  #find all votes for a submissions current round, count yes and total votes.
+  #if vote count < 7 wait for all votes
+  #if <4 yes votes dont accept
+  #else if 7 yes votes  accept submission any round
+  #else if 6 yes votes for round 3 accept
+  #else  if 5 or 6 yes votes and round 1 or 2 promote
+  #else reject
+
+count = 0 
+yes_vote=0
+	Votes.find_each(:conditions =>["round = ? AND Submission_id = ?", @submission.rounds, @submission.id]) do |votes|
+	  count=count+1   
+	  if votes.vote == "Yes"
+		 yes_vote=yes_vote + 1
+	  end
+	end
+	if count <7
+	   flash[:notice] = "Recommended Action:  Wait for all committee members to finish voting."
+	elsif yes_vote == 7
+	   flash[:notice] = "Recommended Action:  Accept submission as a verified sighting."
+	elsif yes_vote <4
+	   flash[:notice] = "Recommended Action: Submission should not be accepted."
+	elsif yes_vote == 6 && round ==3
+	   flash[:notice] = "Recommended Action:  Accept submission as a verified sighting."
+	elsif (yes_vote==5 || yes_vote==6) && (round == 1 || round == 2)
+	   flash[:notice] = "Recommended Action: Move submission on to a new round of voting."
+	else
+	   flash[:notice] = "Recommended Action: Submission should not be accepted."
+	end
+
+end
+
+
 end
