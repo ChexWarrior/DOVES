@@ -1,6 +1,6 @@
 class BirdsController < ApplicationController
 
-before_filter :ensure_admin, :except => :index
+before_filter :ensure_admin, :except => [:index, :show]
   # GET /birds
   # GET /birds.json
   def index
@@ -16,7 +16,7 @@ before_filter :ensure_admin, :except => :index
   # GET /birds/1.json
   def show
     @bird = Bird.find(params[:id])
-
+	@submissions = Submission.scoped_by_bird_id(params[:id]).paginate(:page=> params[:page], :per_page => 10)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @bird }
