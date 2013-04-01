@@ -40,7 +40,7 @@
 <% @birds.each do |bird| %>
   <tr>
 	<td><%= bird.id %></td>
-    <td><%= bird.common_name %></td>
+    <td><%= link_to bird.common_name, bird %></td>
     <td><%= bird.reviewable %></td>
 	<% if isadmin? %>
     <td><%= link_to 'Show', bird %></td>

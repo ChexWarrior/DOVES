@@ -10,7 +10,15 @@
   <%= @bird.reviewable %>
 </p>
 
+<% if (@submissions.length > 0) then%>
+ <div id="search">
+    <%= render :file => 'submissions/index' %>
+ </div>
+ <% else %><br><br>
+ <div>No Results</div>
+ <% end %>
 
-<%= link_to 'Edit', edit_bird_path(@bird) %> |
-<%= link_to 'Back', birds_path %> | 
+<%= link_to 'Back', birds_path %><% if isadmin?%> |
+<%= link_to 'Edit', edit_bird_path(@bird) %> | 
 <%= link_to 'New', new_bird_path %>
+<% end %>
