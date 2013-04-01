@@ -7,7 +7,7 @@
   <br />
   <div style="text-align:center">
 	<span style="display: inline-block;">
-		<div id="myCarousel" class="carousel slide">
+		<div id="myCarousel" class="carousel slide" style="text-align:left">
 			<ol class="carousel-indicators">
 				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 				<li data-target="#myCarousel" data-slide-to="1"></li>
@@ -18,6 +18,10 @@
 				<% @multimedia.each_with_index do |item_image, index| %>
 					<div class="<% if index == 0 %>item active<% else %>item<% end %>">
 						<%= image_tag(item_image.image_url(:carousel), :class=>"profile") %>
+						<div class="carousel-caption">
+						  <h4>Bird name here</h4>
+						  <p style="text-indent: 0em;">Spotted on March 31, 2013 near Norfolk, VA</p>
+						</div>
 					</div>
 				<% end %>
 			</div>
@@ -36,7 +40,7 @@
 
     $('.carousel').carousel({
 
-      interval: 3000
+      interval: 5000
 
     })
 
