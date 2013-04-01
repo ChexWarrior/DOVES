@@ -115,7 +115,8 @@ class SubmissionsController < ApplicationController
 
 
   def search
-	 @submissions = []
+		params[:per_page] = 10 if params[:per_page].nil?
+	 @submissions = Submission.all if params[:search].nil?
      @submissions = Submission.subsearch(params[:search], params[:field]) if !params[:search].nil?
 	 @submissions = @submissions.paginate(:page => params[:page], :per_page => params[:per_page])
 	 @selected = params[:field]

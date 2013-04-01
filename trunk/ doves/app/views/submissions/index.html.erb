@@ -76,15 +76,15 @@
     <td><%= submission.unusual %></td>
     <td><%= submission.notes %></td>
     <td><%= submission.media %></td>
-    <td><%= submission.status %></td>
+    <td><%= submission.status.humanize if submission.status %></td>
     <td><%= submission.rounds %></td>
     <td><%= submission.date_accepted %></td>
     <td><%= submission.date_votable %></td>
     <td><%= submission.admin_notes %></td>
     <td><%= submission.working_notes %></td>
-    <td><%= link_to 'Show', submission %></td>
-    <td><%= link_to 'Edit', edit_submission_path(submission) %></td>
-    <td><%= link_to 'Destroy', submission, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to_if(submission.user_authorized_to_view?(session[:user]), 'Show', submission){} %></td>
+    <td><%= link_to_if(submission.user_authorized_to_edit?(session[:user]), 'Edit', edit_submission_path(submission)){} %></td>
+    <td><%= link_to_if(submission.user_authorized_to_destroy?(session[:user]), 'Destroy', submission, confirm: 'Are you sure?', method: :delete){} %></td>
   </tr>
 <% end %>
 </table>
