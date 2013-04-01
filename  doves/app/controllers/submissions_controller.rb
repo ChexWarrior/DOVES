@@ -29,8 +29,16 @@ class SubmissionsController < ApplicationController
   #					 each reviewers vote and comments from previous rounds
   #					 current round
   #					 option to vote if reviewer has not voted yet
-  
+    
     @submission = Submission.find(params[:id])
+	#get status (may need to put to upper or lower case)
+	subStatus = @submission.status
+	subId = @submission.id
+	
+	  if (isadmin? || isreviewer?) #&& subStatus == "pending"
+		#get all votes that have an s_id equal to this submission
+		votes = Vote.where("s_id = ?",subId);
+	  end
 
     respond_to do |format|
       format.html # show.html.erb
