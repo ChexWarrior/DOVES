@@ -5,32 +5,29 @@
     <span class="error"><%= flash[:error] %></span>
   <% end %>
   <br />
-  
-    <div id="myCarousel" class="carousel slide">
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-			<li data-target="#myCarousel" data-slide-to="2"></li>
-		</ol>
-		<!-- Carousel items -->
-		<div class="carousel-inner">
-			<% @multimedia.each_with_index do |item_image, index| %>
-				<div class="<% if index == 0 %>
-					active item
-				<% else %>
-					item
-				<% end %>">
-					<%= image_tag(item_image.image_url(:carousel), :class=>"profile") %>
-				</div>
-			<% end %>
-		</div>
+  <div style="text-align:center">
+	<span style="display: inline-block;">
+		<div id="myCarousel" class="carousel slide">
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+			<!-- Carousel items -->
+			<div class="carousel-inner">
+				<% @multimedia.each_with_index do |item_image, index| %>
+					<div class="<% if index == 0 %>active item<% else %>item<% end %>">
+						<%= image_tag(item_image.image_url(:carousel), :class=>"profile") %>
+					</div>
+				<% end %>
+			</div>
 
-		<!-- Carousel nav -->
-			<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-			<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-    </div>
-  
-  
+			<!-- Carousel nav -->
+				<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+				<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+		</div>
+	</span>
+  </div>
   <!-- <%= image_tag("brownpelican.jpg", :class=>"profile", :style => "background:#4e82c8; width: 45%") %> -->
 		<p>If you saw a bird, please let us know.</p>
 		<blockquote><p>Birds are pretty cool, I think.</p><p>-Dr. Robert Ake</p></blockquote>
