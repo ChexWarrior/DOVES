@@ -12,17 +12,12 @@ end
   root :to => "pages#home"
   
   
-resources :submissions do
-	get 'search', :on => :collection
-	post 'search', :on => :collection
-end
-  
+resources :submissions 
+
 resources :users do
 	get 'logout', :on => :collection
 	get 'login', :on => :collection
 	post 'login_attempt', :on => :collection
-	get 'search', :on => :collection
-	post 'search', :on => :collection
 end
 
 resources :pages do
