@@ -16,7 +16,7 @@
 			<!-- Carousel items -->
 			<div class="carousel-inner">
 				<% @multimedia.each_with_index do |item_image, index| %>
-					<div class="<% if index == 0 %>active item<% else %>item<% end %>">
+					<div class="<% if index == 0 %>item active<% else %>item<% end %>">
 						<%= image_tag(item_image.image_url(:carousel), :class=>"profile") %>
 					</div>
 				<% end %>
@@ -31,3 +31,13 @@
   <!-- <%= image_tag("brownpelican.jpg", :class=>"profile", :style => "background:#4e82c8; width: 45%") %> -->
 		<p>If you saw a bird, please let us know.</p>
 		<blockquote><p>Birds are pretty cool, I think.</p><p>-Dr. Robert Ake</p></blockquote>
+		
+    <script type="text/javascript">
+
+    $('.carousel').carousel({
+
+      interval: 3000
+
+    })
+
+    </script>
