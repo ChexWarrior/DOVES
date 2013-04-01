@@ -45,7 +45,104 @@ def self.subsearch(search, option)
 		Submission.joins(:user).where("users.email LIKE ?", search_condition)
 	else Submission.find(:all)
   end
-  
+
 
  end
+ 
+ def user_authorized_to_view?(user)
+	if user then
+	case status
+		when "incomplete"
+			if (user.level == "admin") or (user.id == user_id)
+				true
+			else
+				false
+			end
+		when "new"
+			if (user.level == "admin") or (user.id == user_id)
+				true
+			else
+				false
+			end
+		when "pending"
+			if (user.level == "admin") or (user.level == "admin") or (user.id == user_id)
+				true
+			else
+				false
+			end
+		when "accepted"
+			true
+		when "verified"
+			true
+		when "rejected"
+			if (user.level == "admin" or "reviewer") or (user.id == user_id)
+				true
+			else
+				false
+			end
+		else
+			if (user.level == "admin")
+				true
+			else
+				false
+			end
+	end
+	else
+		true if status == 'verified'
+	end
+ end
+ 
+  def user_authorized_to_edit?(user)
+	if user then
+	case status
+		when "incomplete"
+			if (user.id == user_id)
+				true
+			else
+				false
+			end
+		when "new"
+			if (user.id == user_id)
+				true
+			else
+				false
+			end
+		else
+			if (user.level == "admin")
+				true
+			else
+				false
+			end
+	end
+	
+	end
+ end
+ 
+ def user_authorized_to_destroy?(user)
+	if user then
+	case status
+		when "incomplete"
+			if (user.id == user_id)
+				true
+			else
+				false
+			end
+		when "new"
+			if (user.id == user_id)
+				true
+			else
+				false
+			end
+		else
+			if (user.level == "admin")
+				true
+			else
+				false
+			end
+	end
+	end
+ end
+ 
+ 
+ 
 end
