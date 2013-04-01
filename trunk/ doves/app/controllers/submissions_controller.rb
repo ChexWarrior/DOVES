@@ -2,13 +2,18 @@ require 'will_paginate/array'
 class SubmissionsController < ApplicationController
 
 	before_filter :ensure_logged_in, :except => [:show, :search]
-	before_filter :ensure_admin_or_self, :except => [:show, :new, :search, :create]
+	#before_filter :ensure_admin_or_self, :except => [:show, :new, :search, :create]
+	before_filter :ensure_user_authorized_to_view, :only => :show
+	before_filter :ensure_user_authorized_to_edit, :only => [:edit, :update]
+	before_filter :ensure_user_authorized_to_destroy, :only => :destroy
 	
   # GET /submissions
   # GET /submissions.json
   def index
-    @submissions = Submission.all
-	 @submissions = @submissions.paginate(:page => params[:page], :per_page => 25)
+    params[:per_page] = 10 if params[:per_page].nil?
+	 @submissions = Submission.all if params[:search].nil?
+     @submissions = Submission.subsearch(params[:search], params[:field]) if !params[:search].nil?
+	 @submissions = @submissions.paginate(:page => params[:page], :per_page => params[:per_page])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -122,17 +127,23 @@ class SubmissionsController < ApplicationController
   end
 
 
-  def search
-		params[:per_page] = 10 if params[:per_page].nil?
-	 @submissions = Submission.all if params[:search].nil?
-     @submissions = Submission.subsearch(params[:search], params[:field]) if !params[:search].nil?
-	 @submissions = @submissions.paginate(:page => params[:page], :per_page => params[:per_page])
-	 @selected = params[:field]
-	 
-	 respond_to do |format|
-      format.html # search.html.erb
-      format.json { render json: @submissions }
-    end
-  end
-
+   def ensure_user_authorized_to_view
+	@submission = Submission.find(params[:id])
+	redirect_to login_users_path, notice: "You must be logged in to perform that action." and return if !loggedin?
+	redirect_to submissions_path, notice: "You are not authorized for that action." and return if !(@submission.user_authorized_to_view?(session[:user]))
+  end 
+  
+   def ensure_user_authorized_to_edit
+   	@submission = Submission.find(params[:id])
+	redirect_to login_users_path, notice: "You must be logged in to perform that action." and return if !loggedin?
+	redirect_to submissions_path, notice: "You are not authorized for that action." and return if !(@submission.user_authorized_to_edit?(session[:user]))
+  end 
+  
+   def ensure_user_authorized_to_destroy
+   	@submission = Submission.find(params[:id])
+	redirect_to login_users_path, notice: "You must be logged in to perform that action." and return if !loggedin?
+	redirect_to submissions_path, notice: "You are not authorized for that action." and return if !(@submission.user_authorized_to_destroy?(session[:user]))
+  end 
+  
+  
   end
