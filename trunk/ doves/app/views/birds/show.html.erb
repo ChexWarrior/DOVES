@@ -12,7 +12,7 @@
 
 <% if (@submissions.length > 0) then%>
  <div id="search">
-    <%= render :file => 'submissions/index' %>
+    <%= render :partial => 'submissions/list' %>
  </div>
  <% else %><br><br>
  <div>No sightings found for this bird.</div>
