@@ -41,7 +41,7 @@
   <tr>
 	<td><%= bird.id %></td>
     <td><%= link_to bird.common_name, bird %></td>
-    <td><%= bird.reviewable %></td>
+    <td><%= bird.reviewable.humanize %></td>
 	<% if isadmin? %>
     <td><%= link_to 'Show', bird %></td>
     <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
