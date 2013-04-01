@@ -75,7 +75,7 @@ def self.subsearch(search, option)
 		when "verified"
 			true
 		when "rejected"
-			if (user.level == "admin" or "reviewer") or (user.id == user_id)
+			if (user.level == "admin") or (user.level ==  "reviewer") or (user.id == user_id)
 				true
 			else
 				false

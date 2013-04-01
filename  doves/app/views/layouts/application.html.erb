@@ -22,7 +22,7 @@ DOVES - Database for Ornithological Verification and Submission</title>
 	
 	<div id="left">
 <%= link_to root_path do %><div class="nav">Home</div><% end %>
-<%= link_to search_submissions_path do %><div class="nav">Search</div><% end %>
+<%= link_to submissions_path do %><div class="nav">Search</div><% end %>
 <%= link_to new_submission_path do %><div class="nav">Submit</div><% end %>
 
 <%=
@@ -45,6 +45,13 @@ if isreviewer?
 </div>
 
 	<div id="content">
+	<% if flash[:notice] %>
+    <span class="notice"><%= flash[:notice] %></span>
+  <% end %>
+  <% if flash[:error] %>
+    <span class="error"><%= flash[:error] %></span>
+  <% end %>
+  <br />
 		<%= yield %>
 	</div>
 	<div id="footer">
