@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-has_and_belongs_to_many :submission
+has_many :submissions
 has_many :votes
 
 include BCrypt

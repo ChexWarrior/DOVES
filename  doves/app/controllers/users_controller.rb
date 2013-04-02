@@ -75,7 +75,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-	params[:user][:level] = 'registered_user' if params[:user][:level].nil?
+	params[:user][:level] = 'registered_user' if !isadmin?
     @user = User.new(params[:user])
 	session[:user] = @user if !loggedin?
 	
