@@ -60,10 +60,12 @@
     <%= f.label :prev_exp %><br />
     <%= f.text_area :prev_exp %>
   </div>
+ <% if isadmin? %>
   <div class="field">
     <%= f.label :level %><br />
 	<%= f.select :level, options_for_select(user_levels, @currentlevel) %>
   </div>
+ <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

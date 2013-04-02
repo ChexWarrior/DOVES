@@ -1,3 +1,4 @@
+<% if @submissions.length >0 %>
 <table>
   <tr>
     <th>S degree</th>
@@ -83,3 +84,7 @@
 
 <br />
 <%= will_paginate @submissions %>
+
+<% else %>
+No submissions found. <br />
+<% end %>
