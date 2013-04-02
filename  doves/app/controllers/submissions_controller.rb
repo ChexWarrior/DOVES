@@ -67,7 +67,11 @@ class SubmissionsController < ApplicationController
   # GET /submissions/1/edit
   def edit
     @submission = Submission.find(params[:id])
-	@common_name=@submission.bird.common_name
+	if @submission.bird_id == 31
+		@common_name=@submission.common_name
+	else
+		@common_name=@submission.bird.common_name
+	end
   end
 
   # POST /submissions
@@ -102,7 +106,14 @@ class SubmissionsController < ApplicationController
   # PUT /submissions/1.json
   def update
     @submission = Submission.find(params[:id])
-
+	
+	@bird = Bird.find_by_common_name(params[:submission][:common_name])
+	if @bird.nil? then
+		params[:submission][:bird_id]=31  #default to "Other" if we don't find a bird with that name
+	else
+		params[:submission][:bird_id] = @bird.id
+		params[:submission][:common_name]=nil
+	end
     respond_to do |format|
       if @submission.update_attributes(params[:submission])
         format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }

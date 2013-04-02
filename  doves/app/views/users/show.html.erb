@@ -1,22 +1,13 @@
-<p id="notice"><%= notice %></p>
+
+<h1>My Info</h1>
 
 <p>
-  <b>Password:</b>
-  <%= @user.encrypted_password %>
-</p>
-
-<p>
-  <b>Salt:</b>
-  <%= @user.salt %>
-</p>
-
-<p>
-  <b>First name:</b>
+  <b>First Name:</b>
   <%= @user.first_name %>
 </p>
 
 <p>
-  <b>Last name:</b>
+  <b>Last Name:</b>
   <%= @user.last_name %>
 </p>
 
@@ -26,12 +17,12 @@
 </p>
 
 <p>
-  <b>Address line1:</b>
+  <b>Address Line 1:</b>
   <%= @user.address_line1 %>
 </p>
 
 <p>
-  <b>Address line2:</b>
+  <b>Address Line 2:</b>
   <%= @user.address_line2 %>
 </p>
 
@@ -56,7 +47,7 @@
 </p>
 
 <p>
-  <b>Prev exp:</b>
+  <b>Previous Experience:</b>
   <%= @user.prev_exp %>
 </p>
 
@@ -65,6 +56,9 @@
   <%= @user.level %>
 </p>
 
+
+<h1>My Submissions</h1>
+<%= render :partial => 'submissions/list' %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

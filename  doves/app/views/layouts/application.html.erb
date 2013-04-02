@@ -31,6 +31,12 @@ DOVES - Database for Ornithological Verification and Submission</title>
    end
 %>
 <%= link_to birds_path do %><div class="nav">Reviewable Birds</div><% end %>
+
+
+<% if loggedin? %>
+<%= link_to user_path(session[:user].id) do %><div class="nav">My Profile</div><% end %>
+<% end %>
+
 <% if isadmin? %>
 <%= link_to admin_pages_path do %><div class="nav">Admin Tools</div><% end %>
 <% end %>
