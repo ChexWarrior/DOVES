@@ -2,5 +2,7 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'View', @user %><% if isadmin? %> |
+<%= link_to 'Users Index', users_path %>
+<% end %>
+
