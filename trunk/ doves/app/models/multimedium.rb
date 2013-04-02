@@ -3,4 +3,5 @@ class Multimedium < ActiveRecord::Base
 	belongs_to :submission
 	mount_uploader :image, ImageUploader
 	
+	after_save { |multimedium| multimedium.destroy if multimedium.image.blank? }
 end

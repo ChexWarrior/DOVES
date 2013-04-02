@@ -3,9 +3,9 @@
 	<span style="display: inline-block; width: 90%">
 		<div id="myCarousel" class="carousel slide" style="text-align:left">
 			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
+				<% @multimedia.each_with_index do |item_image, index| %>
+					<li data-target="#myCarousel" data-slide-to="<%= index %>"<% if index == 0%> class="active"<% end %>></li>
+				<% end %>
 			</ol>
 			<!-- Carousel items -->
 			<div class="carousel-inner">

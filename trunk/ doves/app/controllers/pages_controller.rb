@@ -10,7 +10,7 @@ end
 
 def home
 	@multimedia_all = Multimedium.where("multimedia.image IS NOT NULL")
-	@multimedia = @multimedia_all.sample(3)
+	@multimedia = @multimedia_all.sample(5)
 end
 
 def user_search

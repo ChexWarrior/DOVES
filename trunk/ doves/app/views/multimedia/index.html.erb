@@ -5,7 +5,6 @@
     <th>Thumb</th>
 	<th>Submission</th>
     <th>Time</th>
-    <th>Size</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,6 +14,7 @@
   <tr>
     <td><%= image_tag multimedium.image_url(:thumb).to_s if multimedium.image? %></td>
 	<td><%= multimedium.submission_id %></td>
+	<td><%= multimedium.updated_at %></td>
     <td><%= link_to 'Show', multimedium %></td>
     <td><%= link_to 'Edit', edit_multimedium_path(multimedium) %></td>
     <td><%= link_to 'Destroy', multimedium, confirm: 'Are you sure?', method: :delete %></td>
