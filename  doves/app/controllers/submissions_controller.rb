@@ -67,6 +67,8 @@ class SubmissionsController < ApplicationController
   # GET /submissions/1/edit
   def edit
     @submission = Submission.find(params[:id])
+	5.times {@submission.multimedia.build}
+	
 	if @submission.bird_id == 31
 		@common_name=@submission.common_name
 	else
