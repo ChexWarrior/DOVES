@@ -52,10 +52,16 @@ if isreviewer?
 
 	<div id="content">
 	<% if flash[:notice] %>
-    <span class="notice"><%= flash[:notice] %></span>
-  <% end %>
-  <% if flash[:error] %>
-    <span class="error"><%= flash[:error] %></span>
+		<div class="alert alert-info">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<span class="notice"><%= flash[:notice] %></span>
+		</div>
+	<% end %>
+    <% if flash[:error] %>
+		<div class="alert alert-error">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<span class="error"><%= flash[:error] %></span>
+		</div>
   <% end %>
   <br />
 		<%= yield %>
