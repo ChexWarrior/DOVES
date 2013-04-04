@@ -1,7 +1,7 @@
 require 'will_paginate/array'
 class SubmissionsController < ApplicationController
 
-	before_filter :ensure_logged_in, :except => [:show, :search]
+	before_filter :ensure_logged_in, :except => [:show, :index]
 	#before_filter :ensure_admin_or_self, :except => [:show, :new, :search, :create]
 	before_filter :ensure_user_authorized_to_view, :only => :show
 	before_filter :ensure_user_authorized_to_edit, :only => [:edit, :update]
