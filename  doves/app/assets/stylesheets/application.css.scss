@@ -221,8 +221,9 @@ th {
 
 .rejected {color:red}
 
-.datagrid {font: normal 12px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;
--moz-box-shadow: 10px 10px 10px #888;
--webkit-box-shadow: 10px 10px 10px #888;
+table{
+font: normal 12px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden;  border-radius: 15px;
+border-collapse: separate;
 box-shadow: 10px 10px 10px #888;
+border: 2px solid #4e82c8;
 }
