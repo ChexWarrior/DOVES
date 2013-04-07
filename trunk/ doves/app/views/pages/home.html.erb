@@ -14,7 +14,11 @@
 						<%= image_tag(item_image.image_url(:carousel), :class=>"profile") %>
 						<div class="carousel-caption">
 						  <h4><%= item_image.submission.bird.common_name unless item_image.submission.bird.nil? %></h4>
-						  <p style="text-indent: 0em;">Spotted on March 31, 2013 near Norfolk, VA</p>
+						  <p style="text-indent: 0em;">Spotted on <%= item_image.submission.sight_date_time.strftime("%B %e, %Y") %>
+						  <% unless item_image.submission.location.blank? %>
+						  in <%= item_image.submission.location %>
+						  <% end %>
+						  </p>
 						</div>
 					</div>
 				<% end %>
