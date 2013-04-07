@@ -7,9 +7,20 @@
 
 <script>
 	$(document).ready(function(){
-	$("#reset").bind("click", function (){
-		$("#search").val("");
-	});
+		$("#reset").bind("click", function (){
+			$("#search").val("");
+		});
+	
+		var rowNum = 0;
+		$(".subRow").each(function() {
+			if(rowNum % 2 == 0) {
+				$(this).addClass("odd");
+			}
+			else {
+				$(this).addClass("even");
+			}
+			rowNum++;
+		});
 	});
 </script>
 
@@ -23,6 +34,7 @@
       <%= submit_tag "Search", :name => nil %> 
 	  <input type ="button" value="Reset" id="reset"/>
 <% end %> 
+<div class="datagrid">
 <table>
   <tr>
     <th> Common Name </th>
@@ -71,7 +83,7 @@
   </tr>
 
 <% @submissions.each do |submission| %>
-  <tr>
+  <tr class="subRow">
 	<td><%= submission.bird.common_name %>
 		<% if submission.bird_id == 31 %>
 		(<%= submission.common_name %>)
@@ -119,7 +131,7 @@
   </tr>
 <% end %>
 </table>
-
+</div>
 <br />
 <%= will_paginate @submissions %>
 <%= link_to 'New Submission', new_submission_path %>
