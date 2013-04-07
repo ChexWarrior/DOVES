@@ -81,7 +81,7 @@ def self.subsearch(search, option)
 				false
 			end
 		else
-			if (user.level == "admin")
+			if (user.level == "admin") or (user.id == user_id)
 				true
 			else
 				false
