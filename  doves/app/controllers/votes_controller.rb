@@ -43,24 +43,27 @@ before_filter :ensure_reviewer_or_admin
   def pending
   # Get user role to determine reviewer and id to determine which results to show.
   @pending = Submission.find(:all, :conditions =>{:status => "pending"})
-  @pending.delete_if{|submission| Vote.scoped_by_Submission_id(submission.id).scoped_by_User_id(session[:user].id).scoped_by_round(submission.rounds).exists?}
+  @pending.delete_if{|submission| Vote.scoped_by_submission_id(submission.id).scoped_by_user_id(session[:user].id).scoped_by_round(submission.rounds).exists?}
 	# for(int x = 0; x<= id_max; x++)
 	# {
 	# for(int y = 0; y < 3; x++)
 	# {
 	# Submission.find(:all, :conditions =>{:status =>"pending", :id => X, :round = Y}) == 
-			# Vote.find(:all, :conditions =>{:User_id => session[:user].id}, :Submission_id => X, :rounds => Y) 
+			# Vote.find(:all, :conditions =>{:user_id => session[:user].id}, :submission_id => X, :rounds => Y) 
 	# }
 	# }
-  @votes = Vote.find(:all, :conditions =>{:User_id => session[:user].id})
+  @votes = Vote.find(:all, :conditions =>{:user_id => session[:user].id})
 	
   end
 
   # POST /votes
   # POST /votes.json
   def create
-    @vote = Vote.new(params[:vote])
-	@vote.User_id = session[:user].id
+    @submission = Submission.find(params[:submission_id])
+    @vote = @submission.votes.new(params[:vote])
+	@vote.user_id = session[:user].id
+	@vote.round = @submission.rounds
+	
     respond_to do |format|
       if @vote.save
         format.html { redirect_to @vote, notice: 'Vote was successfully created.' }
@@ -114,7 +117,7 @@ before_filter :ensure_reviewer_or_admin
 
 count = 0 
 yes_vote=0
-	Votes.find_each(:conditions =>["round = ? AND Submission_id = ?", @submission.rounds, @submission.id]) do |votes|
+	Votes.find_each(:conditions =>["round = ? AND submission_id = ?", @submission.rounds, @submission.id]) do |votes|
 	  count=count+1   
 	  if votes.vote == "Yes"
 		 yes_vote=yes_vote + 1

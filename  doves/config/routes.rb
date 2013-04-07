@@ -12,7 +12,9 @@ end
   root :to => "pages#home"
   
   
-resources :submissions 
+resources :submissions , :shallow => true do
+	resources :votes
+end
 
 resources :users do
 	get 'logout', :on => :collection

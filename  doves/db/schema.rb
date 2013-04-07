@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130326005310) do
+ActiveRecord::Schema.define(:version => 20130407182047) do
 
   create_table "birds", :force => true do |t|
     t.string   "common_name"
@@ -88,8 +88,8 @@ ActiveRecord::Schema.define(:version => 20130326005310) do
   end
 
   create_table "votes", :force => true do |t|
-    t.integer  "User_id"
-    t.integer  "Submission_id"
+    t.integer  "user_id"
+    t.integer  "submission_id"
     t.integer  "round"
     t.string   "vote"
     t.text     "comments"

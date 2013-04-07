@@ -197,41 +197,12 @@
   
   <br>
   
-  <% if isadmin? || isreviewer? %>
+<% if (isadmin? || isreviewer?) && (!@hasVoted) %>
   <span id="votingInfoTitle" class="subHead">Voting Information</span>
   <div class="subGroup" id="votingInfo">
-	<br><br>
-		<div class="subLabel">
-			<span>Previous Comments</span>
-			<span>TEST</span>
-		</div>
-		<br>
-		<div class="subLabel">
-			<span>Voting Round</span>
-			<%= @submission.rounds %>
-		</div>
-		<br>
-		<div class="subLabel">
-			<span>Vote Option</span>
-			<%= @submission.region %>
-		</div>
-		<br>
-		<div class="subLabel">
-			<span>Voting Comments</span>
-			<%= @submission.date_votable %>
-		</div>
-		<br>
-		<div class="subLabel">
-			<span >Administrator Notes</span>
-			<%= @submission.admin_notes %>
-		</div>
-		<br>
-		<div class="subLabel">
-			<span>Date Accepted</span>
-			<%= @submission.date_accepted %>
-		</div>
-	</div>
-	<% end %>
+	<%= render :partial => 'votes/form' %>
+  </div>
+<% end %>
 	
 	<br><br>
 <%= link_to 'Edit', edit_submission_path(@submission) %> | <%= link_to 'More Submissions', submissions_path %>
