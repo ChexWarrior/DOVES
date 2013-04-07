@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   end
 
   def logout
+    cookies.delete :user
 	session[:user] = nil
 	flash[:notice] = "You have been logged out."
 	redirect_to(root_path)
@@ -36,6 +37,7 @@ class UsersController < ApplicationController
 		authorized_user = User.authenticate(params[:email],params[:login_password])
 		if authorized_user
 			session[:user] = authorized_user
+			cookies[:user] = authorized_user
 			flash[:notice] = "Successfully logged in as #{authorized_user.first_name} #{authorized_user.last_name} (#{session[:user].email})."
 			redirect_to(root_path)
 		else
