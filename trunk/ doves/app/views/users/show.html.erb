@@ -1,7 +1,7 @@
 <h1>User Info</h1>
 
 <p>
-<b>First Name:</b>
+	<b>First Name:</b>
 	<%= @user.first_name %>
 </p>
 
@@ -58,7 +58,6 @@
 
 <h1>My Submissions</h1>
 <%= render :partial => 'submissions/list' %>
-	
 	<%= link_to 'Edit', edit_user_path(@user) %> |
 		<%= link_to 'Back', users_path %>
 				
