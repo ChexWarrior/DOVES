@@ -1,64 +1,64 @@
-
 <h1>User Info</h1>
 
 <p>
-  <b>First Name:</b>
-  <%= @user.first_name %>
+	<b>First Name:</b>
+	<%= @user.first_name %>
 </p>
 
 <p>
-  <b>Last Name:</b>
-  <%= @user.last_name %>
+	<b>Last Name:</b>
+	<%= @user.last_name %>
 </p>
 
 <p>
-  <b>Phone:</b>
-  <%= @user.phone %>
+	<b>Phone:</b>
+	<%= @user.phone %>
 </p>
 
 <p>
-  <b>Address Line 1:</b>
-  <%= @user.address_line1 %>
+	<b>Address Line 1:</b>
+	<%= @user.address_line1 %>
 </p>
 
 <p>
-  <b>Address Line 2:</b>
-  <%= @user.address_line2 %>
+	<b>Address Line 2:</b>
+	<%= @user.address_line2 %>
 </p>
 
 <p>
-  <b>City:</b>
-  <%= @user.city %>
+	<b>City:</b>
+	<%= @user.city %>
 </p>
 
 <p>
-  <b>State:</b>
-  <%= @user.state %>
+	<b>State:</b>
+	<%= @user.state %>
 </p>
 
 <p>
-  <b>Zip:</b>
-  <%= @user.zip %>
+	<b>Zip:</b>
+	<%= @user.zip %>
 </p>
 
 <p>
-  <b>Email:</b>
-  <%= @user.email %>
+	<b>Email:</b>
+	<%= @user.email %>
 </p>
 
 <p>
-  <b>Previous Experience:</b>
-  <%= @user.prev_exp %>
+	<b>Previous Experience:</b>
+	<%= @user.prev_exp %>
 </p>
 
 <p>
-  <b>Level:</b>
-  <%= @user.level.titleize %>
+	<b>Level:</b>
+	<%= @user.level.titleize %>
 </p>
 
 
 <h1>My Submissions</h1>
 <%= render :partial => 'submissions/list' %>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+	
+	<%= link_to 'Edit', edit_user_path(@user) %> |
+		<%= link_to 'Back', users_path %>
+				
