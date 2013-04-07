@@ -38,7 +38,7 @@
   </tr>
 
 <% @birds.each do |bird| %>
-  <tr>
+  <tr class="subRow">
 	<td><%= bird.id %></td>
     <td><%= link_to bird.common_name, bird %></td>
     <td><%= bird.reviewable.humanize %></td>

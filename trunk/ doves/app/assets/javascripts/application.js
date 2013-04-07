@@ -15,3 +15,19 @@
 //= require jquery-ui
 //= require bootstrap
 //= require_tree .
+	$(document).ready(function(){
+		$("#reset").bind("click", function (){
+			$("#search").val("");
+		});
+	
+		var rowNum = 0;
+		$(".subRow").each(function() {
+			if(rowNum % 2 == 0) {
+				$(this).addClass("odd");
+			}
+			else {
+				$(this).addClass("even");
+			}
+			rowNum++;
+		});
+	});
