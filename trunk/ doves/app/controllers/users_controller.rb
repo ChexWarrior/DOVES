@@ -77,7 +77,7 @@ class UsersController < ApplicationController
   def create
 	params[:user][:level] = 'registered_user' if !isadmin?
     @user = User.new(params[:user])
-	session[:user] = @user if !loggedin?
+	#session[:user] = @user if !loggedin?
 	
     respond_to do |format|
       if @user.save
