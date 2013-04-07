@@ -1,9 +1,8 @@
 class Submission < ActiveRecord::Base
 
 has_many :multimedia, :dependent => :destroy
-accepts_nested_attributes_for :multimedia
-
 has_many :votes
+accepts_nested_attributes_for :multimedia
 
 belongs_to :bird
 belongs_to :user
@@ -65,7 +64,7 @@ def self.subsearch(search, option)
 				false
 			end
 		when "pending"
-			if (user.level == "admin") or (user.level == "admin") or (user.id == user_id)
+			if (user.level == "admin") or (user.level == "reviewer") or (user.id == user_id)
 				true
 			else
 				false

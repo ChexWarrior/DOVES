@@ -1,4 +1,4 @@
-<%= form_for(@vote) do |f| %>
+<%= form_for [@submission, @vote] do |f| %>
   <% if @vote.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@vote.errors.count, "error") %> prohibited this vote from being saved:</h2>
@@ -10,28 +10,29 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :Submission_id %><br />
-    <%= f.number_field :Submission_id %>
+<br>
+  <!-- div class="field">
+    <%= f.label :submission_id %><br />
+    <%= f.number_field :submission_id %>
   </div>
   <div class="field">
     <%= f.label :round %><br />
     <%= f.number_field :round %>
+  </div -->
+  <div class="subLabel">
+    <span>Vote</span>
+    <%= f.select :vote,[["Accept","A"],["Reject","R"]]  %>
   </div>
-  <div class="field">
-    <%= f.label :vote %><br />
-    <%= f.text_field :vote %>
+  <br>
+  <div class="subLabel">
+    <span style="position:relative; bottom:40px;">Comments</span>
+    <%= f.text_area :comments, :rows => "5", :cols => "35" %>
   </div>
-  <div class="field">
-    <%= f.label :comments %><br />
-    <%= f.text_area :comments %>
-  </div>
-  <div class="field">
+  <!-- div class="field">
     <%= f.label :time %><br />
     <%= f.datetime_select :time %>
-  </div>
+  </div-->
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Make Vote" %>
   </div>
 <% end %>

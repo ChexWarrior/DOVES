@@ -36,19 +36,25 @@ class SubmissionsController < ApplicationController
   #					 option to vote if reviewer has not voted yet
     
     @submission = Submission.find(params[:id])
-	#get status (may need to put to upper or lower case)
+	@vote = Vote.new
+	@hasVoted = true
 	subStatus = @submission.status
 	subId = @submission.id
-	
-	  if (isadmin? || isreviewer?) #&& subStatus == "pending"
+	if isreviewer? && subStatus == "pending"
 		#get all votes that have an s_id equal to this submission
-		votes = Vote.where("s_id = ?",subId);
-	  end
+		@votes = @submission.votes
+		#don't show any votes or comments for votes made in this round by other reviewers
+		@votes.delete_if{|vote| vote.round == @submission.rounds}
+		#don't show the editable vote fields if this user has already voted on this submission in this round
+		@hasVoted = @submission.votes.scoped_by_user_id(session[:user].id).scoped_by_round(@submission.rounds).exists?		
+	end
+
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @submission }
     end
+	
   end
 
   # GET /submissions/new
