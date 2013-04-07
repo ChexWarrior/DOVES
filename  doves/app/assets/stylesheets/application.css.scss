@@ -213,10 +213,16 @@ th {
 }
 
 .even {
-	background:#CCEEFF;
+	background:#E1EEf4;
     color: #000
 }
 
 .approved {color:green}
 
 .rejected {color:red}
+
+.datagrid {font: normal 12px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;
+-moz-box-shadow: 10px 10px 10px #888;
+-webkit-box-shadow: 10px 10px 10px #888;
+box-shadow: 10px 10px 10px #888;
+}
