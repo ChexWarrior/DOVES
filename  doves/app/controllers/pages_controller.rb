@@ -13,14 +13,5 @@ def home
 	@multimedia = @multimedia_all.sample(5)
 end
 
-def user_search
-	@users = User.all
-     #@users = User.search(params[:search], params[:field]) if !params[:search].nil?
-	 #@user_field_selected = params[:field]	 
-	 #render :layout =>false
-    respond_to do |format|
-        format.js { render :layout=>false }
-    end
-  end
 
 end
