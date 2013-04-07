@@ -13,7 +13,7 @@
 					<div class="<% if index == 0 %>item active<% else %>item<% end %>">
 						<%= image_tag(item_image.image_url(:carousel), :class=>"profile") %>
 						<div class="carousel-caption">
-						  <h4>Bird name here</h4>
+						  <h4><%= item_image.submission.bird.common_name unless item_image.submission.bird.nil? %></h4>
 						  <p style="text-indent: 0em;">Spotted on March 31, 2013 near Norfolk, VA</p>
 						</div>
 					</div>
