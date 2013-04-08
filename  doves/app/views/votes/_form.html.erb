@@ -21,7 +21,12 @@
     <span style="position:relative; bottom:40px;">Comments</span>
     <%= f.text_area :comments, :rows => "5", :cols => "35" %>
   </div>
-  <%= @comments.join(",") %>
+  <!-- Print out old comments on this vote! -->
+  <% @comments.each do |c| %>
+	<div class="subLabel">
+		<%= c %>
+	</div>
+  <% end %>
   <div class="actions">
     <%= f.submit "Make Vote" %>
   </div>
