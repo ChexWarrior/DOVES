@@ -40,13 +40,16 @@ class SubmissionsController < ApplicationController
 	@hasVoted = true
 	subStatus = @submission.status
 	subId = @submission.id
-	if isreviewer? && subStatus == "pending"
+	if (isadmin? || isreviewer?) && subStatus == "pending"
 		#get all votes that have an s_id equal to this submission
 		@votes = @submission.votes
+		#@comments array will hold all previous comments for display on the screen :M
+		@comments = []
+		@submission.votes.each{|vote| @comments.push(vote.comments)}
 		#don't show any votes or comments for votes made in this round by other reviewers
 		@votes.delete_if{|vote| vote.round == @submission.rounds}
 		#don't show the editable vote fields if this user has already voted on this submission in this round
-		@hasVoted = @submission.votes.scoped_by_user_id(session[:user].id).scoped_by_round(@submission.rounds).exists?		
+		@hasVoted = @submission.votes.scoped_by_user_id(session[:user].id).scoped_by_round(@submission.rounds).exists?
 	end
 
 

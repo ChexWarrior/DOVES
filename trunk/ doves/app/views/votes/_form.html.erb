@@ -11,14 +11,7 @@
     </div>
   <% end %>
 <br>
-  <!-- div class="field">
-    <%= f.label :submission_id %><br />
-    <%= f.number_field :submission_id %>
-  </div>
-  <div class="field">
-    <%= f.label :round %><br />
-    <%= f.number_field :round %>
-  </div -->
+  <% if isreviewer? %>
   <div class="subLabel">
     <span>Vote</span>
     <%= f.select :vote,[["Accept","A"],["Reject","R"]]  %>
@@ -28,11 +21,9 @@
     <span style="position:relative; bottom:40px;">Comments</span>
     <%= f.text_area :comments, :rows => "5", :cols => "35" %>
   </div>
-  <!-- div class="field">
-    <%= f.label :time %><br />
-    <%= f.datetime_select :time %>
-  </div-->
+  <%= @comments.join(",") %>
   <div class="actions">
     <%= f.submit "Make Vote" %>
   </div>
+  <% end %>
 <% end %>
