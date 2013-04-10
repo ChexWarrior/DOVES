@@ -88,17 +88,17 @@
 	<td><%= submission.user.first_name%>&nbsp<%= submission.user.last_name %></td>
 	<td><%= submission.location %></td>
 	<td><%= submission.region %></td>
-	<td><%= submission.created_on%></td>
-	<td><%= submission.sight_date_time %></td>
+	<td><%= submission.created_on.strftime("%m/%d/%y  %I:%M%p") if submission.created_on %></td>
+	<td><%= submission.sight_date_time.strftime("%m/%d/%y  %I:%M%p") if submission.sight_date_time %></td>
 	<td><%= submission.media %></td>
 	<td><%= submission.status.humanize if submission.status %></td>
 	<td><%= submission.s_degree %></td>	
     <% if (isadmin? || isreviewer?) %>
 	<td><%= submission.rounds %></td>
 	<% end %>
-    <td><%= submission.date_accepted %></td>
+    <td><%= submission.date_accepted.strftime("%m/%d/%y  %I:%M%p") if submission.date_accepted %></td>
     <% if (isadmin? || isreviewer?) %>
-	<td><%= submission.date_votable %></td>
+	<td><%= submission.date_votable.strftime("%m/%d/%y") if submission.date_votable %></td>
 	<% end %>
     <!-- <td><%= submission.user_id %></td> -->    
     <!-- <td><%= submission.user.last_name %></td> -->    

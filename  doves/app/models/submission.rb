@@ -49,7 +49,7 @@ def self.subsearch(search, option)
  end
  
  def user_authorized_to_view?(user)
-	if user then
+	if !user.nil? then
 	case status
 		when "incomplete"
 			if (user.level == "admin") or (user.id == user_id)
@@ -85,7 +85,7 @@ def self.subsearch(search, option)
 			else
 				false
 			end
-	end
+		end
 	else
 		true if status == 'verified'
 	end

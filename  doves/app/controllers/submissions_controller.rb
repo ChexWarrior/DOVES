@@ -151,7 +151,6 @@ class SubmissionsController < ApplicationController
 
    def ensure_user_authorized_to_view
 	@submission = Submission.find(params[:id])
-	redirect_to login_users_path, notice: "You must be logged in to perform that action." and return if !loggedin?
 	redirect_to submissions_path, notice: "You are not authorized for that action." and return if !(@submission.user_authorized_to_view?(session[:user]))
   end 
   
