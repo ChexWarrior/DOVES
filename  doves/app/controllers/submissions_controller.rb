@@ -21,6 +21,9 @@ class SubmissionsController < ApplicationController
     end
   end
 
+	#old vote record
+	Record = Struct.new(:voter_name,:vote_time,:comment);
+
   # GET /submissions/1
   # GET /submissions/1.json
   def show
@@ -44,8 +47,8 @@ class SubmissionsController < ApplicationController
 		#get all votes that have an s_id equal to this submission
 		@votes = @submission.votes
 		#@comments array will hold all previous comments for display on the screen :M
-		@comments = []
-		@submission.votes.each{|vote| @comments.push(vote.comments)}
+		@oldRecords = []
+		@submission.votes.each{|vote| @oldRecords.push(Record.new(User.find(vote.user_id).first_name,vote.created_at,vote.comments))}
 		#don't show any votes or comments for votes made in this round by other reviewers
 		@votes.delete_if{|vote| vote.round == @submission.rounds}
 		#don't show the editable vote fields if this user has already voted on this submission in this round

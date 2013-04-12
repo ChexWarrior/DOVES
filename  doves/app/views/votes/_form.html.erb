@@ -22,11 +22,20 @@
     <%= f.text_area :comments, :rows => "5", :cols => "35" %>
   </div>
   <!-- Print out old comments on this vote! -->
-  <% @comments.each do |c| %>
+  <br><br>
+  <span class ="subHead">Past Voting Information</span>
+  <br><br>
+  <% @oldRecords.each do |r| %>
 	<div class="subLabel">
-		<%= c %>
+		<br>
+		Comment made by <%= r.voter_name %> on <%= r.vote_time %>:
+		<br><br>
+		<p>
+			<%= r.comment %>
+		</p>
 	</div>
   <% end %>
+  <br><br>
   <div class="actions">
     <%= f.submit "Make Vote" %>
   </div>
