@@ -1,0 +1,1 @@
+<div class="newspost"><div class="newstitle"><span class="posttitle"><%= @posts[0].title %></span><span class="postauthor">Posted by <%= @posts[0].user.first_name+" "+ @posts[0].user.last_name+" on "+@posts[0].created_on.strftime("%m/%d/%Y")%></span><div class="spacer" style="clear: both;"></div></div><p><%= @posts[0].body %></p></div>

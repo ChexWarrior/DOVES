@@ -222,6 +222,37 @@ th {
 
 .rejected {color:red}
 
+.newspost {
+	border: 2px solid #4e82c8;
+	border-radius: 9px;
+	padding: 5px;
+}
+
+.newstitle {
+	color: #fff;
+	background: #4e82c8;
+	border-radius: 6px;
+	padding: 5px;
+	margin: -5px;
+	margin-bottom: 5px;
+	clear: both;
+}
+
+.posttitle {
+float: left;
+height: 50px;
+line-height: 50px;
+font-size: 18pt
+}
+
+.postauthor {
+float: right;
+height: 50px;
+line-height: 50px;
+}
+
+
+
 table{
 font: normal 12px/150% Arial, Helvetica, sans-serif; background: #fff; overflow: hidden;  border-radius: 5px;
 border-collapse: separate;

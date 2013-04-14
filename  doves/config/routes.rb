@@ -1,4 +1,8 @@
 DOVES::Application.routes.draw do
+  resources :posts do
+	get 'list', :on => :collection
+	end
+
   resources :multimedia
 
   resources :birds do 
