@@ -34,15 +34,7 @@
 <h1 id="userAdminTitle" class="subHead">User Administration -</h1>
   <div id="userAdmin">
 
-<%= form_tag users_path, :method => 'get' do%>
-	<%= select_tag :field, options_for_select(user_search_params, params[:field]) %>
-    <%= text_field_tag :search, params[:search] %>
-	<br/>
-	<%= select_tag :per_page, options_for_select(results_per_page, params[:per_page]) %> results per page
-	<br/>
-    <%= submit_tag "Search", :name=> nil%> 
-	  <input type ="button" value="Reset" id="reset"/>
-<% end%> 
+<%= render :partial => 'users/searchform' %>
 </div>
 
 

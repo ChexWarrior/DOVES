@@ -26,10 +26,17 @@ DOVES - Database for Ornithological Verification and Submission</title>
 <%= link_to new_submission_path do %><div class="nav">Submit</div><% end %>
 
 <%=
-   link_to_if(!loggedin?, content_tag(:div, "Log In", :class=>"nav"), { :controller => "users", :action => "login" }) do
-     link_to(content_tag(:div, "Log Out", :class=>"nav"), { :controller => "users", :action => "logout"})
+   link_to_if(!loggedin?, content_tag(:div, "Log In", :class=>"nav"), login_users_path) do
+     link_to(content_tag(:div, "Log Out", :class=>"nav"), logout_users_path)
    end
 %>
+
+<%=
+   link_to_if(!loggedin?, content_tag(:div, "Register", :class=>"nav"), new_user_path) do
+     
+   end
+%>
+
 <%= link_to birds_path do %><div class="nav">Reviewable Birds</div><% end %>
 
 

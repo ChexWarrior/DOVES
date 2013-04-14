@@ -34,6 +34,8 @@
       <%= submit_tag "Search", :name => nil %> 
 	  <input type ="button" value="Reset" id="reset"/>
 <% end %> 
+
+<% if @submissions.length > 0 %>
 <table class = "datagrid">
   <tr>
     <th> Common Name </th>
@@ -130,4 +132,6 @@
 
 <br />
 <%= will_paginate @submissions %>
+
+<% end %>
 <%= link_to 'New Submission', new_submission_path %>

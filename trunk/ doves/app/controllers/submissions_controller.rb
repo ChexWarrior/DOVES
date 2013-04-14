@@ -13,6 +13,7 @@ class SubmissionsController < ApplicationController
     params[:per_page] = 10 if params[:per_page].nil?
 	 @submissions = Submission.all if params[:search].nil?
      @submissions = Submission.subsearch(params[:search], params[:field]) if !params[:search].nil?
+	 flash.now[:notice] = "No Submissions Found" if @submissions.length == 0
 	 @submissions = @submissions.paginate(:page => params[:page], :per_page => params[:per_page])
 
     respond_to do |format|
