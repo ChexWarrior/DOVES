@@ -69,6 +69,7 @@ class SubmissionsController < ApplicationController
   def new
   
     @submission = Submission.new
+	@submission.status = "new"
 	5.times {@submission.multimedia.build}
 	
     respond_to do |format|
@@ -94,7 +95,6 @@ class SubmissionsController < ApplicationController
   def create
   
     @submission = Submission.new(params[:submission])
-	
 	@submission.user_id = session[:user].id
 	@bird = Bird.find_by_common_name(@submission.common_name)
 	if @bird.nil? then
@@ -105,6 +105,10 @@ class SubmissionsController < ApplicationController
 	end
 	5.times {@submission.multimedia.build}
 	
+	# if we clicked the "Save as Draft" submit button
+	if params[:commit] == "Save as Draft"
+		@submission.status = "incomplete"
+	end
 
     respond_to do |format|
       if @submission.save
