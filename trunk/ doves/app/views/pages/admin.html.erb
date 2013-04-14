@@ -22,6 +22,8 @@
 		}
 	});
 	
+	$("[id$=Admin]").slideUp();
+	
 });
    var birdArray = <%= Bird.all.map(&:common_name).sort.to_json.html_safe %>;
    
@@ -31,14 +33,14 @@
 
 </script>
 
-<h1 id="userAdminTitle" class="subHead">User Administration -</h1>
+<h1 id="userAdminTitle" class="subHead">User Administration +</h1>
   <div id="userAdmin">
 
 <%= render :partial => 'users/searchform' %>
 </div>
 
 
-<h1 id="submissionAdminTitle" class="subHead">Submission Administration -</h1>
+<h1 id="submissionAdminTitle" class="subHead">Submission Administration +</h1>
   <div id="submissionAdmin">
 
 <%= form_tag submissions_path, :method => 'get' do %>
@@ -51,8 +53,16 @@
 	  <input type ="button" value="Reset" id="reset"/>
 <% end %>  
 </div>
-<h1 id="voteAdminTitle" class="subHead">Vote Administration -</h1>
+<h1 id="voteAdminTitle" class="subHead">Vote Administration +</h1>
   <div id="voteAdmin">
 
 <%= render :file => '/votes/index' %>
-  <div id="userAdmin">
+</div>
+
+
+<h1 id="postAdminTitle" class="subHead">Post Administration +</h1>
+  <div id="postAdmin">
+
+<%= render :file => 'posts/index' %>
+</div>
+

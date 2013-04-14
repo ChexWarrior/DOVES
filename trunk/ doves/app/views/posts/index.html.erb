@@ -13,11 +13,11 @@
   </tr>
 
 <% @posts.each do |post| %>
-  <tr>
+  <tr class="subRow">
     <td><%= post.title %></td>
-    <td><%= post.body %></td>
-    <td><%= post.created_on %></td>
-    <td><%= post.updated_on %></td>
+    <td><%= post.body[0..64] %></td>
+    <td><%= post.created_on.strftime("%I:%M%p %m/%d/%Y") %></td>
+    <td><%= post.updated_on.strftime("%I:%M%p %m/%d/%Y") %></td>
     <td><%= post.user_id %></td>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
