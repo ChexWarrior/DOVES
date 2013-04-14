@@ -11,6 +11,7 @@ end
 def home
 	@multimedia_all = Multimedium.where("multimedia.image IS NOT NULL")
 	@multimedia = @multimedia_all.sample(5)
+	@posts = Post.order("created_on DESC").limit(1)
 end
 
 
