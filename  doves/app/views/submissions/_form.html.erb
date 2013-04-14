@@ -228,9 +228,13 @@
   </div>
   <% end %>
   <br>
-  
-	
-	<div class="actions">
-		<%= f.submit "Submit", :onclick => "return validateSubmission();" %>
-	</div>
+  	<!-- Display Save as Draft if this is a new submission or this submission is incomplete and belongs to the logged in user -->
+	<% if @submission.status == "new" || (@submission.status == "incomplete" && @submission.user_id == session[:user].id)%>
+		<%= f.submit "Save as Draft", :style => "display:inline-block;"%>
 	<% end %>
+
+	<%= f.submit "Submit", :onclick => "return validateSubmission();" %>
+	
+
+	
+<% end %>
