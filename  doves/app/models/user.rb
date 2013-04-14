@@ -43,15 +43,15 @@ def match_password(login_password="")
 encrypted_password == BCrypt::Engine.hash_secret(login_password, salt)
 end
 
-def self.search(search, option)
+def self.search(search, option, levels)
   search_condition = "%#{search}%"
   case option
 	when "first_name"
-		User.where("first_name LIKE ?", search_condition)
+		User.where("first_name LIKE ? and level in (?)", search_condition, levels)
 	when "last_name"
-		User.where("last_name LIKE ?", search_condition)
+		User.where("last_name LIKE ? and level in (?)", search_condition, levels)
 	when "email"
-		User.where("email LIKE ?", search_condition)
+		User.where("email LIKE ? and level in (?)", search_condition, levels)
 	else
 		User.all
   end

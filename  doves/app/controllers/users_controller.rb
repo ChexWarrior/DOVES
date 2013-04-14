@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
   
-  @users = User.search(params[:search], params[:field]).paginate(:page => params[:page], :per_page => params[:per_page])
+  @users = User.search(params[:search], params[:field], params[:levels]).paginate(:page => params[:page], :per_page => params[:per_page])
+  flash.now[:notice] = "No Users Found" if @users.length == 0
 
     respond_to do |format|
       format.html # index.html.erb
