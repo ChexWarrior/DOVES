@@ -6,6 +6,7 @@ require 'will_paginate/array'
 
 def admin
 	@votes = Vote.all
+    @posts = Post.order("created_on DESC").paginate(:page => params[:page], :per_page => 25)
 end
 
 def home
