@@ -30,6 +30,13 @@
   <%= @vote.time %>
 </p>
 
-
+<% if isadmin? %>
 <%= link_to 'Edit', edit_vote_path(@vote) %> |
 <%= link_to 'Back', votes_path %>
+<% end %>
+
+
+<% if isreviewer? %>
+<%= link_to 'Edit', edit_vote_path(@vote) %> |
+<%= link_to 'Back', pending_votes_path %>
+<% end %>

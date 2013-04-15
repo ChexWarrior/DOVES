@@ -69,7 +69,7 @@ class SubmissionsController < ApplicationController
   def new
   
     @submission = Submission.new
-	@submission.status = "new"
+	@submission.status = "incomplete"
 	5.times {@submission.multimedia.build}
 	
     respond_to do |format|
@@ -107,12 +107,13 @@ class SubmissionsController < ApplicationController
 	5.times {@submission.multimedia.build}
 	
 	# if we clicked the "Save as Draft" submit button
-	if params[:commit] == "Save as Draft"
+	if params[:commit].downcase == "save as draft"
 		@submission.status = "incomplete"
 	end
-
+	
     respond_to do |format|
       if @submission.save
+		
         format.html { redirect_to @submission, notice: 'Submission was successfully created.' }
         format.json { render json: @submission, status: :created, location: @submission }
       else
@@ -134,6 +135,14 @@ class SubmissionsController < ApplicationController
 		params[:submission][:bird_id] = @bird.id
 		params[:submission][:common_name]=nil
 	end
+	
+	# if we clicked the "Save as Draft" submit button
+	if params[:commit].downcase == "save as draft"
+		@submission.status = "incomplete"
+	elsif params[:commit].downcase == "submit"
+		@submission.status = "new"
+	end
+	
     respond_to do |format|
       if @submission.update_attributes(params[:submission])
         format.html { redirect_to @submission, notice: 'Submission was successfully updated.' }

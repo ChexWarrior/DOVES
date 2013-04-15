@@ -229,11 +229,11 @@
   <% end %>
   <br>
   	<!-- Display Save as Draft if this is a new submission or this submission is incomplete and belongs to the logged in user -->
-	<% if @submission.status == "new" || (@submission.status == "incomplete" && @submission.user_id == session[:user].id)%>
-		<%= f.submit "Save as Draft", :style => "display:inline-block;"%>
+	<% if @submission.status == "incomplete" %>
+		<%= f.submit "Save as Draft", :class => "btn-custom", :style => "display:inline-block;"%>
 	<% end %>
 
-	<%= f.submit "Submit",:class => "btn btn-info", :onclick => "return validateSubmission();" %>
+	<%= f.submit "Submit",:class => "btn-custom", :onclick => "return validateSubmission();" %>
 	
 
 	
