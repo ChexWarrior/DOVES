@@ -53,6 +53,8 @@ before_filter :ensure_reviewer_or_admin
 	# }
 	# }
   @votes = Vote.find(:all, :conditions =>{:user_id => session[:user].id})
+  
+
 	
   end
 
