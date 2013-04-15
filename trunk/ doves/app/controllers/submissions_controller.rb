@@ -70,7 +70,6 @@ class SubmissionsController < ApplicationController
   
     @submission = Submission.new
 	@submission.status = "new"
-	@submission.rounds = 1
 	5.times {@submission.multimedia.build}
 	
     respond_to do |format|
@@ -96,6 +95,7 @@ class SubmissionsController < ApplicationController
   def create
   
     @submission = Submission.new(params[:submission])
+	@submission.rounds = 1
 	@submission.user_id = session[:user].id
 	@bird = Bird.find_by_common_name(@submission.common_name)
 	if @bird.nil? then
