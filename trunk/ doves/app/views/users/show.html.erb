@@ -31,52 +31,90 @@
 	</td>
 </tr>
 
-<p>
+<tr>
+	
+	<td>
 	<b>Address Line 1:</b>
+	</td>
+	
+	<td>
 	<%= @user.address_line1 %>
-</p>
+	</td>
+</tr>
 
-<p>
+<tr>
+	<td>
 	<b>Address Line 2:</b>
+	</td>
+	
+	<td>
 	<%= @user.address_line2 %>
-</p>
+	</td>
+</tr>
 
-<p>
+<tr>
+	<td>
 	<b>City:</b>
+	</td>
+	
+	<td>
 	<%= @user.city %>
-</p>
+	</td>
+	
+</tr>
 
-<p>
+<tr>
+	<td>
 	<b>State:</b>
+	</td>
+	
+	<td>
 	<%= @user.state %>
-</p>
+	</td>
+</tr>
 
-<p>
+<tr>
 	<b>Zip:</b>
 	<%= @user.zip %>
-</p>
+</tr>
 
-<p>
+<tr>
+	<td>
 	<b>Email:</b>
+	</td>
+	
+	<td>
 	<%= @user.email %>
-</p>
+	</td>
+</tr>
 
-<p>
+<tr>
+	<td>
 	<b>Previous Experience:</b>
+	</td>
+	
+	<td>
 	<%= @user.prev_exp %>
-</p>
+	</td>
+</tr>
 
-<p>
+<tr>
+	<td>
 	<b>Level:</b>
+	</td>
+	
+	<td>
 	<%= @user.level.titleize %>
-</p>
+	</td>
+</tr>
 </table>	
 
 <h1>My Submissions</h1>
 <table>
 <%= render :partial => 'submissions/list' %>
+</table>
 	<%= link_to 'Edit', edit_user_path(@user) %> |
 		<%= link_to 'Back', users_path %>
 		
-</table>
+
 			
