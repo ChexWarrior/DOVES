@@ -219,19 +219,24 @@ th {
 }
 
 .approved {color:green}
+.yes {color:green}
 
 .rejected {color:red}
+.no {color:red}
 
 .newspost {
 	border: 2px solid #4e82c8;
 	border-radius: 9px;
 	padding: 5px;
+	box-shadow: 10px 10px 10px #888;
 }
 
 .newstitle {
 	color: #fff;
 	background: #4e82c8;
 	border-radius: 6px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
 	padding: 5px;
 	margin: -5px;
 	margin-bottom: 5px;
@@ -240,15 +245,15 @@ th {
 
 .posttitle {
 float: left;
-height: 50px;
-line-height: 50px;
+height: 40px;
+line-height: 40px;
 font-size: 18pt
 }
 
 .postauthor {
 float: right;
-height: 50px;
-line-height: 50px;
+height: 40px;
+line-height: 40px;
 }
 
 
