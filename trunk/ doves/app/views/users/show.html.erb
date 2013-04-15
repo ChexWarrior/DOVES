@@ -1,7 +1,7 @@
 <h1>User Info</h1>
 
 <table>
-<tr>
+<tr class="subRow">
     <td>
 	<b>First Name:</b>
 	</td>
@@ -11,7 +11,7 @@
 	</td>	
 </tr>
 
-<tr>
+<tr class="subRow">
 	<td>
 	<b>Last Name:</b>
 	</td>
@@ -21,7 +21,7 @@
 	</td>
 </tr>
 
-<tr>
+<tr class="subRow">
 	<td>
 	<b>Phone:</b>
 	</td>
@@ -31,7 +31,7 @@
 	</td>
 </tr>
 
-<tr>
+<tr class="subRow">
 	
 	<td>
 	<b>Address Line 1:</b>
@@ -42,7 +42,7 @@
 	</td>
 </tr>
 
-<tr>
+<tr class="subRow">
 	<td>
 	<b>Address Line 2:</b>
 	</td>
@@ -52,7 +52,7 @@
 	</td>
 </tr>
 
-<tr>
+<tr class="subRow">
 	<td>
 	<b>City:</b>
 	</td>
@@ -63,7 +63,7 @@
 	
 </tr>
 
-<tr>
+<tr class="subRow">
 	<td>
 	<b>State:</b>
 	</td>
@@ -73,7 +73,7 @@
 	</td>
 </tr>
 
-<tr>
+<tr class="subRow">
 	<td>
 	<b>Zip:</b>
 	</td>
@@ -83,7 +83,7 @@
 	</td>
 </tr>
 
-<tr>
+<tr class="subRow">
 	<td>
 	<b>Email:</b>
 	</td>
@@ -93,7 +93,7 @@
 	</td>
 </tr>
 
-<tr>
+<tr class="subRow">
 	<td>
 	<b>Previous Experience:</b>
 	</td>
@@ -103,7 +103,7 @@
 	</td>
 </tr>
 
-<tr>
+<tr class="subRow">
 	<td>
 	<b>Level:</b>
 	</td>
@@ -119,18 +119,12 @@
 <br>
 
 <table>
-	<tr>
-	
+	<tr>	
 		<td>
 			<%= link_to 'Edit', edit_user_path(@user) %> |
-	</td>
-	
-	<td>
 	
 		<%= link_to 'Back', users_path %>
 			</td>
-	
-	
 </tr>
 </table>
 
