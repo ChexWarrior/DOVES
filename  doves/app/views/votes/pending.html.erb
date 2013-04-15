@@ -18,9 +18,8 @@
     <th>Rounds</th>
     <th>Date accepted</th>
     <th>Date votable</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th> Vote ?</th>
+    
   </tr>
 
 <% @pending.each do |submission| %>
@@ -44,7 +43,6 @@
     <td><%= submission.rounds %></td>
     <td><%= submission.date_accepted %></td>
     <td><%= submission.date_votable %></td>
-
     <td><%= link_to 'VOTE', submission %></td>
   </tr>
 <% end %>
@@ -63,9 +61,7 @@
     <th>Vote</th>
     <th>Comments</th>
     <th>Time</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Show?</th>
   </tr>
 
 <% @votes.each do |vote| %>
@@ -76,7 +72,7 @@
     <td><%= vote.vote %></td>
     <td><%= vote.comments %></td>
     <td><%= vote.time %></td>
-    <td><%= link_to 'Show', submission %></td>
+    <td><%= link_to 'Show', vote.submission %></td>
   </tr>
 <% end %>
 </table>
