@@ -1,3 +1,4 @@
+<% if (!@pending.empty?) %>
 <h1>Vote Needed</h1>
 <table>
   <tr>
@@ -44,12 +45,13 @@
     <td><%= submission.date_accepted %></td>
     <td><%= submission.date_votable %></td>
 
-    <td><%= link_to 'Show', submission %></td>
-    <td><%= link_to 'Edit', edit_submission_path(submission) %></td>
-    <td><%= link_to 'Destroy', submission, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'VOTE', submission %></td>
   </tr>
 <% end %>
 </table>
+<% else %>
+<p> No votes are currently pending. </p>
+<% end %>
 
 <h2>Past Votes</h2>
 
@@ -74,13 +76,10 @@
     <td><%= vote.vote %></td>
     <td><%= vote.comments %></td>
     <td><%= vote.time %></td>
-    <td><%= link_to 'Show', vote %></td>
-    <td><%= link_to 'Edit', edit_vote_path(vote) %></td>
-    <td><%= link_to 'Destroy', vote, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Show', submission %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Vote', new_vote_path %>
