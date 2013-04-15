@@ -4,8 +4,10 @@
 	$(document).ready(function(){
 	$("#reset").bind("click", function (){
 		$("#search_field").val("");
+	$("#status").addClass(this.text());
 	});
 	});
+	
 </script>
 
 <% if flash[:notice] %>
@@ -41,7 +43,7 @@
   <tr class="subRow">
 	<td><%= bird.id %></td>
     <td><%= link_to bird.common_name, bird %></td>
-    <td><%= bird.reviewable.humanize %></td>
+    <td class="<%= bird.reviewable %>"><%= bird.reviewable.humanize %></td>
 	<% if isadmin? %>
     <td><%= link_to 'Show', bird %></td>
     <td><%= link_to 'Edit', edit_bird_path(bird) %></td>

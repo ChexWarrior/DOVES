@@ -15,10 +15,10 @@
 <% @posts.each do |post| %>
   <tr class="subRow">
     <td><%= post.title %></td>
-    <td><%= post.body[0..64] %></td>
+    <td><%= truncate(post.body, :length => 50, :separator => ' ') %></td>
     <td><%= post.created_on.strftime("%I:%M%p %m/%d/%Y") %></td>
     <td><%= post.updated_on.strftime("%I:%M%p %m/%d/%Y") %></td>
-    <td><%= post.user_id %></td>
+    <td><%= post.user.first_name+" "+post.user.last_name %></td>
     <td><%= link_to 'Show', post %></td>
     <td><%= link_to 'Edit', edit_post_path(post) %></td>
     <td><%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %></td>
@@ -27,5 +27,5 @@
 </table>
 
 <br />
-
+<%= will_paginate @posts %>
 <%= link_to 'New Post', new_post_path %>
