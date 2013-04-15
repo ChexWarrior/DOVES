@@ -128,6 +128,9 @@ class SubmissionsController < ApplicationController
   def update
     @submission = Submission.find(params[:id])
 	
+	params[:submission][:rounds] = @submission.rounds if !isadmin?
+	params[:submission][:status] = @submission.status if !isadmin?
+	
 	@bird = Bird.find_by_common_name(params[:submission][:common_name])
 	if @bird.nil? then
 		params[:submission][:bird_id]=31  #default to "Other" if we don't find a bird with that name

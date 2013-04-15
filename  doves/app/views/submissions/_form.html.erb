@@ -225,6 +225,11 @@
 		<span>Submission Status</span>
 		<%= f.select :status, options_for_select(submission_statuses, @submission.status)%>
 	</div>
+	<br>
+	<div class="subLabel">
+		<span>Round</span>
+		<%= f.select :rounds, options_for_select([1,2,3], @submission.rounds)%>
+	</div>
   </div>
   <% end %>
   <br>
