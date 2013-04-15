@@ -70,7 +70,7 @@ class SubmissionsController < ApplicationController
   
     @submission = Submission.new
 	@submission.status = "new"
-	@submission.round = 1
+	@submission.rounds = 1
 	5.times {@submission.multimedia.build}
 	
     respond_to do |format|
