@@ -115,13 +115,19 @@
 </table>	
 
 <h1>My Submissions</h1>
+
+<%= render :partial => 'submissions/list' %>
+
 <table>
 	<td>
-<%= render :partial => 'submissions/list' %>
-	</td>
-</table>
 	<%= link_to 'Edit', edit_user_path(@user) %> |
+	</td>
+	
+	<td>
+	
 		<%= link_to 'Back', users_path %>
+			</td>
+</table>
 		
 
 			
