@@ -25,6 +25,7 @@
   <br><br>
   <span class ="subHead">Past Voting Information</span>
   <br><br>
+	<% if @oldRecords %>
   <% @oldRecords.each do |r| %>
 	<div class="subLabel">
 		<br>
@@ -34,6 +35,9 @@
 			<%= r.comment %>
 		</p>
 	</div>
+	
+  <% end %>
+  <% else %>No old records. <br>
   <% end %>
   <br><br>
   <div class="actions">
