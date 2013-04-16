@@ -12,6 +12,9 @@
 		}	
 	});
 	
+	$(".expand").attr("title","Click to show or hide");
+	
+	
 	var subRecall = $("#sub_recall").html();
 	var unusual = $("#unusual").html();
 	
@@ -31,8 +34,9 @@
 });
 </script>
 
-
-  <span id="birdInfoTitle" class="subHead">Bird Information</span>
+  <h1>View Submission</h1>
+  <br>
+  <span id="birdInfoTitle" class="subHead expand">Bird Information</span>
   <br><br>
   <div class="subGroup" id="birdInfo">
   	<div class="subLabel">
@@ -86,7 +90,7 @@
   
   <br>
   
-  <span id="subInfoTitle" class="subHead">Submission Information</span>
+  <span id="subInfoTitle" class="subHead expand">Submission Information</span>
   <br><br>
   <div class="subGroup" id="subInfo">
 	<div class="subLabel">
@@ -165,7 +169,7 @@
   <br>
   
   <% if isadmin? %>
-  <span id="adminInfoTitle" class="subHead">Administrator Information</span>
+  <span id="adminInfoTitle" class="subHead expand">Administrator Information</span>
   <br><br>
   <div class="subGroup" id="adminInfo">
 	<div class="subLabel">
@@ -203,7 +207,7 @@
   <br>
   
 <% if (isadmin? || isreviewer?) && (!@hasVoted) %>
-  <span id="votingInfoTitle" class="subHead">Voting Information</span>
+  <span id="votingInfoTitle" class="subHead expand">Voting Information</span>
   <div class="subGroup" id="votingInfo">
 	<%= render :partial => 'votes/form' %>
   </div>

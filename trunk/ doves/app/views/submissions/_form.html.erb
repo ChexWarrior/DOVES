@@ -17,6 +17,14 @@
 		}
 	});
 	
+	$(".expand").attr("title","Click to show or hide");
+	
+
+	//hide these groups by default
+	$("#subInfo").hide();
+	$("#adminInfo").hide();
+	$("#votingInfo").hide();
+	
 });
    var birdArray = <%= Bird.all.map(&:common_name).sort.to_json.html_safe %>;
    
@@ -56,7 +64,7 @@
 	</div>
   <% end %>
 
-  <span id="birdInfoTitle" class="subHead">Bird Information</span>
+  <span id="birdInfoTitle" class="subHead expand">Bird Information</span>
   <br><br>
   <div class="subGroup" id="birdInfo">
   	<div class="subLabel">
@@ -107,7 +115,7 @@
   
   <br>
   
-  <span id="subInfoTitle" class="subHead">Submission Information</span>
+  <span id="subInfoTitle" class="subHead expand">Submission Information</span>
   <br><br>
   <div class="subGroup" id="subInfo">
 	<div class="subLabel">
@@ -198,7 +206,7 @@
 
   <% if isadmin? && params[:action] != "new"%>
   
-  <span id="adminInfoTitle" class="subHead">Administrator Information</span>
+  <span id="adminInfoTitle" class="subHead expand">Administrator Information</span>
   <br><br>
   <div class="subGroup" id="adminInfo">
 	<div class="subLabel">
@@ -234,7 +242,5 @@
 	<% end %>
 
 	<%= f.submit "Submit",:class => "btn-custom", :onclick => "return validateSubmission();" %>
-	
-
 	
 <% end %>
