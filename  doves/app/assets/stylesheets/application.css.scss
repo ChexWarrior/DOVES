@@ -129,6 +129,7 @@ p {
 .subHead {
 	font-size:18pt;
 	border-bottom: 2px solid black;
+	cursor:pointer;
 }
 
 
@@ -186,6 +187,7 @@ width:100%;
 
 .subLabel span, .subLabel input {
 	display: inline-block;
+	border-color:#4e82c8;
 }
 
 .subLabel span {
@@ -241,6 +243,20 @@ th {
 	margin: -5px;
 	margin-bottom: 5px;
 	clear: both;
+}
+
+.btn-custom
+{
+	background: #4e82c8;
+	border: 1px black outset;
+	padding: 5px;
+	color: white;
+	border-radius: 10%;
+}
+
+.btn-custom:hover
+{
+	border: 1px black inset;
 }
 
 .postauthor a {
