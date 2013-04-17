@@ -49,8 +49,8 @@
 	 <br />
 	 <%= select_tag :per_page, options_for_select(results_per_page, params[:per_page]) %> results per page
 	<br/>
-      <%= submit_tag "Search", :name => nil %> 
-	  <input type ="button" value="Reset" id="reset"/>
+      <%= submit_tag "Search",:class=>"btn-custom", :name => nil %> 
+	  <input type ="button" class="btn-custom" value="Reset" id="reset"/>
 <% end %>  
 </div>
 <h1 id="voteAdminTitle" class="subHead">Vote Administration +</h1>
