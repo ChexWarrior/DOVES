@@ -31,8 +31,8 @@
 	 <br />
 	 <%= select_tag :per_page, options_for_select(results_per_page, params[:per_page]) %> results per page
 	<br/>
-      <%= submit_tag "Search", :name => nil %> 
-	  <input type ="button" value="Reset" id="reset"/>
+      <%= submit_tag "Search", :name => nil,:class=>"btn-custom" %> 
+	  <input type ="button" value="Reset" id="reset" class="btn-custom"/>
 <% end %> 
 
 <% if @submissions.length > 0 %>
@@ -134,4 +134,4 @@
 <%= will_paginate @submissions %>
 
 <% end %>
-<%= link_to 'New Submission', new_submission_path %>
+<!-- %= link_to 'New Submission', new_submission_path % -->
