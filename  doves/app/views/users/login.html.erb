@@ -6,8 +6,9 @@
 <%= form_tag(:action => 'login_attempt') do %>
 <p>Email:</br> <%= text_field_tag(:email) %></p>
 <p>Password:</br> <%= password_field_tag :login_password %></p>
-<%= submit_tag("Log In") %><br>
+<span><%= submit_tag "Log In", :class=>"btn-custom" %></span><br>
 <% end %>
 </br>Don't have your own profile?<br>
-<%= button_to 'Register Here', new_user_path, :method => :get, :action => 'new' %>
+
+<span><%= button_to 'Register Here', new_user_path, :method => :get, :action => 'new', :class => "btn-custom" %></span>
 </div>

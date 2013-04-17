@@ -10,63 +10,74 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :password %><br />
+  <br>
+  <div class="subLabel">
+    <span>Password</span>
     <%= f.password_field :password %>
   </div>
-  <div class="field"> 
-  <%= f.label :password_confirmation%><br /> 
-  <%= f.password_field :password_confirmation%> 
+   <br>
+  <div class="subLabel"> 
+	<span>Confirm Password</span>
+	<%= f.password_field :password_confirmation%> 
   </div>
-
-  <div class="field">
-    <%= f.label :first_name %><br />
+  <br>
+  <div class="subLabel">
+    <span>First Name</span>
     <%= f.text_field :first_name %>
   </div>
-  <div class="field">
-    <%= f.label :last_name %><br />
+  <br>
+  <div class="subLabel">
+    <span>Last Name</span>
     <%= f.text_field :last_name %>
   </div>
-  <div class="field">
-    <%= f.label :phone %><br />
+  <br>
+  <div class="subLabel">
+    <span>Phone Number</span>
     <%= f.text_field :phone %>
   </div>
-  <div class="field">
-    <%= f.label :address_line1 %><br />
+  <br>
+  <div class="subLabel">
+    <span>Address</span>
     <%= f.text_field :address_line1 %>
   </div>
-  <div class="field">
-    <%= f.label :address_line2 %><br />
+  <br>
+  <div class="subLabel">
+    <span>Address 2</span>
     <%= f.text_field :address_line2 %>
   </div>
-  <div class="field">
-    <%= f.label :city %><br />
+  <br>
+  <div class="subLabel">
+    <span>City</span>
     <%= f.text_field :city %>
   </div>
-  <div class="field">
-    <%= f.label :state %><br />
+  <br>
+  <div class="subLabel">
+    <span>State</span>
     <%= f.text_field :state %>
   </div>
-  <div class="field">
-    <%= f.label :zip %><br />
+  <br>
+  <div class="subLabel">
+    <span>Zip Code</span>
     <%= f.text_field :zip %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
+  <br>
+  <div class="subLabel">
+    <span>Email</span>
     <%= f.text_field :email %>
   </div>
-  <div class="field">
-    <%= f.label :prev_exp %><br />
-    <%= f.text_area :prev_exp %>
+  <br>
+  <div class="subLabel">
+    <span style="position:relative; bottom:30px;">Birding Experience</span>
+    <%= f.text_area :prev_exp, :rows => "5", :cols => "35" %>
   </div>
+  <br>
  <% if isadmin? %>
-  <div class="field">
+  <div class="subLabel">
     <%= f.label :level %><br />
 	<%= f.select :level, options_for_select(user_levels, @currentlevel) %>
   </div>
  <% end %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Register",:class=>"btn-custom" %>
   </div>
 <% end %>
