@@ -69,13 +69,8 @@
     <!--  <th>Admin notes</th> -->
 	<!-- <th>Working notes</th> -->
 	
-    <% if (isadmin? || isreviewer?) %>
-	<th>Rounds</th> 
-	<% end %>
-    <th>Date accepted</th>
-    <% if (isadmin? || isreviewer?) %>
-	<th>Date votable</th>
-	<% end %>    
+    
+     
 
 	<th></th>
     
@@ -95,13 +90,8 @@
 	<td><%= submission.media %></td>
 	<td><%= submission.status.humanize if submission.status %></td>
 	<td><%= submission.s_degree %></td>	
-    <% if (isadmin? || isreviewer?) %>
-	<td><%= submission.rounds %></td>
-	<% end %>
-    <td><%= submission.date_accepted.strftime("%m/%d/%y  %I:%M%p") if submission.date_accepted %></td>
-    <% if (isadmin? || isreviewer?) %>
-	<td><%= submission.date_votable.strftime("%m/%d/%y") if submission.date_votable %></td>
-	<% end %>
+ 
+   
 
     <!-- <td><%= submission.user_id %></td> -->    
     <!-- <td><%= submission.user.last_name %></td> -->    

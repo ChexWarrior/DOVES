@@ -142,7 +142,7 @@
 	<br>
 	<div class="subLabel">
 		<span>Is an unusual Sighting</span>
-		<span id="unusual"><%= @submission.unusual %></span>
+		<span id="unusual"><%= @submission.unusual.titleize %></span>
 	</div>
 	<br>
 	<div class="subLabel">
@@ -196,7 +196,7 @@
 	<br>
 	<div class="subLabel">
 		<span>Submission Status</span>
-		<%= @submission.status %>
+		<%= @submission.status.humanize %>
 	</div>
 	<br>
 	<div class="subLabel">
@@ -213,4 +213,5 @@
 	<%= render :partial => 'votes/list' if isadmin? %>
 <% end %>
 	
-<!-- %= link_to 'Edit', edit_submission_path(@submission) %> | <%= link_to 'More Submissions', submissions_path %-->
+	<% if @submission.user_authorized_to_edit?(session[:user]) %>
+<%= link_to 'Edit', edit_submission_path(@submission) %> | <% end %><%= link_to 'More Submissions', submissions_path%>
