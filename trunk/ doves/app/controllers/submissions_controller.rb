@@ -199,7 +199,8 @@ class SubmissionsController < ApplicationController
   # PUT /submissions/1.json
   def update
     @submission = Submission.find(params[:id])
-	
+	3.times {@submission.multimedia.build}
+	@multimedia=@submission.multimedia
 	
 	
 	@bird = Bird.find_by_common_name(params[:submission][:common_name])
