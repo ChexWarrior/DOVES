@@ -2,10 +2,11 @@ module SubmissionsHelper
 
 def search_params
     [
+		['Common Name', 'common_name'],
       ['First Name', 'first_name'],
       ['Last Name', 'last_name'],
-      ['Email', 'email'],
-      ['Common Name', 'common_name']
+      ['Email', 'email']
+      
     ]
 end
 
