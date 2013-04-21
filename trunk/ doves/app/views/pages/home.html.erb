@@ -14,9 +14,9 @@
 						<%= image_tag(item_image.image_url(:carousel), :class=>"profile") %>
 						<div class="carousel-caption">
 						  <h4><% if item_image.submission.bird.id == 31 %>
-									 <%= item_image.submission.common_name %>
+									 <%= item_image.submission.common_name.split(' ').map(&:capitalize).join(' ') %>
 							  <% else %>
-						             <%= item_image.submission.bird.common_name unless item_image.submission.bird.nil? %>
+						             <%= item_image.submission.bird.common_name.split(' ').map(&:capitalize).join(' ') unless item_image.submission.bird.nil? %>
 						      <% end %>
 						  </h4>
 						  <p style="text-indent: 0em;">Spotted on <%= item_image.submission.sight_date_time.strftime("%B %e, %Y") %>
