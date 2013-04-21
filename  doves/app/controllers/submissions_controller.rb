@@ -6,6 +6,7 @@ class SubmissionsController < ApplicationController
 	before_filter :ensure_user_authorized_to_view, :only => :show
 	before_filter :ensure_user_authorized_to_edit, :only => [:edit, :update]
 	before_filter :ensure_user_authorized_to_destroy, :only => :destroy
+	before_filter :ensure_admin, :only => [:new_submissions, :pending]
 	
   # GET /submissions
   # GET /submissions.json
@@ -199,8 +200,7 @@ class SubmissionsController < ApplicationController
   def update
     @submission = Submission.find(params[:id])
 	
-	params[:submission][:rounds] = @submission.rounds if !isadmin?
-	params[:submission][:status] = @submission.status if !isadmin?
+	
 	
 	@bird = Bird.find_by_common_name(params[:submission][:common_name])
 	if @bird.nil? then
@@ -216,6 +216,8 @@ class SubmissionsController < ApplicationController
 	elsif params[:commit].downcase == "submit"
 		@submission.status = "new"
 	end
+	params[:submission][:rounds] = @submission.rounds if !isadmin?
+	params[:submission][:status] = @submission.status if !isadmin? and (params[:submission] != "new") 
 	
     respond_to do |format|
       if @submission.update_attributes(params[:submission])
