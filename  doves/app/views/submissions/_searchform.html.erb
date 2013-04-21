@@ -16,7 +16,7 @@
 	
 	<fieldset>
 <% submission_statuses.each do |key, value| %>
-	<%check_this = true %>
+	<%check_this = true if value=="verified"%>
 	<%check_this = params[:status].include?(value) if params[:status] %>
 	<%= check_box_tag 'status[]', value, check_this -%>
 	<%= h key -%>
