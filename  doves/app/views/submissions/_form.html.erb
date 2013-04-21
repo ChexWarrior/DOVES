@@ -113,7 +113,8 @@
 	</div>
   </div>
   
-  <br><br>
+  <br/>
+  <br/>
   <span id="subInfoTitle" class="subHead expand">Submission Information</span>
   <div class="subGroup" id="subInfo">
   <br>
@@ -223,7 +224,8 @@
 	</div>
   </div>
   
-  <br><br>
+  <br/>
+  <br/>
 
   <% if isadmin? && params[:action] != "new"%> 
   <span id="adminInfoTitle" class="subHead expand">Administrator Information</span>
@@ -253,10 +255,15 @@
 		<span>Submission Status</span>
 		<%= f.select :status, options_for_select(submission_statuses, @submission.status)%>
 	</div>
+	<br>
+	<div class="subLabel">
+		<span>Round</span>
+		<%= f.select :rounds, options_for_select([[1,1],[2,2],[3,3]], @submission.rounds) %>
+	</div>
   </div>
   <% end %>
-  
-  <br>
+  <br/>
+  <br/>
   	<!-- Display Save as Draft if this is a new submission or this submission is incomplete and belongs to the logged in user -->
 	<% if @submission.status == "incomplete" %>
 		<%= f.submit "Save as Draft", :class => "btn-custom", :style => "display:inline-block;"%>
