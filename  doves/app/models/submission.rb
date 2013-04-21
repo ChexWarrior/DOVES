@@ -3,34 +3,35 @@ class Submission < ActiveRecord::Base
 has_many :multimedia, :dependent => :destroy
 has_many :votes
 accepts_nested_attributes_for :multimedia
-
+attr_accessor :force_submit
 belongs_to :bird
 belongs_to :user
 
-=begin
- validates :common_name, :presence => true
- validates :s_degree, :presence => true
- validates :age, :presence => true
- validates :sex, :presence => true
- validates :plumage, :presence => true
- validates :location, :presence => true
- validates :region, :presence => true
- validates :sight_date_time, :presence => true
- validates :habitat, :presence => true
- validates :gps, :presence => true
- validates :coobservers, :presence => true
- validates :length_of_obs, :presence => true
- validates :distance_from, :presence => true
- validates :detailed_description, :presence => true
- validates :detailed_behavior, :presence => true
- validates :distinguished_char, :presence => true
- validates :prev_bird_exp, :presence => true
- validates :optical_equipment, :presence => true
- validates :references, :presence => true
- validates :sub_recall, :presence => true
- validates :guide_use, :presence => true
- validates :unusual, :presence => true
-=end
+ 
+
+ validates :age, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+ validates :sex, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+ validates :plumage, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+ validates :location, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+ validates :sight_date_time, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+ validates :habitat, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+ validates :gps, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+ validates :coobservers, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+ validates :length_of_obs, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+ validates :distance_from, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+ validates :detailed_description, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+ validates :detailed_behavior, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+ validates :distinguished_char, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+ validates :prev_bird_exp, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+ validates :optical_equipment, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+ validates :references, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+ validates :sub_recall, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+ validates :guide_use, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+ validates :unusual, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+
+
+
+
 def self.subsearch(search, option, status)
   search_condition = "%" + search + "%"
   #fix for sql injection!
