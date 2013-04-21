@@ -25,6 +25,20 @@
     <span style="position:relative; bottom:40px;">Comments</span>
     <%= f.text_area :comments, :rows => "5", :cols => "35" %>
   </div>
+  <br><br>
+  <!-- admin notes to voters -->
+  <div class="subLabel">
+  <span>Region</span>
+  <%= @submission.region %>
+  </div>
+  <br>
+  <div class="subLabel">
+  <span>Category of Acceptance</span>
+  <%= @submission.s_degree %>
+  </div>
+  <br>
+  <span class="subHead"> Administrator Notes </span>
+  <p style="color:white;font-size:14pt;"><%= @submission.admin_notes %></p>
   <!-- Print out old comments on this vote! -->
   <br><br>
   <span class ="subHead">Past Voting Information</span>
