@@ -12,6 +12,10 @@
   <% end %>
 <br>
   <% if isreviewer? %>
+    <span id="votingInfoTitle" class="subHead expand">Voting Information</span>
+  <div class="subGroup" id="votingInfo">
+  <br>
+
   <div class="subLabel">
     <span>Vote</span>
     <%= f.select :vote,[["Accept","A"],["Reject","R"]]  %>
@@ -27,9 +31,10 @@
   <br><br>
   <% while @submission.rounds != nil && @count <= @submission.rounds  %>
 	<% if @oldRecords %>
+		<% if @count!= @submission.rounds %>
 		<span class="subLabel"> Round <%= @count %> </span>
 		<% @oldRecords.each do |r| %>
-			<% if r.round == @count %>
+			<% if r.round == @count%>
 				<div class="subLabel">
 					<br> Comment made by <%= r.voter_name %> on <%= r.vote_time %>:
 					<br>
@@ -38,10 +43,12 @@
 					</p>
 				</div>
 			<% end %>
+			<% end %>
 		<% end %>
 	<% end %>
 	<% @count += 1 %>
   <% end %>
+    </div>
   <br><br>
   <div class="actions">
     <%= f.submit "Make Vote", :class=>"btn-custom" %>
