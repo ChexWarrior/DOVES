@@ -47,7 +47,6 @@
 	<th> Media </th>
 	<th> Status </th>
 	<th> S degree </th>
-    <!-- <th>User</th> -->
     <!-- <th>Sub fname</th>
     <!-- <th>Sub lname</th> -->
 	<!-- <th>Num of birds</th> -->
@@ -75,8 +74,13 @@
     <th>Date accepted</th>
     <% if (isadmin? || isreviewer?) %>
 	<th>Date votable</th>
+	
 	<% end %>    
-   
+	    <% if (isadmin?) %>
+
+       <th>Votes This Round</th>
+	<% end %>    
+
 	<th></th>
     
   </tr>
@@ -102,8 +106,9 @@
     <% if (isadmin? || isreviewer?) %>
 	<td><%= submission.date_votable.strftime("%m/%d/%y") if submission.date_votable %></td>
 	<% end %>
-    <!-- <td><%= submission.user_id %></td> -->    
-    <!-- <td><%= submission.user.last_name %></td> -->    
+<% if (isadmin?) %>
+	<td <%if @vote_count[submission] == 7  %>class="yes" <% end %>><%= @vote_count[submission] %></td>
+	<% end %>    <!-- <td><%= submission.user.last_name %></td> -->    
     <!-- <td><%= submission.num_of_birds %></td> -->
     <!-- <td><%= submission.age %></td>
     <!-- <td><%= submission.sex %></td> -->

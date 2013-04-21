@@ -76,7 +76,7 @@
     <% if (isadmin? || isreviewer?) %>
 	<th>Date votable</th>
 	<% end %>    
-   
+
 	<th></th>
     
   </tr>
@@ -102,6 +102,7 @@
     <% if (isadmin? || isreviewer?) %>
 	<td><%= submission.date_votable.strftime("%m/%d/%y") if submission.date_votable %></td>
 	<% end %>
+
     <!-- <td><%= submission.user_id %></td> -->    
     <!-- <td><%= submission.user.last_name %></td> -->    
     <!-- <td><%= submission.num_of_birds %></td> -->

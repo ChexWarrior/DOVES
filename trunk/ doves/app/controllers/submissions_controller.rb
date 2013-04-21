@@ -45,7 +45,7 @@ class SubmissionsController < ApplicationController
      @submissions = Submission.subsearch(params[:search], params[:field], 'new') if !params[:search].nil?
 	 flash.now[:notice] = "No New Submissions Found" if @submissions.length == 0
 	 @submissions = @submissions.paginate(:page => params[:page], :per_page => params[:per_page])
-
+	
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @submissions }
