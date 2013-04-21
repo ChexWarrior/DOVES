@@ -223,7 +223,7 @@
 	</div>
   </div>
   
-  <br>
+  <br><br>
 
   <% if isadmin? && params[:action] != "new"%> 
   <span id="adminInfoTitle" class="subHead expand">Administrator Information</span>
@@ -246,7 +246,7 @@
 	<br>
 	<div class="subLabel">
 		<span>Voting Date</span>
-		<%= f.text_field :date_votable, :class => "datep" %>
+		<%= f.datetime_select :date_votable, :class => "timeSelect", :ampm =>true%> 
 	</div>
 	<br>
 	<div class="subLabel">
@@ -255,12 +255,13 @@
 	</div>
   </div>
   <% end %>
+  
   <br>
   	<!-- Display Save as Draft if this is a new submission or this submission is incomplete and belongs to the logged in user -->
 	<% if @submission.status == "incomplete" %>
 		<%= f.submit "Save as Draft", :class => "btn-custom", :style => "display:inline-block;"%>
 	<% end %>
-
+	<br>
 	<%= f.submit "Submit",:class => "btn-custom", :onclick => "return validateSubmission();" %>
 	
 <% end %>
