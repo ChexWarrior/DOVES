@@ -49,7 +49,7 @@ class SubmissionsController < ApplicationController
   end
 
 	#old vote record
-	Record = Struct.new(:voter_name,:vote_time,:comment,:round);
+	Record = Struct.new(:voter_name,:vote_time,:comment,:round,:vote);
 
   # GET /submissions/1
   # GET /submissions/1.json
@@ -68,6 +68,7 @@ class SubmissionsController < ApplicationController
     @submission = Submission.find(params[:id])
 	@vote = Vote.new
 	@hasVoted = true
+	@count = 1
 	subStatus = @submission.status
 	subId = @submission.id
 	if (isadmin? || isreviewer?) && subStatus == "pending"
@@ -75,7 +76,7 @@ class SubmissionsController < ApplicationController
 		@votes = @submission.votes
 		#@comments array will hold all previous comments for display on the screen :M
 		@oldRecords = []
-		@submission.votes.each{|vote| @oldRecords.push(Record.new(User.find(vote.user_id).first_name,vote.created_at,vote.comments,vote.round))}
+		@submission.votes.each{|vote| @oldRecords.push(Record.new(User.find(vote.user_id).first_name,vote.created_at,vote.comments,vote.round,vote.vote))}
 		#don't show any votes or comments for votes made in this round by other reviewers
 		@votes.delete_if{|vote| vote.round == @submission.rounds} if !isadmin?
 		#don't show the editable vote fields if this user has already voted on this submission in this round

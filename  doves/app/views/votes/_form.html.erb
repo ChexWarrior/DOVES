@@ -12,7 +12,7 @@
   <% end %>
 <br>
   <% if isreviewer? %>
-    <span id="votingInfoTitle" class="subHead expand">Voting Information</span>
+  <span id="votingInfoTitle" class="subHead expand">Voting Information</span>
   <div class="subGroup" id="votingInfo">
   <br>
 
@@ -36,6 +36,8 @@
 		<% @oldRecords.each do |r| %>
 			<% if r.round == @count%>
 				<div class="subLabel">
+					<br>
+					<%= r.voter_name %> voted to <%=r.vote%>
 					<br> Comment made by <%= r.voter_name %> on <%= r.vote_time %>:
 					<br>
 					<p>
