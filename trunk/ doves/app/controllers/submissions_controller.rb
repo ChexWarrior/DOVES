@@ -168,7 +168,6 @@ class SubmissionsController < ApplicationController
 		@submission.bird_id = @bird.id
 		@submission.common_name=nil
 	end
-	5.times {@submission.multimedia.build}
 	
 	# if we clicked the "Save as Draft" submit button
 	if params[:commit].downcase == "save as draft"
