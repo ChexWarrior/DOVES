@@ -209,11 +209,7 @@
   <br><br>
 
 <% if (isadmin? || isreviewer?) && (!@hasVoted) %>
-  <span id="votingInfoTitle" class="subHead expand">Voting Information</span>
-  <div class="subGroup" id="votingInfo">
-  <br>
 	<%= render :partial => 'votes/form' %>
-  </div>
 <% end %>
 	
 	<br><br>
