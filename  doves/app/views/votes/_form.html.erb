@@ -51,8 +51,9 @@
 			<% if r.round == @count%>
 				<div class="subLabel">
 					<br>
-					<%= r.voter_name %> voted to <%=r.vote%>
-					<br> Comment made by <%= r.voter_name %> on <%= r.vote_time %>:
+					<%= r.voter_name %> voted to <%if r.vote == "A" %> Accept <% else %> Reject <% end %>
+					<br>
+					<br> Comment made by <%= r.voter_name %> on <%= r.vote_time %> :
 					<br>
 					<p>
 						<%= r.comment %>
