@@ -123,7 +123,7 @@ def self.subsearch(search, option, status)
 	if user then
 	case status
 		when "incomplete"
-			if (user.id == user_id)
+			if (user.id == user_id) or (user.level == "admin")
 				true
 			else
 				false

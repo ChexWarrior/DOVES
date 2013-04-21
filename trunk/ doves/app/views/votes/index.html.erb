@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>User</th>
+    <th>Voter</th>
     <th>Submission</th>
     <th>Round</th>
     <th>Vote</th>
@@ -15,8 +15,8 @@
 
 <% @votes.each do |vote| %>
   <tr class="subRow">
-    <td><%= vote.user_id %></td>
-    <td><%= vote.submission_id %></td>
+    <td><%= link_to vote.user.first_name+" "+vote.user.last_name, vote.user %></td>
+    <td><%= link_to vote.submission.bird.common_name, vote.submission %></td>
     <td><%= vote.round %></td>
     <td><%= vote.vote %></td>
     <td><%= vote.comments %></td>

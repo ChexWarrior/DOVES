@@ -50,7 +50,7 @@
    
 
 </script>
-
+ <%= @submission.status %>
   <%= form_for(@submission) do |f| %>
   <% if @submission.errors.any? %>
 	<div id="error_explanation">
