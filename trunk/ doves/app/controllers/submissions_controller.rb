@@ -86,7 +86,7 @@ class SubmissionsController < ApplicationController
 		#don't show the editable vote fields if this user has already voted on this submission in this round
 		@hasVoted = @submission.votes.scoped_by_user_id(session[:user].id).scoped_by_round(@submission.rounds).exists?
 	end
-		if(isadmin?)  
+		if(isadmin?) and (@submission.status == 'pending') 
 	  #find submissions current round
 	  #find all votes for a submissions current round, count yes and total votes.
 	  #if vote count < 7 wait for all votes
