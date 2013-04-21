@@ -8,6 +8,8 @@ def admin
 	@votes = Vote.all
     @posts = Post.order("created_on DESC").paginate(:page => params[:page], :per_page => 25)
 	@birds = Bird.all
+	@numnew = Submission.scoped_by_status('new').count
+	@numpending = Submission.scoped_by_status('pending').count
 end
 
 def home
