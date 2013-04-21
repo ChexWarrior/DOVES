@@ -25,7 +25,7 @@ class SubmissionsController < ApplicationController
   def pending
     params[:per_page] = 10 if params[:per_page].nil?
 	 @submissions = Submission.scoped_by_status('pending') if params[:search].nil?
-     @submissions = Submission.subsearch(params[:search], params[:field]).scoped_by_status('pending') if !params[:search].nil?
+     @submissions = Submission.subsearch(params[:search], params[:field], 'pending') if !params[:search].nil?
 	 flash.now[:notice] = "No Pending Submissions Found" if @submissions.length == 0
 	 @submissions = @submissions.paginate(:page => params[:page], :per_page => params[:per_page])
 
@@ -38,7 +38,7 @@ class SubmissionsController < ApplicationController
   def new_submissions
     params[:per_page] = 10 if params[:per_page].nil?
 	 @submissions = Submission.scoped_by_status('new') if params[:search].nil?
-     @submissions = Submission.subsearch(params[:search], params[:field]).scoped_by_status('new') if !params[:search].nil?
+     @submissions = Submission.subsearch(params[:search], params[:field], 'new') if !params[:search].nil?
 	 flash.now[:notice] = "No New Submissions Found" if @submissions.length == 0
 	 @submissions = @submissions.paginate(:page => params[:page], :per_page => params[:per_page])
 
