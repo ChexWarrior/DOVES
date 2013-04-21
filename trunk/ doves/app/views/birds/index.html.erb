@@ -6,7 +6,14 @@
 		$("#search_field").val("");
 	$("#status").addClass(this.text());
 	});
+	 $("#search_field" ).autocomplete({
+        source: birdArray
+    });
+	
 	});
+	
+	  var birdArray = <%= @birds.map(&:common_name).sort.to_json.html_safe %>;
+
 	
 </script>
 
