@@ -22,13 +22,14 @@ select {
     border: solid 1px #4e82c8;
     font: 12pt 'tahoma';
     padding: 2px;
-	width:150px;
+	width:100px;
 }
 
 textarea {
     border: solid 1px #4e82c8;
     font: 12pt 'tahoma';
     padding: 2px;
+	width:509px;
 }
 
 .label {
@@ -58,7 +59,6 @@ min-width: 90px;
         color: #fff;
 }
 
-
 #left {
 	background:#fff;
 	float:left;
@@ -71,7 +71,6 @@ min-width: 90px;
     
 }
 
-
 #right{
 	background:#fff;
 	float:right;
@@ -80,7 +79,6 @@ min-width: 90px;
 	margin-top:5px;
 	
 }
-
 
 #content {
 	padding-left: 2%;
@@ -104,7 +102,6 @@ top:0px;
 left:0px;
 }
 
-
 #footer {
     background: #fff;
 	border-top:solid 1px #4e82c8;
@@ -127,13 +124,6 @@ p {
 	text-indent:3em;
 }
 
-.subHead {
-	font-size:18pt;
-	border-bottom: 2px solid black;
-	cursor:pointer;
-}
-
-
 blockquote {
 	font-family:georgia, serif;
 	font-style:italic;
@@ -155,6 +145,7 @@ ul {
 	text-decoration: none;
     padding-left: 25px;
 }
+
 a {
 	color:#4e82c8;
 	width:100%;
@@ -165,7 +156,6 @@ a {
 a.navlink{text-decoration: none; font: 14pt helvetica }
 
 #left a {text-decoration: none; font: 14pt helvetica }
-
 
 .notice {
 	font: 14pt helvetica;
@@ -184,6 +174,24 @@ width:100%;
 
 .subLabel {
 	font-size:14pt;
+	color:white;
+}
+
+.subHead {
+	font-size:16pt;
+	padding: 5px;
+	/*border-bottom: 2px solid black;*/
+	cursor:pointer;
+	background-color:#4e82c8;
+	border-radius: 10px 10px 0px 0px;
+	color:white;
+}
+
+.subGroup
+{
+	background-color:#4e82c8;
+	border-radius: 0px 10px 10px 10px;
+	padding: 5px;
 }
 
 .subLabel span, .subLabel input {

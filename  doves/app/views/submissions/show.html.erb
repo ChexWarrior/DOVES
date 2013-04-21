@@ -37,14 +37,16 @@
   <h1>View Submission</h1>
   <br>
   <span id="birdInfoTitle" class="subHead expand">Bird Information</span>
-  <br><br>
   <div class="subGroup" id="birdInfo">
+  <br>
   	<div class="subLabel">
 		<span>Common Name</span>
+		<span style="color:white;">
 		<%= @submission.bird.common_name %>
 		<% if @submission.bird_id == 31 %>
 		(<%= @submission.common_name %>)
 		<% end %>
+		</span>
 	</div>
 	<br>
 	<div class="subLabel">
@@ -88,11 +90,11 @@
 	</div>
   </div>
   
-  <br>
+  <br><br>
   
   <span id="subInfoTitle" class="subHead expand">Submission Information</span>
-  <br><br>
   <div class="subGroup" id="subInfo">
+	<br>
 	<div class="subLabel">
 		<span>Co-observers</span>
 		<%= @submission.coobservers %>
@@ -166,12 +168,12 @@
 	</div>	
   </div>
   
-  <br>
+   <br><br>
   
   <% if isadmin? %>
   <span id="adminInfoTitle" class="subHead expand">Administrator Information</span>
-  <br><br>
   <div class="subGroup" id="adminInfo">
+  <br>
 	<div class="subLabel">
 		<span >Working Notes</span>
 		<%= @submission.working_notes %>
@@ -204,11 +206,12 @@
   </div>
   <% end %>
   
-  <br>
-  
+  <br><br>
+
 <% if (isadmin? || isreviewer?) && (!@hasVoted) %>
   <span id="votingInfoTitle" class="subHead expand">Voting Information</span>
   <div class="subGroup" id="votingInfo">
+  <br>
 	<%= render :partial => 'votes/form' %>
   </div>
 <% end %>
