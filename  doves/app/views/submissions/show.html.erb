@@ -209,7 +209,8 @@
   <br><br>
 
 <% if (isadmin? || isreviewer?) && (!@hasVoted) %>
-	<%= render :partial => 'votes/form' %>
+	<%= render :partial => 'votes/form' if isreviewer?%>
+	<%= render :partial => 'votes/list' if isadmin? %>
 <% end %>
 	
 	<br><br>

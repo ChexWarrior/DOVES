@@ -18,6 +18,7 @@ end
   
 resources :submissions , :shallow => true do
 	resources :votes
+	get 'pending', :on => :collection
 end
 
 resources :users do

@@ -52,8 +52,7 @@ before_filter :ensure_reviewer_or_admin
 			# Vote.find(:all, :conditions =>{:user_id => session[:user].id}, :submission_id => X, :rounds => Y) 
 	# }
 	# }
-  @votes = Vote.find(:all, :conditions =>{:user_id => session[:user].id})
-  
+  @votes = Vote.includes({:submission => :bird}).scoped_by_user_id(session[:user].id)
 
 	
   end
