@@ -1,0 +1,31 @@
+<h1>Listing votes</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Round</th>
+    <th>Vote</th>
+    <th>Comments</th>
+    <th>Time</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @votes.each do |vote| %>
+  <tr class="subRow">
+    <td><%= vote.user.first_name + " " + vote.user.last_name %></td>
+    <td><%= vote.round %></td>
+    <td><%= vote.vote %></td>
+    <td><%= vote.comments %></td>
+    <td><%= vote.created_at %></td>
+    <td><%= link_to 'Show', vote %></td>
+    <td><%= link_to 'Edit', edit_vote_path(vote) %></td>
+    <td><%= link_to 'Destroy', vote, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+

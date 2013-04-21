@@ -21,6 +21,19 @@ class SubmissionsController < ApplicationController
       format.json { render json: @submissions }
     end
   end
+  
+  def pending
+    params[:per_page] = 10 if params[:per_page].nil?
+	 @submissions = Submission.scoped_by_status('pending') if params[:search].nil?
+     @submissions = Submission.subsearch(params[:search], params[:field]) if !params[:search].nil?
+	 flash.now[:notice] = "No Pending Submissions Found" if @submissions.length == 0
+	 @submissions = @submissions.paginate(:page => params[:page], :per_page => params[:per_page])
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @submissions }
+    end
+  end
 
 	#old vote record
 	Record = Struct.new(:voter_name,:vote_time,:comment,:round);
@@ -52,7 +65,7 @@ class SubmissionsController < ApplicationController
 		@oldRecords = []
 		@submission.votes.each{|vote| @oldRecords.push(Record.new(User.find(vote.user_id).first_name,vote.created_at,vote.comments,vote.round))}
 		#don't show any votes or comments for votes made in this round by other reviewers
-		@votes.delete_if{|vote| vote.round == @submission.rounds}
+		@votes.delete_if{|vote| vote.round == @submission.rounds} if !isadmin?
 		#don't show the editable vote fields if this user has already voted on this submission in this round
 		@hasVoted = @submission.votes.scoped_by_user_id(session[:user].id).scoped_by_round(@submission.rounds).exists?
 	end
