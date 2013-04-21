@@ -7,6 +7,7 @@ accepts_nested_attributes_for :multimedia
 belongs_to :bird
 belongs_to :user
 
+=begin
  validates :common_name, :presence => true
  validates :s_degree, :presence => true
  validates :age, :presence => true
@@ -29,7 +30,7 @@ belongs_to :user
  validates :sub_recall, :presence => true
  validates :guide_use, :presence => true
  validates :unusual, :presence => true
-
+=end
 def self.subsearch(search, option, status)
   search_condition = "%" + search + "%"
   #fix for sql injection!
