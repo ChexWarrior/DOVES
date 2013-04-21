@@ -60,6 +60,7 @@ before_filter :ensure_reviewer_or_admin
   # POST /votes
   # POST /votes.json
   def create
+	@count = 1
     @submission = Submission.find(params[:submission_id])
     @vote = @submission.votes.new(params[:vote])
 	@vote.user_id = session[:user].id
