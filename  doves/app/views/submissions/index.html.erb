@@ -25,15 +25,7 @@
 </script>
 
 
-<%= form_tag submissions_path, :method => 'get' do %>
-	<%= select_tag :field, options_for_select(search_params, params[:field]) %>
-     <%= text_field_tag :search, params[:search] %>
-	 <br />
-	 <%= select_tag :per_page, options_for_select(results_per_page, params[:per_page]) %> results per page
-	<br/>
-      <%= submit_tag "Search", :name => nil,:class=>"btn-custom" %> 
-	  <input type ="button" value="Reset" id="reset" class="btn-custom"/>
-<% end %> 
+<%= render :partial => 'searchform' %>
 
 <% if @submissions.length > 0 %>
 <table class = "datagrid">
