@@ -30,18 +30,18 @@ belongs_to :user
 # validates :guide_use, :presence => true
 # validates :unusual, :presence => true
 
-def self.subsearch(search, option)
+def self.subsearch(search, option, status)
   search_condition = "%" + search + "%"
   #fix for sql injection!
   case option 
 	when "common_name" 
-		Submission.joins(:bird).where("birds.common_name LIKE ? OR submissions.common_name LIKE ?", search_condition, search_condition)
+		Submission.joins(:bird).where("birds.common_name LIKE ? OR submissions.common_name LIKE ? AND status in (?)", search_condition, search_condition, status)
 	when "first_name"
-		Submission.joins(:user).where("users.first_name LIKE ?", search_condition)
+		Submission.joins(:user).where("users.first_name LIKE ? AND status in (?)", search_condition, status)
 	when "last_name"
-		Submission.joins(:user).where("users.last_name LIKE ?", search_condition)
+		Submission.joins(:user).where("users.last_name LIKE ? AND status in (?)", search_condition, status)
 	when "email"
-		Submission.joins(:user).where("users.email LIKE ?", search_condition)
+		Submission.joins(:user).where("users.email LIKE ? AND status in (?)", search_condition, status)
 	else Submission.find(:all)
   end
 

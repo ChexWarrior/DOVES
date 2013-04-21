@@ -12,21 +12,8 @@ class SubmissionsController < ApplicationController
   def index
     params[:per_page] = 10 if params[:per_page].nil?
 	 @submissions = Submission.all if params[:search].nil?
-     @submissions = Submission.subsearch(params[:search], params[:field]) if !params[:search].nil?
+     @submissions = Submission.subsearch(params[:search], params[:field], params[:status]).paginate(:page => params[:page], :per_page => params[:per_page])# if !params[:search].nil?
 	 flash.now[:notice] = "No Submissions Found" if @submissions.length == 0
-	 @submissions = @submissions.paginate(:page => params[:page], :per_page => params[:per_page])
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @submissions }
-    end
-  end
-  
-  def pending
-    params[:per_page] = 10 if params[:per_page].nil?
-	 @submissions = Submission.scoped_by_status('pending') if params[:search].nil?
-     @submissions = Submission.subsearch(params[:search], params[:field]) if !params[:search].nil?
-	 flash.now[:notice] = "No Pending Submissions Found" if @submissions.length == 0
 	 @submissions = @submissions.paginate(:page => params[:page], :per_page => params[:per_page])
 
     respond_to do |format|
@@ -36,7 +23,7 @@ class SubmissionsController < ApplicationController
   end
 
 	#old vote record
-	Record = Struct.new(:voter_name,:vote_time,:comment,:round);
+	Record = Struct.new(:voter_name,:vote_time,:comment);
 
   # GET /submissions/1
   # GET /submissions/1.json
@@ -55,7 +42,6 @@ class SubmissionsController < ApplicationController
     @submission = Submission.find(params[:id])
 	@vote = Vote.new
 	@hasVoted = true
-	@count = 1;
 	subStatus = @submission.status
 	subId = @submission.id
 	if (isadmin? || isreviewer?) && subStatus == "pending"
@@ -63,43 +49,11 @@ class SubmissionsController < ApplicationController
 		@votes = @submission.votes
 		#@comments array will hold all previous comments for display on the screen :M
 		@oldRecords = []
-		@submission.votes.each{|vote| @oldRecords.push(Record.new(User.find(vote.user_id).first_name,vote.created_at,vote.comments,vote.round))}
+		@submission.votes.each{|vote| @oldRecords.push(Record.new(User.find(vote.user_id).first_name,vote.created_at,vote.comments))}
 		#don't show any votes or comments for votes made in this round by other reviewers
-		@votes.delete_if{|vote| vote.round == @submission.rounds} if !isadmin?
+		@votes.delete_if{|vote| vote.round == @submission.rounds}
 		#don't show the editable vote fields if this user has already voted on this submission in this round
 		@hasVoted = @submission.votes.scoped_by_user_id(session[:user].id).scoped_by_round(@submission.rounds).exists?
-	end
-		if(isadmin?)  
-	  #find submissions current round
-	  #find all votes for a submissions current round, count yes and total votes.
-	  #if vote count < 7 wait for all votes
-	  #if <4 yes votes dont accept
-	  #else if 7 yes votes  accept submission any round
-	  #else if 6 yes votes for round 3 accept
-	  #else  if 5 or 6 yes votes and round 1 or 2 promote
-	  #else reject
-	count = 0 
-	yes_vote=0
-		Vote.find_each(:conditions =>["round = ? AND submission_id = ?", @submission.rounds, @submission.id]) do |votes|
-		  count=count+1   
-		  if votes.vote == "A"
-			 yes_vote=yes_vote + 1
-		  end
-		end
-		if count <7
-		   flash.now[:notice] = "Recommended Action:  Wait for all committee members to finish voting."
-		elsif yes_vote == 7
-		   flash.now[:notice] = "Recommended Action:  Accept submission as a verified sighting."
-		elsif yes_vote <4
-		   flash.now[:notice] = "Recommended Action: Submission should not be accepted."
-		elsif yes_vote == 6 && @submission.rounds == 3
-		   flash.now[:notice] = "Recommended Action:  Accept submission as a verified sighting."
-		elsif (yes_vote < 7 && yes_vote > 3) && (@submission.rounds == 1 || @submission.rounds == 2)
-		   flash.now[:notice] = "Recommended Action: Move submission on to a new round of voting."
-		else
-		   flash.now[:notice] = "Recommended Action: Submission should not be accepted."
-		end
-
 	end
 
 
