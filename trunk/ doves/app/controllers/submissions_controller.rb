@@ -160,6 +160,7 @@ class SubmissionsController < ApplicationController
   
     @submission = Submission.new(params[:submission])
 	@submission.rounds = 1
+	
 	@submission.user_id = session[:user].id
 	@bird = Bird.find_by_common_name(@submission.common_name)
 
@@ -177,6 +178,8 @@ class SubmissionsController < ApplicationController
 	# if we clicked the "Save as Draft" submit button
 	if params[:commit].downcase == "save as draft"
 		@submission.status = "incomplete"
+	elsif params[:commit].downcase == "submit"
+		@submission.status = "new"
 	end
 	
     respond_to do |format|
