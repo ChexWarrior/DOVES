@@ -188,13 +188,33 @@
 	<div class="subLabel">
 		<span>Multimedia</span>
 		<br />
-		<%= f.fields_for :multimedia do |multimedia_fields| %>
-			<%= image_tag(multimedia_fields.object.image_url(:thumb)) if multimedia_fields.object.image? %>			
-			<% if multimedia_fields.object.new_record? %>
-				<br />
-				Image: <%= multimedia_fields.file_field :image %>
-					   <%= multimedia_fields.hidden_field :image_cache %>
-				<br />
+		<% @multimedia.each_with_index do |multimedium, index| %>
+			<%= f.fields_for :multimedia, multimedium do |multimedia_fields| %>
+				
+				<% if index == 0 %>
+					<%= image_tag(multimedia_fields.object.image_url(:thumb)) if multimedia_fields.object.image? %>			
+					<% if multimedia_fields.object.new_record? %>
+						<br />
+						Image: <%= multimedia_fields.file_field :image %>
+							<%= multimedia_fields.hidden_field :image_cache %>
+						<br />
+					<% end %>
+				<% end %>
+				<% if index == 1 %>
+					<% if multimedia_fields.object.new_record? %>
+						<br />
+						Video: <%= multimedia_fields.file_field :video %>
+						<br />
+					<% end %>
+				<% end %>
+				<% if index == 2 %>
+					<% if multimedia_fields.object.new_record? %>
+						<br />
+						Audio: <%= multimedia_fields.file_field :audio %>
+						<br />
+					<% end %>
+				<% end %>				
+			
 			<% end %>
 		<% end %>
 		<br />
