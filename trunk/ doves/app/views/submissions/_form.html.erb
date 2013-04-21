@@ -65,8 +65,8 @@
   <% end %>
 
   <span id="birdInfoTitle" class="subHead expand">Bird Information</span>
-  <br><br>
   <div class="subGroup" id="birdInfo">
+	<br>
   	<div class="subLabel">
 		<span>Common Name</span>
 		<%= f.text_field :common_name, :value=>@common_name%>
@@ -89,35 +89,34 @@
 	<br>
 	<div class="subLabel">
 		<span style="position:relative; bottom:30px;">Plumage</span>
-		<%= f.text_area :plumage, :rows => "5", :cols => "35" %>
+		<%= f.text_area :plumage, :rows => "5", :cols => "65" %>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span style="position:relative; bottom:40px;">Detailed Description</span>
-		<%= f.text_area :detailed_description, :rows => "5", :cols => "35" %>
+		<%= f.text_area :detailed_description, :rows => "5", :cols => "45" %>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span style="position:relative; bottom:40px;">Detailed Behavior</span>
-		<%= f.text_area :detailed_behavior, :rows => "5", :cols => "35" %>
+		<%= f.text_area :detailed_behavior, :rows => "5", :cols => "45" %>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span style="position:relative; bottom:30px;">Distinguishing Characteristics</span>
-		<%= f.text_area :distinguished_char, :rows => "5", :cols => "35" %>
+		<%= f.text_area :distinguished_char, :rows => "5", :cols => "45" %>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span style="position:relative; bottom:40px;">Habitat Description</span>
-		<%= f.text_area :habitat, :rows => "5", :cols => "35" %>
+		<%= f.text_area :habitat, :rows => "5", :cols => "45" %>
 	</div>
   </div>
   
-  <br>
-  
-  <span id="subInfoTitle" class="subHead expand">Submission Information</span>
   <br><br>
+  <span id="subInfoTitle" class="subHead expand">Submission Information</span>
   <div class="subGroup" id="subInfo">
+  <br>
 	<div class="subLabel">
 		<span>Co-observers</span>
 		<%= f.text_field :coobservers %>
@@ -136,7 +135,7 @@
 	<br>
 	<div class="subLabel">
 		<span>Sighting Date</span>
-		<%= f.datetime_select :sight_date_time, :style =>"width:50px;", :ampm =>true%> 
+		<%= f.datetime_select :sight_date_time, :class => "timeSelect", :ampm =>true%> 
 	</div>
 	<br>
 	<div class="subLabel">
@@ -151,12 +150,12 @@
 	<br>
 	<div class="subLabel">
 		<span style="position:relative; bottom:40px;">Optical Equipment Used</span>
-		<%= f.text_area :optical_equipment, :rows => "5", :cols => "35" %>
+		<%= f.text_area :optical_equipment, :rows => "5", :cols => "45" %>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span style="position:relative; bottom:40px;">References Used</span>
-		<%= f.text_area :references, :rows => "5", :cols => "35" %>
+		<%= f.text_area :references, :rows => "5", :cols => "45" %>
 	</div>
 	<br>
 	<div class="subLabel">
@@ -173,17 +172,17 @@
 	<br>
 	<div class="subLabel">
 		<span style="position:relative; bottom:40px;">Field Guide Used</span>
-		<%= f.text_area :guide_use, :rows => "5", :cols => "35" %>
+		<%= f.text_area :guide_use, :rows => "5", :cols => "45" %>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span style="position:relative; bottom:40px;">Previous Experience</span>
-		<%= f.text_area :prev_bird_exp, :rows => "5", :cols => "35" %>
+		<%= f.text_area :prev_bird_exp, :rows => "5", :cols => "45" %>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span style="position:relative; bottom:40px;">Notes</span>
-		<%= f.text_area :notes, :rows => "5", :cols => "35" %>
+		<%= f.text_area :notes, :rows => "5", :cols => "45" %>
 	</div>
 	<br>
 	<div class="subLabel">
@@ -204,14 +203,13 @@
   
   <br>
 
-  <% if isadmin? && params[:action] != "new"%>
-  
+  <% if isadmin? && params[:action] != "new"%> 
   <span id="adminInfoTitle" class="subHead expand">Administrator Information</span>
-  <br><br>
   <div class="subGroup" id="adminInfo">
+	<br>
 	<div class="subLabel">
 		<span style="position:relative; bottom:40px;">Working Notes</span>
-		<%= f.text_area :working_notes, :rows => "5", :cols => "35" %>
+		<%= f.text_area :working_notes, :rows => "5", :cols => "45" %>
 	</div>
 	<br>
 	<div class="subLabel">
