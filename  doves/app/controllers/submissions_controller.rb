@@ -12,7 +12,7 @@ class SubmissionsController < ApplicationController
   def index
     params[:per_page] = 10 if params[:per_page].nil?
 	 @submissions = Submission.all if params[:search].nil?
-     @submissions = Submission.subsearch(params[:search], params[:field], params[:status]).paginate(:page => params[:page], :per_page => params[:per_page])# if !params[:search].nil?
+     @submissions = Submission.subsearch(params[:search], params[:field], params[:status]) if !params[:search].nil?
 	 flash.now[:notice] = "No Submissions Found" if @submissions.length == 0
 	 @submissions = @submissions.paginate(:page => params[:page], :per_page => params[:per_page])
 
@@ -27,6 +27,10 @@ class SubmissionsController < ApplicationController
 	 @submissions = Submission.scoped_by_status('pending') if params[:search].nil?
      @submissions = Submission.subsearch(params[:search], params[:field], 'pending') if !params[:search].nil?
 	 flash.now[:notice] = "No Pending Submissions Found" if @submissions.length == 0
+	 @vote_count = {}
+	 @submissions.each do |submission|
+		@vote_count[submission] = submission.votes.scoped_by_round(submission.rounds).count
+	 end
 	 @submissions = @submissions.paginate(:page => params[:page], :per_page => params[:per_page])
 
     respond_to do |format|
