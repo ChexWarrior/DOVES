@@ -121,10 +121,11 @@
 <table>
 	<tr>	
 		<td>
-			<%= link_to 'Edit', edit_user_path(@user) %> 
-	
-			|
-			<%= link_to 'Back', users_path %>
+			<%= link_to 'Edit', edit_user_path(@user) %>
+			
+			<% if (isadmin?) %>
+			|<%= link_to 'Back', users_path %>
+			<% end %>
 			</td>
 </tr>
 </table>
