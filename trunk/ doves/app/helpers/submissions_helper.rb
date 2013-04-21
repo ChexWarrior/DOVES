@@ -12,14 +12,13 @@ end
 
 def submission_statuses
     [
-      ['Incomplete', 'incomplete'],
-      ['New', 'new'],
-      ['Pending', 'pending'],
-	  ['Accepted', 'accepted'],
       ['Verified', 'verified'],
+	  ['Accepted', 'accepted'],
+	  ['Pending', 'pending'],
+	  ['New', 'new'],
+	  ['Incomplete', 'incomplete'],     
       ['Rejected', 'rejected'],
-	  ['Not Reviewable', 'not_reviewable']
-	  
+	  ['Not Reviewable', 'not_reviewable']	  
     ]
 end
 end
