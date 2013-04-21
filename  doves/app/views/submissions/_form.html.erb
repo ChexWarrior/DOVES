@@ -261,7 +261,6 @@
 	<% if @submission.status == "incomplete" %>
 		<%= f.submit "Save as Draft", :class => "btn-custom", :style => "display:inline-block;"%>
 	<% end %>
-	<br>
 	<%= f.submit "Submit",:class => "btn-custom", :onclick => "return validateSubmission();" %>
 	
 <% end %>
