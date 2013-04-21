@@ -37,7 +37,7 @@ def self.subsearch(search, option, status)
   #fix for sql injection!
   case option 
 	when "common_name" 
-		Submission.joins(:bird).where("birds.common_name LIKE ? OR submissions.common_name LIKE ? AND status in (?)", search_condition, search_condition, status)
+		Submission.joins(:bird).where("(birds.common_name LIKE ? OR submissions.common_name LIKE ?) AND status in (?)", search_condition, search_condition, status)
 	when "first_name"
 		Submission.joins(:user).where("users.first_name LIKE ? AND status in (?)", search_condition, status)
 	when "last_name"
