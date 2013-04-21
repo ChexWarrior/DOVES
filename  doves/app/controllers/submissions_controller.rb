@@ -116,7 +116,8 @@ class SubmissionsController < ApplicationController
   
     @submission = Submission.new
 	@submission.status = "incomplete"
-	5.times {@submission.multimedia.build}
+	3.times {@submission.multimedia.build}
+	@multimedia=@submission.multimedia
 	
     respond_to do |format|
       format.html # new.html.erb
@@ -127,7 +128,8 @@ class SubmissionsController < ApplicationController
   # GET /submissions/1/edit
   def edit
     @submission = Submission.find(params[:id])
-	5.times {@submission.multimedia.build}
+	3.times {@submission.multimedia.build}
+	@multimedia=@submission.multimedia
 	
 	if @submission.bird_id == 31
 		@common_name=@submission.common_name
