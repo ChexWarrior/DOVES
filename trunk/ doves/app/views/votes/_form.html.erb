@@ -25,19 +25,22 @@
   <br><br>
   <span class ="subHead">Past Voting Information</span>
   <br><br>
+  <% while @submission.rounds != nil && @count <= @submission.rounds  %>
 	<% if @oldRecords %>
-  <% @oldRecords.each do |r| %>
-	<div class="subLabel">
-		<br>
-		Comment made by <%= r.voter_name %> on <%= r.vote_time %>:
-		<br><br>
-		<p>
-			<%= r.comment %>
-		</p>
-	</div>
-	
-  <% end %>
-  <% else %>No old records. <br>
+		<span class="subLabel"> Round <%= @count %> </span>
+		<% @oldRecords.each do |r| %>
+			<% if r.round == @count %>
+				<div class="subLabel">
+					<br> Comment made by <%= r.voter_name %> on <%= r.vote_time %>:
+					<br>
+					<p>
+						<%= r.comment %>
+					</p>
+				</div>
+			<% end %>
+		<% end %>
+	<% end %>
+	<% @count += 1 %>
   <% end %>
   <br><br>
   <div class="actions">
