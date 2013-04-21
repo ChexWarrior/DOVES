@@ -14,7 +14,7 @@
 
 <% @votes.each do |vote| %>
   <tr class="subRow">
-    <td><%= vote.user.first_name + " " + vote.user.last_name %></td>
+    <td><%= link_to vote.user.first_name + " " + vote.user.last_name, vote.user %></td>
     <td><%= vote.round %></td>
     <td><%= vote.vote %></td>
     <td><%= vote.comments %></td>
