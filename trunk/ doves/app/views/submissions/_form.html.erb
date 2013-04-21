@@ -201,6 +201,7 @@
 					<% end %>
 				<% end %>
 				<% if index == 1 %>
+					<%= link_to image_tag("video.png", :size => "100x100"), multimedium.video_url.to_s if multimedia_fields.object.video? %>			
 					<% if multimedia_fields.object.new_record? %>
 						<br />
 						Video: <%= multimedia_fields.file_field :video %>
@@ -208,6 +209,7 @@
 					<% end %>
 				<% end %>
 				<% if index == 2 %>
+					<%= link_to image_tag("audio.png", :size => "100x100"), multimedium.audio_url.to_s if multimedia_fields.object.audio? %>			
 					<% if multimedia_fields.object.new_record? %>
 						<br />
 						Audio: <%= multimedia_fields.file_field :audio %>
