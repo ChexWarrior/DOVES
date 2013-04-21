@@ -162,6 +162,11 @@ class SubmissionsController < ApplicationController
 	@submission.rounds = 1
 	@submission.user_id = session[:user].id
 	@bird = Bird.find_by_common_name(@submission.common_name)
+
+	3.times {@submission.multimedia.build}
+	@multimedia=@submission.multimedia
+
+
 	if @bird.nil? then
 		@submission.bird_id=31  #default to "Other" if we don't find a bird with that name
 	else
