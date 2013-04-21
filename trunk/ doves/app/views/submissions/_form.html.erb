@@ -47,26 +47,24 @@
 		
 		return isValid;
    }
-   
+      
 
 </script>
- <%= @submission.status %>
   <%= form_for(@submission) do |f| %>
   <% if @submission.errors.any? %>
-	<div id="error_explanation">
-	  <h2><%= pluralize(@submission.errors.count, "error") %> prohibited this submission from being saved:</h2>
-
-	  <ul>
+	<div style="" id="error_explanation">
+	<span style="font-size:large;color:red;">The following errors have prevented this submission from being saved...</span>
+	  <ul style="color:red;">
 	  <% @submission.errors.full_messages.each do |msg| %>
 		<li><%= msg %></li>
 	  <% end %>
 	  </ul>
 	</div>
   <% end %>
-
   <span id="birdInfoTitle" class="subHead expand">Bird Information</span>
   <div class="subGroup" id="birdInfo">
-	<br>
+	<span style="font-size:small;color:white;">(All fields in this group must be filled in, if you don't know the information enter &quot; Unknown &quot;)</span>
+	<br><br>
   	<div class="subLabel">
 		<span>Common Name</span>
 		<%= f.text_field :common_name, :value=>@common_name%>
@@ -117,6 +115,8 @@
   <br/>
   <span id="subInfoTitle" class="subHead expand">Submission Information</span>
   <div class="subGroup" id="subInfo">
+  <span style="font-size:small;color:white;">(All fields in this group must be filled in, if you don't know the information enter &quot; Unknown &quot;)</span>
+  <br>
   <br>
 	<div class="subLabel">
 		<span>Co-observers</span>
@@ -193,34 +193,24 @@
 			<%= f.fields_for :multimedia, multimedium do |multimedia_fields| %>
 				
 				<% if index == 0 %>
-					<% if multimedia_fields.object.image? %>			
-						<%= image_tag(multimedia_fields.object.image_url(:thumb)) %>
-						<%= check_box_tag 'delete_image' %> Delete
-					<% end %>
+					<%= image_tag(multimedia_fields.object.image_url(:thumb)) if multimedia_fields.object.image? %>			
 					<% if multimedia_fields.object.new_record? %>
 						<br />
 						Image: <%= multimedia_fields.file_field :image %>
 							<%= multimedia_fields.hidden_field :image_cache %>
 						<br />
 					<% end %>
-				<% end %> <br />
+				<% end %>
 				<% if index == 1 %>
-					<% if multimedia_fields.object.video? %>			
-						<%= link_to image_tag("video.png", :size => "100x100"), multimedium.video_url.to_s %>
-						<%= check_box_tag 'delete_video' %> Delete
-					<% end %>
+					<%= link_to image_tag("video.png", :size => "100x100"), multimedium.video_url.to_s if multimedia_fields.object.video? %>			
 					<% if multimedia_fields.object.new_record? %>
 						<br />
 						Video: <%= multimedia_fields.file_field :video %>
 						<br />
 					<% end %>
-				<% end %> <br />
+				<% end %>
 				<% if index == 2 %>
-					<% if multimedia_fields.object.audio? %>			
-						<%= link_to image_tag("audio.png", :size => "100x100"), multimedium.audio_url.to_s %>
-						<%= check_box_tag 'delete_audio' %> Delete
-					<% end %>
-
+					<%= link_to image_tag("audio.png", :size => "100x100"), multimedium.audio_url.to_s if multimedia_fields.object.audio? %>			
 					<% if multimedia_fields.object.new_record? %>
 						<br />
 						Audio: <%= multimedia_fields.file_field :audio %>
@@ -279,5 +269,4 @@
 		<%= f.submit "Save as Draft", :class => "btn-custom", :style => "display:inline-block;"%>
 	<% end %>
 	<%= f.submit "Submit",:class => "btn-custom", :onclick => "return validateSubmission();" %>
-	
 <% end %>
