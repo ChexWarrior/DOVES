@@ -39,14 +39,28 @@
   <span id="birdInfoTitle" class="subHead expand">Bird Information</span>
   <div class="subGroup" id="birdInfo">
   <br>
+  <% if isadmin? %>
+  <div class="subLabel">
+		<span>User</span>
+		<%= link_to @submission.user.name, @submission.user%>
+		</div>
+	<br>
+	<div class="subLabel">
+		<span>User Email</span>
+		<span style="color:white;">
+		<%= mail_to @submission.user.email %>
+		
+		</span>
+	</div>
+	<br>
+	<% end %>
   	<div class="subLabel">
 		<span>Common Name</span>
-		<span style="color:white;">
 		<%= @submission.bird.common_name %>
 		<% if @submission.bird_id == 31 %>
 		(<%= @submission.common_name %>)
 		<% end %>
-		</span>
+		
 	</div>
 	<br>
 	<div class="subLabel">
@@ -112,7 +126,7 @@
 	<br>
 	<div class="subLabel">
 		<span>Sight Date Time</span>
-		<%= @submission.sight_date_time.to_formatted_s(:short) %>
+		<%= @submission.sight_date_time.strftime("%m/%d/%y  %I:%M%p") %>
 	</div>
 	<br>
 	<div class="subLabel">
@@ -198,7 +212,7 @@
 	<br>
 	<div class="subLabel">
 		<span>Voting Date</span>
-		<%= @submission.date_votable.to_formatted_s(:short) %>
+		<%= @submission.date_votable.strftime("%m/%d/%y  %I:%M%p") %>
 	</div>
 	<br>
 	<div class="subLabel">
