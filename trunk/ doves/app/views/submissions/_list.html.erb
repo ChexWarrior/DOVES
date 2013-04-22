@@ -27,7 +27,7 @@
   <tr class="subRow">
     <td><%= submission.s_degree %></td>
     <td><%= submission.created_on%></td>
-    <td><%= submission.user.first_name+" "+submission.user.last_name %></td>
+    <td><%= link_to_if(isadmin?, submission.user.first_name+" "+submission.user.last_name, submission.user){submission.user.first_name+" "+submission.user.last_name}%></td>
     <td><%= submission.bird.common_name %>
 		<% if submission.bird_id == 31 %>
 		(<%= submission.common_name %>)
