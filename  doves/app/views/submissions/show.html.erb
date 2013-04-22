@@ -162,7 +162,7 @@
 	<br>
 	<div class="subLabel">
 		<span>Multimedia</span>
-		<% for multimedium in @submission.multimedia %>
+		<%  @multimedia.each do |multimedium| %>
 			<%= link_to image_tag(multimedium.image_url(:thumb)), multimedium.image_url.to_s if multimedium.image?%>
 			<%= link_to image_tag("video.png", :size => "100x100"), multimedium.video_url.to_s if multimedium.video?%>
 			<%= link_to image_tag("audio.png", :size => "100x100"), multimedium.audio_url.to_s if multimedium.audio?%>

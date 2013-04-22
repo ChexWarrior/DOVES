@@ -75,6 +75,9 @@ class SubmissionsController < ApplicationController
 	@vote = Vote.new
 	@hasVoted = true
 	@count = 1
+	3.times {@submission.multimedia.build}
+	@multimedia=@submission.multimedia
+	
 	subStatus = @submission.status
 	subId = @submission.id
 	if (isadmin? || isreviewer?) && subStatus == "pending"
@@ -118,7 +121,7 @@ class SubmissionsController < ApplicationController
 	else
 		@common_name=@submission.bird.common_name
 	end
-  end
+ end
 
   # POST /submissions
   # POST /submissions.json
@@ -164,9 +167,12 @@ class SubmissionsController < ApplicationController
   # PUT /submissions/1.json
   def update
     @submission = Submission.find(params[:id])
+	
+	Multimedium.where(:id=>params[:del_media]).destroy_all
+	
 	3.times {@submission.multimedia.build}
 	@multimedia=@submission.multimedia
-	
+
 	
 	@bird = Bird.find_by_common_name(params[:submission][:common_name])
 	if @bird.nil? then

@@ -13,7 +13,7 @@ def admin
 end
 
 def home
-	@multimedia_all = Multimedium.where("multimedia.image IS NOT NULL")
+	@multimedia_all = Multimedium.where("multimedia.image IS NOT NULL", :status => "verified")
 	@multimedia = @multimedia_all.sample(5)
 	@post = Post.order("created_on DESC").first
 end
