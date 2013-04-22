@@ -1,0 +1,79 @@
+<% if (!@pending.empty?) %>
+<h1>Vote Needed</h1>
+<table>
+  <tr>
+    <th>S degree</th>
+    <th>Sub date time</th>
+    <th>User</th>
+    <th>Submitter</th>
+    <th>Common name</th>
+    <th>Num of birds</th>
+    <th>Age</th>
+    <th>Sex</th>
+    <th>Location</th>
+    <th>Region</th>
+    <th>Sight date time</th>
+    <th>Status</th>
+    <th>Round</th>
+    <th>Date accepted</th>
+    <th>Date votable</th>
+    <th>Vote?</th>
+    
+  </tr>
+
+<% @pending.each do |submission| %>
+  <tr>
+    <td><%= submission.s_degree %></td>
+    <td><%= submission.created_on%></td>
+    <td><%= submission.user_id %></td>
+    <td><%= submission.user.first_name%>&nbsp;<%= submission.user.last_name %></td>
+    <td><%= submission.bird.common_name %>
+		<% if submission.bird_id == 31 %>
+		(<%= submission.common_name %>)
+		<% end %></td>
+    <td><%= submission.num_of_birds %></td>
+    <td><%= submission.age %></td>
+    <td><%= submission.sex %></td>
+    <td><%= submission.location %></td>
+    <td><%= submission.region %></td>
+    <td><%= submission.sight_date_time %></td>
+    <td><%= submission.status %></td>
+    <td><%= submission.rounds %></td>
+    <td><%= submission.date_accepted %></td>
+    <td><%= submission.date_votable %></td>
+    <td><%= link_to 'VOTE', submission %></td>
+  </tr>
+<% end %>
+</table>
+<% else %>
+<p> No votes are currently pending. </p>
+<% end %>
+
+<h2>Past Votes</h2>
+
+<table>
+  <tr>
+    <th>Submission</th>
+    <th>Round</th>
+    <th>Vote</th>
+    <th>Comments</th>
+    <th>Time</th>
+    <th>Show?</th>
+  </tr>
+
+<% @votes.each do |vote| %>
+  <tr>
+    
+    <td><%= vote.submission.bird.common_name %></td>
+    <td><%= vote.round %></td>
+    <td><%= vote.vote %></td>
+    <td><%= vote.comments %></td>
+    <td><%= vote.time %></td>
+    <td><%= link_to 'Show', vote.submission %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<!-- %= will_paginate @submissions % -->
+

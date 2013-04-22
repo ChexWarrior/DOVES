@@ -1,0 +1,87 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <br>
+  <div class="subLabel black">
+    <span>Password</span>
+    <%= f.password_field :password %>
+  </div>
+   <br>
+  <div class="subLabel black"> 
+	<span>Confirm Password</span>
+	<%= f.password_field :password_confirmation%> 
+  </div>
+  <br>
+  <div class="subLabel black">
+    <span>First Name</span>
+    <%= f.text_field :first_name %>
+  </div>
+  <br>
+  <div class="subLabel black">
+    <span>Last Name</span>
+    <%= f.text_field :last_name %>
+  </div>
+  <br>
+  <div class="subLabel black">
+    <span>Phone Number</span>
+    <%= f.text_field :phone %>
+  </div>
+  <br>
+  <div class="subLabel black">
+    <span>Address</span>
+    <%= f.text_field :address_line1 %>
+  </div>
+  <br>
+  <div class="subLabel black">
+    <span>Address 2</span>
+    <%= f.text_field :address_line2 %>
+  </div>
+  <br>
+  <div class="subLabel black">
+    <span>City</span>
+    <%= f.text_field :city %>
+  </div>
+  <br>
+  <div class="subLabel black">
+    <span>State</span>
+    <%= f.text_field :state %>
+  </div>
+  <br>
+  <div class="subLabel black">
+    <span>Zip Code</span>
+    <%= f.text_field :zip %>
+  </div>
+  <br>
+  <div class="subLabel black">
+    <span>Email</span>
+    <%= f.text_field :email %>
+  </div>
+  <br>
+  <div class="subLabel black">
+    <span style="position:relative; bottom:30px;">Birding Experience</span>
+    <%= f.text_area :prev_exp, :rows => "5", :cols => "35" %>
+  </div>
+  <br>
+ <% if isadmin? %>
+  <div class="subLabel black">
+    <%= f.label :level %><br />
+	<%= f.select :level, options_for_select(user_levels, @currentlevel) %>
+  </div>
+ <% end %>
+  <div class="actions">
+    <% if params[:action]=='edit' %>
+    <%= f.submit "Edit",:class=>"btn-custom" %>
+	 <% else %>
+	<%= f.submit "Register",:class=>"btn-custom" %>
+	<% end%>
+  </div>
+<% end %>

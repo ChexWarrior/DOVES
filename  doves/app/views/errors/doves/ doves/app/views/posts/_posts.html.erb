@@ -1,0 +1,14 @@
+<% @posts.each do |post| %>
+<div class="newspost"><div class="newstitle"><span class="posttitle"><%= post.title %></span><span class="postauthor">Posted by <%= post.user.first_name+" "+ post.user.last_name+" on "+post.created_on.strftime("%m/%d/%Y")%><% if isadmin? %>
+<%= link_to "Edit", edit_post_path(post) %>
+<% end %></span><div class="spacer" style="clear: both;"></div></div><p><%= simple_format(post.body) %></p>
+
+</div>
+<br/>
+<br/>
+<% end %>
+
+<br />
+
+
+<%= will_paginate @posts %>

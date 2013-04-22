@@ -1,0 +1,277 @@
+
+<script>
+  $(document).ready(function() {
+    $("#submission_common_name" ).autocomplete({
+        source: birdArray
+    });
+	
+	$(".subHead").on("click",function(event) {
+		var titleName = $(this).attr("id");
+		var divName = titleName.replace("Title","");
+		
+		if($("#" + divName).is(":visible")) {
+			$("#" + divName).slideUp();
+		}
+		else {
+			$("#" + divName).slideDown();
+		}
+	});
+	
+	$(".expand").attr("title","Click to show or hide");
+	
+
+	//hide these groups by default
+	$("#subInfo").hide();
+	$("#adminInfo").hide();
+	$("#votingInfo").hide();
+	
+});
+   var birdArray = <%= Bird.all.map(&:common_name).sort.to_json.html_safe %>;
+   
+   
+   function validateSubmission()
+   {
+		var isValid = true;
+		
+		//format time correctly
+		var sightTime = $("#sightTime").val();
+		var sightDate = $("#sight_date_time").val();
+		
+		$("#sight_date_time").val(sightDate + " " + sightTime);
+		//3:00 
+		//YYYY-MM-DD hh:mm:ss
+		
+		//alert(sightTime);
+		
+		
+		
+		return isValid;
+   }
+      
+
+</script>
+  <%= form_for(@submission) do |f| %>
+  <% if @submission.errors.any? %>
+	<div style="" id="error_explanation">
+	<span style="font-size:large;color:red;">The following errors have prevented this submission from being saved...</span>
+	  <ul style="color:red;">
+	  <% @submission.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+	  <% end %>
+	  </ul>
+	</div>
+  <% end %>
+  <span id="birdInfoTitle" class="subHead expand">Bird Information</span>
+  <div class="subGroup" id="birdInfo">
+	<span style="font-size:small;color:yellow;">(All fields in this group must be filled in, if you don't know the information enter &quot;Unknown&quot; or &quot;None&quot;)</span>
+	<br><br>
+  	<div class="subLabel">
+		<span>Common Name</span>
+		<%= f.text_field :common_name, :value=>@common_name%>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Number of Birds</span>
+		<%= f.number_field :num_of_birds %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Age of Bird(s)</span>
+		<%= f.text_field :age %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Sex of Bird(s)</span>
+		<%= f.select :sex, [["Unknown","Unknown"],["Male","Male"],["Female","Female"]] %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:30px;">Plumage</span>
+		<%= f.text_area :plumage, :rows => "5", :cols => "65" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:40px;">Detailed Description</span>
+		<%= f.text_area :detailed_description, :rows => "5", :cols => "45" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:40px;">Detailed Behavior</span>
+		<%= f.text_area :detailed_behavior, :rows => "5", :cols => "45" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:30px;">Distinguishing Characteristics</span>
+		<%= f.text_area :distinguished_char, :rows => "5", :cols => "45" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:40px;">Habitat Description</span>
+		<%= f.text_area :habitat, :rows => "5", :cols => "45" %>
+	</div>
+  </div>
+  
+  <br/>
+  <br/>
+  <span id="subInfoTitle" class="subHead expand">Submission Information</span>
+  <div class="subGroup" id="subInfo">
+  <span style="font-size:small;color:yellow;">(All fields in this group must be filled in, if you don't know the information enter &quot;Unknown&quot; or &quot;None&quot;)</span>
+  <br>
+  <br>
+	<div class="subLabel">
+		<span>Co-observers</span>
+		<%= f.text_field :coobservers %>
+
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Location</span>
+		<%= f.text_field :location %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>GPS Coordinates</span>
+		<%= f.text_field :gps %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Sighting Date</span>
+		<%= f.datetime_select :sight_date_time, :class => "timeSelect", :ampm =>true%> 
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Length of Observation</span>
+		<%= f.text_field :length_of_obs %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Distance from Bird</span>
+		<%= f.text_field :distance_from %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:40px;">Optical Equipment Used</span>
+		<%= f.text_area :optical_equipment, :rows => "5", :cols => "45" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:40px;">References Used</span>
+		<%= f.text_area :references, :rows => "5", :cols => "45" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Submission made</span>
+		<%= f.radio_button :sub_recall,"0",:style =>"width:20px;",:checked => true %>During Sighting
+		<br>
+		<%= f.radio_button :sub_recall,"1",:style =>"margin-left:209px;width:20px;" %>After Sighting
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Is an unusual sighting?</span>
+		<%= f.check_box :unusual, :style => "width:20px;" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:40px;">Field Guide Used</span>
+		<%= f.text_area :guide_use, :rows => "5", :cols => "45" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:40px;">Previous Experience</span>
+		<%= f.text_area :prev_bird_exp, :rows => "5", :cols => "45" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:40px;">Notes</span>
+		<%= f.text_area :notes, :rows => "5", :cols => "45" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Multimedia</span>
+		<br />
+		<% @multimedia.each_with_index do |multimedium, index| %>
+			<%= f.fields_for :multimedia, multimedium do |multimedia_fields| %>
+				
+				<% if index == 0 %>
+					<%= image_tag(multimedia_fields.object.image_url(:thumb)) if multimedia_fields.object.image? %>			
+					<% if multimedia_fields.object.new_record? %>
+						<br />
+						Image: <%= multimedia_fields.file_field :image %>
+							<%= multimedia_fields.hidden_field :image_cache %>
+						<br />
+					<% end %>
+				<% end %>
+				<% if index == 1 %>
+					<%= link_to image_tag("video.png", :size => "100x100"), multimedium.video_url.to_s if multimedia_fields.object.video? %>			
+					<% if multimedia_fields.object.new_record? %>
+						<br />
+						Video: <%= multimedia_fields.file_field :video %>
+						<br />
+					<% end %>
+				<% end %>
+				<% if index == 2 %>
+					<%= link_to image_tag("audio.png", :size => "100x100"), multimedium.audio_url.to_s if multimedia_fields.object.audio? %>			
+					<% if multimedia_fields.object.new_record? %>
+						<br />
+						Audio: <%= multimedia_fields.file_field :audio %>
+						<br />
+					<% end %>
+				<% end %>				
+			
+			<% end %>
+		<% end %>
+		<br />
+	</div>
+  </div>
+  
+  <br/>
+  <br/>
+
+  <% if isadmin? && params[:action] != "new"%> 
+  <span id="adminInfoTitle" class="subHead expand">Administrator Information</span>
+  <div class="subGroup" id="adminInfo">
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:40px;">Working Notes</span>
+		<%= f.text_area :working_notes, :rows => "5", :cols => "45" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span style="position:relative; bottom:40px;">Administrator Notes</span>
+		<%= f.text_area :admin_notes, :rows => "5", :cols => "45" %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Category of Acceptance</span>
+		<%= f.text_field :s_degree %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Region</span>
+		<%= f.text_field :region %>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Voting Date</span>
+		<%= f.datetime_select :date_votable, :class => "timeSelect", :ampm =>true%> 
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Submission Status</span>
+		<%= f.select :status, options_for_select(submission_statuses, @submission.status)%>
+	</div>
+	<br>
+	<div class="subLabel">
+		<span>Round</span>
+		<%= f.select :rounds, options_for_select([[1,1],[2,2],[3,3]], @submission.rounds) %>
+	</div>
+  </div>
+  <% end %>
+  <br/>
+  <br/>
+  	<!-- Display Save as Draft if this is a new submission or this submission is incomplete and belongs to the logged in user -->
+	<% if @submission.status == "incomplete" %>
+		<%= f.submit "Save as Draft", :class => "btn-custom", :style => "display:inline-block;"%>
+	<% end %>
+	<%= f.submit "Submit",:class => "btn-custom", :onclick => "return validateSubmission();" %>
+<% end %>

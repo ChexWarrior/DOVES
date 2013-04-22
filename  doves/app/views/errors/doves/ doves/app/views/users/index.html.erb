@@ -1,0 +1,61 @@
+
+
+<%= page_heading "User List" %>
+
+<%= link_to 'Back to Admin Tools', admin_pages_path %>
+
+<h1>Listing users</h1>
+<script>
+	$(document).ready(function(){
+	$("#reset").bind("click", function (){
+		$("#search").val("");
+	});
+	});
+</script>
+
+<%= render :partial=>'searchform' %>
+
+<% if @users.length > 0 %>
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Phone</th>
+    <th>Address line1</th>
+    <th>Address line2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Email</th>
+    <th>Prev exp</th>
+    <th>Level</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr class="subRow">
+    <td><%= user.first_name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.phone %></td>
+    <td><%= user.address_line1 %></td>
+    <td><%= user.address_line2 %></td>
+    <td><%= user.city %></td>
+    <td><%= user.state %></td>
+    <td><%= user.zip %></td>
+    <td><%= user.email %></td>
+    <td><%= user.prev_exp %></td>
+    <td><%= user.level.titleize if user.level %></td>
+    <td><%= link_to 'Show', user %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+<%= will_paginate @submissions %>
+<% end %>
+<br />
+
+
+<%= link_to 'New User', new_user_path %>
