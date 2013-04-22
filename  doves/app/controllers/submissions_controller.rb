@@ -12,7 +12,8 @@ class SubmissionsController < ApplicationController
   # GET /submissions.json
   def index
     params[:per_page] = 10 if params[:per_page].nil?
-	 @submissions = Submission.all if params[:search].nil?
+	 @submissions = Submission.scoped_by_status("verified") if params[:search].nil? and !isadmin?
+	 @submissions = Submission.all if params[:search].nil? and isadmin?
      @submissions = Submission.subsearch(params[:search], params[:field], params[:status]) if !params[:search].nil?
 	 flash.now[:notice] = "No Submissions Found" if @submissions.length == 0
 	 @submissions = @submissions.paginate(:page => params[:page], :per_page => params[:per_page])
@@ -130,7 +131,6 @@ class SubmissionsController < ApplicationController
   # GET /submissions/new
   # GET /submissions/new.json
   def new
-  
     @submission = Submission.new
 	@submission.status = "incomplete"
 	3.times {@submission.multimedia.build}
@@ -185,7 +185,7 @@ class SubmissionsController < ApplicationController
 	
     respond_to do |format|
       if @submission.save
-		
+		session[:lastcommon] = nil
         format.html { redirect_to @submission, notice: 'Submission was successfully created.' }
         format.json { render json: @submission, status: :created, location: @submission }
       else
