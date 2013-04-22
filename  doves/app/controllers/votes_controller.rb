@@ -42,7 +42,7 @@ before_filter :ensure_reviewer_or_admin
   # Pending submission controller
   def pending
   # Get user role to determine reviewer and id to determine which results to show.
-  @pending = Submission.find(:all, :conditions =>{:status => "pending"})
+  @pending = Submission.scoped_by_status("pending").where("date_votable < ?", Time.now())
   @pending.delete_if{|submission| Vote.scoped_by_submission_id(submission.id).scoped_by_user_id(session[:user].id).scoped_by_round(submission.rounds).exists?}
 	# for(int x = 0; x<= id_max; x++)
 	# {
