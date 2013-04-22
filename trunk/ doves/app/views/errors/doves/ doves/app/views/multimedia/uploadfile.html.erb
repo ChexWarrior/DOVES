@@ -1,6 +1,0 @@
-<h1>Multimedia Upload</h1>
-<%= form_for :uploadfile, :html => {:multipart => true} do |f| %>
-	<p><label for="upload_file">Select File</label> : 
-	<%= f.file_field :upload %></p>
-	<%= f.submit "Upload" %>
-<% end %>
