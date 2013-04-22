@@ -34,6 +34,15 @@ resources :pages do
 	get 'sitemap', :on=> :collection
 	get 'admin', :on=> :collection
 end
+
+
+
+	match '/404', :to => 'errors#not_found'
+	match '/422', :to => 'errors#server_error'
+	match '/500', :to => 'errors#server_error'
+	#match '/403', :to => 'errors#forbidden'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
