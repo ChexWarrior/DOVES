@@ -112,7 +112,7 @@
 	<br>
 	<div class="subLabel">
 		<span>Sight Date Time</span>
-		<%= @submission.sight_date_time %>
+		<%= @submission.sight_date_time.to_formatted_s(:short) %>
 	</div>
 	<br>
 	<div class="subLabel">
@@ -198,7 +198,7 @@
 	<br>
 	<div class="subLabel">
 		<span>Voting Date</span>
-		<%= @submission.date_votable %>
+		<%= @submission.date_votable.to_formatted_s(:short) %>
 	</div>
 	<br>
 	<div class="subLabel">

@@ -175,7 +175,7 @@ width:100%;
 
 .subLabel {
 	font-size:14pt;
-	color:white;
+	color:black;
 }
 
 .subLabel span {
@@ -196,7 +196,8 @@ width:100%;
 
 .subGroup
 {
-	background-color:#4e82c8;
+	border: #4e82c8 2px solid;
+	/*ackground-color:#4e82c8;*/
 	border-radius: 0px 10px 10px 10px;
 	padding: 5px;
 }
