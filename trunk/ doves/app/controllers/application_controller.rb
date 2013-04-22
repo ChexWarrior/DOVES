@@ -1,8 +1,16 @@
 class ApplicationController < ActionController::Base
+  rescue_from ActiveRecord::RecordNotFound, :with => :render_404
+  rescue_from ActionController::RoutingError, :with => :render_404
   protect_from_forgery
   helper_method :loggedin?
   helper_method :isadmin?
   helper_method :isreviewer?
+  
+  def render_404
+	respond_to do |format|
+		format.html { render :file => 'errors/not_found' }
+		end
+	end
   
   def loggedin?
 	!!session[:user]
