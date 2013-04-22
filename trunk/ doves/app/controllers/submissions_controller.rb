@@ -88,43 +88,7 @@ class SubmissionsController < ApplicationController
 		#don't show the editable vote fields if this user has already voted on this submission in this round
 		@hasVoted = @submission.votes.scoped_by_user_id(session[:user].id).scoped_by_round(@submission.rounds).exists?
 	end
-		if(isadmin?) and (@submission.status == 'pending') 
-	  #find submissions current round
-	  #find all votes for a submissions current round, count yes and total votes.
-	  #if vote count < 7 wait for all votes
-	  #if <4 yes votes dont accept
-	  #else if 7 yes votes  accept submission any round
-	  #else if 6 yes votes for round 3 accept
-	  #else  if 5 or 6 yes votes and round 1 or 2 promote
-	  #else reject
-	count = 0 
-	yes_vote=0
-		Vote.find_each(:conditions =>["round = ? AND submission_id = ?", @submission.rounds, @submission.id]) do |votes|
-		  count=count+1   
-		  if votes.vote == "A"
-			 yes_vote=yes_vote + 1
-		  end
-		end
-		if count <7
-		   flash.now[:notice] = "Recommended Action:  Wait for all committee members to finish voting."
-		elsif yes_vote == 7
-		   flash.now[:notice] = "Recommended Action:  Accept submission as a verified sighting."
-		elsif yes_vote <4
-		   flash.now[:notice] = "Recommended Action: Submission should not be accepted."
-		elsif yes_vote == 6 && @submission.rounds == 3
-		   flash.now[:notice] = "Recommended Action:  Accept submission as a verified sighting."
-		elsif (yes_vote < 7 && yes_vote > 3) && (@submission.rounds == 1 || @submission.rounds == 2)
-		   flash.now[:notice] = "Recommended Action: Move submission on to a new round of voting."
-		else
-		   flash.now[:notice] = "Recommended Action: Submission should not be accepted."
-		end
-
-	end
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @submission }
-    end
+	recommend
 	
   end
 
@@ -144,6 +108,7 @@ class SubmissionsController < ApplicationController
 
   # GET /submissions/1/edit
   def edit
+   recommend
     @submission = Submission.find(params[:id])
 	3.times {@submission.multimedia.build}
 	@multimedia=@submission.multimedia
@@ -261,5 +226,37 @@ class SubmissionsController < ApplicationController
 	redirect_to submissions_path, notice: "You are not authorized for that action." and return if !(@submission.user_authorized_to_destroy?(session[:user]))
   end 
   
-  
+  def recommend
+  if(isadmin?) and (@submission.status == 'pending') 
+	  #find submissions current round
+	  #find all votes for a submissions current round, count yes and total votes.
+	  #if vote count < 7 wait for all votes
+	  #if <4 yes votes dont accept
+	  #else if 7 yes votes  accept submission any round
+	  #else if 6 yes votes for round 3 accept
+	  #else  if 5 or 6 yes votes and round 1 or 2 promote
+	  #else reject
+	count = 0 
+	yes_vote=0
+		Vote.find_each(:conditions =>["round = ? AND submission_id = ?", @submission.rounds, @submission.id]) do |votes|
+		  count=count+1   
+		  if votes.vote == "A"
+			 yes_vote=yes_vote + 1
+		  end
+		end
+		if count <7
+		   flash.now[:notice] = "Recommended Action:  Wait for all committee members to finish voting."
+		elsif yes_vote == 7
+		   flash.now[:notice] = "Recommended Action:  Accept submission as a verified sighting."
+		elsif yes_vote <4
+		   flash.now[:notice] = "Recommended Action: Submission should not be accepted."
+		elsif yes_vote == 6 && @submission.rounds == 3
+		   flash.now[:notice] = "Recommended Action:  Accept submission as a verified sighting."
+		elsif (yes_vote < 7 && yes_vote > 3) && (@submission.rounds == 1 || @submission.rounds == 2)
+		   flash.now[:notice] = "Recommended Action: Move submission on to a new round of voting."
+		else
+		   flash.now[:notice] = "Recommended Action: Submission should not be accepted."
+		end
+	end
+  end
   end
