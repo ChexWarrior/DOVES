@@ -50,6 +50,10 @@
       
 
 </script>
+ 
+  <% @common_name = Bird.find(@submission.bird_id).common_name if (@submission.bird_id !=31) %>
+  <% @common_name = @submission.common_name if (@submission.bird_id ==31) %>
+  
   <%= form_for(@submission) do |f| %>
   <% if @submission.errors.any? %>
 	<div style="" id="error_explanation">
