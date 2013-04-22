@@ -44,16 +44,24 @@
   <br>
   <!-- span style="font-size:14pt;">Past Voting Information</span -->
   <% while @submission.rounds != nil && @count <= @submission.rounds  %>
+	<% @acount = 0 %>
+	<% @rcount = 0 %>
 	<% if @oldRecords %>
 		<% if @count!= @submission.rounds %>
 		<br><br>
-		<span onclick="$(this).next('div').toggle();"  class="subHead"> Round <%= @count %> Information </span>
+		<% @oldRecords.each do |r| %>
+			<% if r.round == @count%>
+				<% @acount += 1 if r.vote == "A" %>
+				<% @rcount += 1 if r.vote == "R" %>
+			<% end %>
+		<% end %>
+		<span onclick="$(this).next('div').toggle();"  class="subHead"> Round <%= @count %> Information - <%= @acount %> A <span class ="no"><%= @rcount %> R</span></span>
 		<div class="" style="border: #4e82c8 2px solid;padding: 5px;font-size:14pt;border-radius: 0px 10px 10px 10px;">
 		<% @oldRecords.each do |r| %>
 			<% if r.round == @count%>
 				<div>
 					<br>
-					<%= r.voter_name %> voted to <%if r.vote == "A" %> Accept <% else %> Reject <% end %> on on <%= r.vote_time.to_formatted_s(:short) %> 
+					<%= r.voter_name %> voted to <%if r.vote == "A" %> Accept <% else %> Reject <% end %> on on <%= r.vote_time.strftime("%m/%d/%y  %I:%M%p") %> 
 					<br>
 					<% if r.comment != "" %>
 					Comment made by <%= r.voter_name %> :

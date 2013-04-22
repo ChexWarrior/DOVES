@@ -27,6 +27,9 @@ def clear_password
 	self.password=nil
 end
 
+def name
+ first_name+" "+last_name
+end
 
 def self.authenticate(email="", login_password="")
 

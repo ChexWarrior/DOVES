@@ -91,7 +91,7 @@
 		<% if submission.bird_id == 31 %>
 		(<%= submission.common_name %>)
 		<% end %></td>
-	<td><%= submission.user.first_name%>&nbsp<%= submission.user.last_name %></td>
+	<td><%= link_to submission.user.name, submission.user %></td>
 	<td><%= submission.location %></td>
 	<td><%= submission.region %></td>
 	<td><%= submission.created_on.strftime("%m/%d/%y  %I:%M%p") if submission.created_on %></td>
