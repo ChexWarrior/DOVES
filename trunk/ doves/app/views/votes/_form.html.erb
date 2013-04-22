@@ -10,12 +10,10 @@
       </ul>
     </div>
   <% end %>
-<br>
   <% if isreviewer? %>
   <span id="votingInfoTitle" class="subHead expand">Voting Information</span>
   <div class="subGroup" id="votingInfo">
   <br>
-
   <div class="subLabel">
     <span>Vote</span>
     <%= f.select :vote,[["Accept","A"],["Reject","R"]]  %>
@@ -37,29 +35,33 @@
   <%= @submission.s_degree %>
   </div>
   <br>
-  <span class="subHead"> Administrator Notes </span>
+  <div class="subLabel">
+  <span class="subLabel"> Administrator Notes </span>
   <p style="color:white;font-size:14pt;"><%= @submission.admin_notes %></p>
+  </div>
+  </div>
   <!-- Print out old comments on this vote! -->
-  <br><br>
-  <span class ="subHead">Past Voting Information</span>
-  <br><br>
+  <br>
+  <!-- span style="font-size:14pt;">Past Voting Information</span -->
   <% while @submission.rounds != nil && @count <= @submission.rounds  %>
 	<% if @oldRecords %>
 		<% if @count!= @submission.rounds %>
-		<br>
-		<span onclick="$(this).next('div').toggle();" style="cursor:pointer;" class="subLabel"> Round <%= @count %> (Click to show or hide the votes and comments)</span>
-		<div style="border:1px white solid; border-radius:10px; padding:3px;">
+		<br><br>
+		<span onclick="$(this).next('div').toggle();" style="margin-left:0px; font-size:14pt;" class="newstitle"> Round <%= @count %> Information </span>
+		<div class="newspost" style="font-size:12pt;border-radius: 0px 10px 10px 10px;">
 		<% @oldRecords.each do |r| %>
 			<% if r.round == @count%>
-				<div class="subLabel">
+				<div>
 					<br>
-					<%= r.voter_name %> voted to <%if r.vote == "A" %> Accept <% else %> Reject <% end %>
+					<%= r.voter_name %> voted to <%if r.vote == "A" %> Accept <% else %> Reject <% end %> on on <%= r.vote_time.to_formatted_s(:short) %> 
 					<br>
-					<br> Comment made by <%= r.voter_name %> on <%= r.vote_time %> :
+					<% if r.comment != "" %>
+					<br> Comment made by <%= r.voter_name %> :
 					<br>
 					<p>
 						<%= r.comment %>
 					</p>
+					<% end %>
 				</div>
 			<% end %>
 			<% end %>
@@ -68,7 +70,6 @@
 	<% end %>
 	<% @count += 1 %>
   <% end %>
-    </div>
   <br><br>
   <div class="actions">
     <%= f.submit "Make Vote", :class=>"btn-custom" %>
