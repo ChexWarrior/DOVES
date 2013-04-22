@@ -46,7 +46,8 @@
   <% while @submission.rounds != nil && @count <= @submission.rounds  %>
 	<% if @oldRecords %>
 		<% if @count!= @submission.rounds %>
-		<span onclick="$(this).next('div').toggle();" style="cursor:pointer;" class="subLabel"> Round <%= @count %> (Click to show hide votes/comments)</span>
+		<br>
+		<span onclick="$(this).next('div').toggle();" style="cursor:pointer;" class="subLabel"> Round <%= @count %> (Click to show or hide the votes and comments)</span>
 		<div style="border:1px white solid; border-radius:10px; padding:3px;">
 		<% @oldRecords.each do |r| %>
 			<% if r.round == @count%>
