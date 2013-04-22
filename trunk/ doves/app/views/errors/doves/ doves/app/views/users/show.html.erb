@@ -1,0 +1,142 @@
+<h1>User Info</h1>
+
+<table>
+<tr class="subRow">
+    <td>
+	<b>First Name:</b>
+	</td>
+	
+	<td>
+	<%= @user.first_name %>
+	</td>	
+</tr>
+
+<tr class="subRow">
+	<td>
+	<b>Last Name:</b>
+	</td>
+	
+	<td>
+	<%= @user.last_name %>
+	</td>
+</tr>
+
+<tr class="subRow">
+	<td>
+	<b>Phone:</b>
+	</td>
+	
+	<td>
+	<%= @user.phone %>
+	</td>
+</tr>
+
+<tr class="subRow">
+	
+	<td>
+	<b>Address Line 1:</b>
+	</td>
+	
+	<td>
+	<%= @user.address_line1 %>
+	</td>
+</tr>
+
+<tr class="subRow">
+	<td>
+	<b>Address Line 2:</b>
+	</td>
+	
+	<td>
+	<%= @user.address_line2 %>
+	</td>
+</tr>
+
+<tr class="subRow">
+	<td>
+	<b>City:</b>
+	</td>
+	
+	<td>
+	<%= @user.city %>
+	</td>
+	
+</tr>
+
+<tr class="subRow">
+	<td>
+	<b>State:</b>
+	</td>
+	
+	<td>
+	<%= @user.state %>
+	</td>
+</tr>
+
+<tr class="subRow">
+	<td>
+	<b>Zip:</b>
+	</td>
+	
+	<td>
+	<%= @user.zip %>
+	</td>
+</tr>
+
+<tr class="subRow">
+	<td>
+	<b>Email:</b>
+	</td>
+	
+	<td>
+	<%= @user.email %>
+	</td>
+</tr>
+
+<tr class="subRow">
+	<td>
+	<b>Previous Experience:</b>
+	</td>
+	
+	<td>
+	<%= @user.prev_exp %>
+	</td>
+</tr>
+
+<tr class="subRow">
+	<td>
+	<b>Level:</b>
+	</td>
+	
+	<td>
+	<%= @user.level.titleize %>
+	</td>
+</tr>
+
+
+</table>
+
+<br>
+
+<table>
+	<tr>	
+		<td>
+			<%= link_to 'Edit', edit_user_path(@user) %>
+			
+			<% if (isadmin?) %>
+			|<%= link_to 'Back', users_path %>
+			<% end %>
+			</td>
+</tr>
+</table>
+
+<br>
+
+<h1>My Submissions</h1>
+
+<%= render :partial => 'submissions/list' %>
+
+
+		
+
+			

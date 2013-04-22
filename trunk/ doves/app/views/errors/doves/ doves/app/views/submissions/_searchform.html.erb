@@ -1,0 +1,31 @@
+<script>
+	$(function () {
+    $('.checkall').on('click', function () {
+        $(this).closest('fieldset').find(':checkbox').prop('checked', this.checked);
+    });
+});
+</script>
+
+<%= form_tag submissions_path, :method => 'get' do %>
+	<%= select_tag :field, options_for_select(search_params, params[:field]) %>
+     <%= text_field_tag :search, params[:search] %>
+	 <br />
+	 <%= select_tag :per_page, options_for_select(results_per_page, params[:per_page]) %> results per page
+	<br/>
+	
+	
+	<fieldset>
+<% submission_statuses.each do |key, value| %>
+	<%check_this = true if value=="verified"%>
+	<%check_this = params[:status].include?(value) if params[:status] %>
+	<%= check_box_tag 'status[]', value, check_this -%>
+	<%= h key -%>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+  <% end %>
+	<input type="checkbox" class="checkall"> Check all
+  </fieldset>		
+	  <br/>
+	  <br/>
+      <%= submit_tag "Search",:class=>"btn-custom", :name => nil %> 
+	  <input type ="button" class="btn-custom" value="Reset" id="reset"/>
+<% end %>  

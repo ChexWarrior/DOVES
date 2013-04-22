@@ -1,0 +1,61 @@
+<% if @submissions.length >0 %>
+<table>
+  <tr>
+    <th>S degree</th>
+    <th>Sub date time</th>
+    <th>Submitter</th>
+    <th>Common name</th>
+    <th>Num of birds</th>
+    <th>Age</th>
+    <th>Sex</th>
+    <th>Location</th>
+    <th>Region</th>
+    <th>Sight date time</th>
+
+    <th>Media</th>
+    <th>Status</th>
+    <th>Rounds</th>
+    <th>Date accepted</th>
+    <th>Date votable</th>
+
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @submissions.each do |submission| %>
+  <tr class="subRow">
+    <td><%= submission.s_degree %></td>
+    <td><%= submission.created_on%></td>
+    <td><%= submission.user.first_name+" "+submission.user.last_name %></td>
+    <td><%= submission.bird.common_name %>
+		<% if submission.bird_id == 31 %>
+		(<%= submission.common_name %>)
+		<% end %></td>
+    <td><%= submission.num_of_birds %></td>
+    <td><%= submission.age %></td>
+    <td><%= submission.sex %></td>
+    <td><%= submission.location %></td>
+    <td><%= submission.region %></td>
+    <td><%= submission.sight_date_time %></td>
+
+
+    <td><%= submission.media %></td>
+    <td><%= submission.status.humanize if submission.status %></td>
+    <td><%= submission.rounds %></td>
+    <td><%= submission.date_accepted %></td>
+    <td><%= submission.date_votable %></td>
+
+    <td><%= link_to_if(submission.user_authorized_to_view?(session[:user]), 'Show', submission){} %></td>
+    <td><%= link_to_if(submission.user_authorized_to_edit?(session[:user]), 'Edit', edit_submission_path(submission)){} %></td>
+    <td><%= link_to_if(submission.user_authorized_to_destroy?(session[:user]), 'Destroy', submission, confirm: 'Are you sure?', method: :delete){} %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= will_paginate @submissions %>
+
+<% else %>
+No submissions found. <br />
+<% end %>
