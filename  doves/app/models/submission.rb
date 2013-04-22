@@ -2,7 +2,7 @@ class Submission < ActiveRecord::Base
 
 has_many :multimedia, :dependent => :destroy
 has_many :votes
-accepts_nested_attributes_for :multimedia
+accepts_nested_attributes_for :multimedia, :allow_destroy => true
 attr_accessor :force_submit
 belongs_to :bird
 belongs_to :user
