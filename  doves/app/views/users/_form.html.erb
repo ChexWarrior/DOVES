@@ -10,25 +10,31 @@
       </ul>
     </div>
   <% end %>
+  <span class="required">* Required</span>
+  <br><br>
+  <div class="subLabel black">
+    <span>Email</span>
+    <%= f.text_field :email %><span class="required">*</span>
+  </div>
   <br>
   <div class="subLabel black">
     <span>Password</span>
-    <%= f.password_field :password %>
+    <%= f.password_field :password %><span class="required">*</span>
   </div>
    <br>
   <div class="subLabel black"> 
 	<span>Confirm Password</span>
-	<%= f.password_field :password_confirmation%> 
+	<%= f.password_field :password_confirmation%><span class="required">*</span>
   </div>
   <br>
   <div class="subLabel black">
     <span>First Name</span>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name %><span class="required">*</span>
   </div>
   <br>
   <div class="subLabel black">
     <span>Last Name</span>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name %><span class="required">*</span>
   </div>
   <br>
   <div class="subLabel black">
@@ -59,11 +65,6 @@
   <div class="subLabel black">
     <span>Zip Code</span>
     <%= f.text_field :zip %>
-  </div>
-  <br>
-  <div class="subLabel black">
-    <span>Email</span>
-    <%= f.text_field :email %>
   </div>
   <br>
   <div class="subLabel black">

@@ -71,47 +71,47 @@
 	<br><br>
   	<div class="subLabel">
 		<span>Common Name</span>
-		<%= f.text_field :common_name, :value=>@common_name%>
+		<%= f.text_field :common_name, :value=>@common_name%><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span>Number of Birds</span>
-		<%= f.number_field :num_of_birds %>
+		<%= f.number_field :num_of_birds %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span>Age of Bird(s)</span>
-		<%= f.text_field :age %>
+		<%= f.text_field :age %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span>Sex of Bird(s)</span>
-		<%= f.select :sex, [["Unknown","Unknown"],["Male","Male"],["Female","Female"]] %>
+		<%= f.select :sex, [["Unknown","Unknown"],["Male","Male"],["Female","Female"]] %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span style="position:relative; bottom:30px;">Plumage</span>
-		<%= f.text_area :plumage, :rows => "5", :cols => "65" %>
+		<%= f.text_area :plumage, :rows => "5", :cols => "65" %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span style="position:relative; bottom:40px;">Detailed Description</span>
-		<%= f.text_area :detailed_description, :rows => "5", :cols => "45" %>
+		<%= f.text_area :detailed_description, :rows => "5", :cols => "45" %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span style="position:relative; bottom:40px;">Detailed Behavior</span>
-		<%= f.text_area :detailed_behavior, :rows => "5", :cols => "45" %>
+		<%= f.text_area :detailed_behavior, :rows => "5", :cols => "45" %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span style="position:relative; bottom:30px;">Distinguishing Characteristics</span>
-		<%= f.text_area :distinguished_char, :rows => "5", :cols => "45" %>
+		<%= f.text_area :distinguished_char, :rows => "5", :cols => "45" %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span style="position:relative; bottom:40px;">Habitat Description</span>
-		<%= f.text_area :habitat, :rows => "5", :cols => "45" %>
+		<%= f.text_area :habitat, :rows => "5", :cols => "45" %><span class="required">*</span>
 	</div>
   </div>
   
@@ -124,43 +124,43 @@
   <br>
 	<div class="subLabel">
 		<span>Co-observers</span>
-		<%= f.text_field :coobservers %>
+		<%= f.text_field :coobservers %><span class="required">*</span>
 
 	</div>
 	<br>
 	<div class="subLabel">
 		<span>Location</span>
-		<%= f.text_field :location %>
+		<%= f.text_field :location %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span>GPS Coordinates</span>
-		<%= f.text_field :gps %>
+		<%= f.text_field :gps %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span>Sighting Date</span>
-		<%= f.datetime_select :sight_date_time, :class => "timeSelect", :ampm =>true%> 
+		<%= f.datetime_select :sight_date_time, :class => "timeSelect", :ampm =>true%> <span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span>Length of Observation</span>
-		<%= f.text_field :length_of_obs %>
+		<%= f.text_field :length_of_obs %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span>Distance from Bird</span>
-		<%= f.text_field :distance_from %>
+		<%= f.text_field :distance_from %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span style="position:relative; bottom:40px;">Optical Equipment Used</span>
-		<%= f.text_area :optical_equipment, :rows => "5", :cols => "45" %>
+		<%= f.text_area :optical_equipment, :rows => "5", :cols => "45" %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
 		<span style="position:relative; bottom:40px;">References Used</span>
-		<%= f.text_area :references, :rows => "5", :cols => "45" %>
+		<%= f.text_area :references, :rows => "5", :cols => "45" %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
@@ -177,7 +177,7 @@
 	<br>
 	<div class="subLabel">
 		<span style="position:relative; bottom:40px;">Previous Experience With This Bird Species</span>
-		<%= f.text_area :prev_bird_exp, :rows => "5", :cols => "45" %>
+		<%= f.text_area :prev_bird_exp, :rows => "5", :cols => "45" %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
