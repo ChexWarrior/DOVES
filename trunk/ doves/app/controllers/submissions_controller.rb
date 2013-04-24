@@ -153,10 +153,11 @@ class SubmissionsController < ApplicationController
 	
     respond_to do |format|
       if @submission.save
-		session[:lastcommon] = nil
+		
         format.html { redirect_to @submission, notice: 'Submission was successfully created.' }
         format.json { render json: @submission, status: :created, location: @submission }
       else
+		@submission.status = "incomplete"
         format.html { render action: "new" }
         format.json { render json: @submission.errors, status: :unprocessable_entity }
       end
@@ -186,6 +187,9 @@ class SubmissionsController < ApplicationController
 	elsif params[:commit].downcase == "submit"
 		@submission.status = "new"
 	end
+	
+	@submission.date_accepted = Time.now() if (params[:submission][:status] == "verified") and (isadmin?) and (@submission.status != "verified")
+	
 	params[:submission][:rounds] = @submission.rounds if !isadmin?
 	params[:submission][:status] = @submission.status if !isadmin? and (params[:submission] != "new") 
 	
