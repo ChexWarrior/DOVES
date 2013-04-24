@@ -212,7 +212,7 @@
 	<br>
 	<div class="subLabel">
 		<span>Voting Date</span>
-		<%= @submission.date_votable.strftime("%m/%d/%y  %I:%M%p") %>
+		<%= @submission.date_votable.strftime("%m/%d/%y  %I:%M%p") if @submission.date_votable %>
 	</div>
 	<br>
 	<div class="subLabel">
