@@ -26,7 +26,8 @@ belongs_to :user
  validates :optical_equipment, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
  validates :references, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
  validates :sub_recall, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
- validates :guide_use, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
+ #Combined field guide and references fields
+ #validates :guide_use, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
  validates :unusual, :presence => true, :unless => Proc.new { |ex| ex.status == "incomplete"}
 
 

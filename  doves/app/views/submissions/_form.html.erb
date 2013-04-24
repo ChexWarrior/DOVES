@@ -167,17 +167,12 @@
 		<span>Submission made</span>
 		<%= f.radio_button :sub_recall,"0",:style =>"width:20px;",:checked => true %>During Sighting
 		<br>
-		<%= f.radio_button :sub_recall,"1",:style =>"margin-left:209px;width:20px;" %>After Sighting
+		<%= f.radio_button :sub_recall,"1",:style =>"margin-left:204px;width:20px;" %>After Sighting
 	</div>
 	<br>
 	<div class="subLabel">
 		<span>Do you consider this sighting unusual?</span>
 		<%= f.check_box :unusual, :style => "width:20px;" %>Yes
-	</div>
-	<br>
-	<div class="subLabel">
-		<span style="position:relative; bottom:40px;">Field Guide Used</span>
-		<%= f.text_area :guide_use, :rows => "5", :cols => "45" %>
 	</div>
 	<br>
 	<div class="subLabel">
