@@ -78,7 +78,7 @@
   </div>
  <% end %>
   <div class="actions">
-    <% if params[:action]=='edit' %>
+    <% if params[:action]=='edit' or params[:action]=='update' %>
     <%= f.submit "Update",:class=>"btn-custom" %>
 	 <% else %>
 	<%= f.submit "Register",:class=>"btn-custom" %>
