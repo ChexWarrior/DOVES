@@ -73,7 +73,7 @@
   <br>
  <% if isadmin? %>
   <div class="subLabel black">
-    <%= f.label :level %><br />
+    <span>Level</span>
 	<%= f.select :level, options_for_select(user_levels, @currentlevel) %>
   </div>
  <% end %>
