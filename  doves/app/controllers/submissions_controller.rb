@@ -168,8 +168,6 @@ class SubmissionsController < ApplicationController
   def update
     @submission = Submission.find(params[:id])
 	
-	Multimedium.where(:id=>params[:del_media]).destroy_all
-	
 	3.times {@submission.multimedia.build}
 	@multimedia=@submission.multimedia
 
