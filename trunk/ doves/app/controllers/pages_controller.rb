@@ -14,7 +14,7 @@ end
 
 def home
 	@multimedia_all = Multimedium.joins(:submission).where("multimedia.image IS NOT NULL AND submissions.status ='verified'")
-	@multimedia = @multimedia_all.sample(5)
+	@multimedia = @multimedia_all.last(5)
 	@post = Post.order("created_on DESC").first
 end
 
