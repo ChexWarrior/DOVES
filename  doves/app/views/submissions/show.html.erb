@@ -232,6 +232,12 @@
 	<%= render :partial => 'votes/form' if isreviewer?%>
 	<%= render :partial => 'votes/list' if isadmin? %>
 <% end %>
-	
+	<br/>
 	<% if @submission.user_authorized_to_edit?(session[:user]) %>
-<%= link_to 'Edit', edit_submission_path(@submission) %> | <% end %><%= link_to 'More Submissions', submissions_path%>
+<%= button_to 'Edit', edit_submission_path(@submission), :class=>'btn-custom', :form_class=>'inline' %>
+<% end %>   
+
+	<% if @submission.user_authorized_to_edit?(session[:user]) %>
+<%= button_to 'Destroy', @submission, :class=>'btn-custom', :form_class=>'inline', :confirm => "Are you sure?", method: :delete  %><% end %>
+<br/>
+<%= link_to 'Submission List', submissions_path%>
