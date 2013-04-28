@@ -14,6 +14,7 @@ resources :votes do
 end
 
   root :to => "pages#home"
+  match '/gettingstarted' => 'pages#gettingstarted'
   
   
 resources :submissions , :shallow => true do
@@ -31,6 +32,7 @@ end
 
 resources :pages do
 	get 'about', :on=> :collection
+	get 'gettingstarted', :on=> :collection
 	get 'home', :on=> :collection
 	get 'sitemap', :on=> :collection
 	get 'admin', :on=> :collection
