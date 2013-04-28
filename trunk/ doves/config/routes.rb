@@ -1,6 +1,6 @@
 DOVES::Application.routes.draw do
   resources :posts do
-	get 'list', :on => :collection
+	post 'list', :on => :collection
 	end
 
   resources :multimedia
