@@ -1,22 +1,22 @@
 <% if @submissions.length >0 %>
 <table>
   <tr>
-    <th>S degree</th>
-    <th>Sub date time</th>
+    <th>Degree</th>
+    <th>Submitted Date</th>
     <th>Submitter</th>
     <th>Common name</th>
-    <th>Num of birds</th>
+    <th>Number of Birds</th>
     <th>Age</th>
     <th>Sex</th>
     <th>Location</th>
     <th>Region</th>
-    <th>Sight date time</th>
+    <th>Sight Date</th>
 
     <th>Media</th>
     <th>Status</th>
     <th>Rounds</th>
-    <th>Date accepted</th>
-    <th>Date votable</th>
+    <th>Date Accepted</th>
+    <th>Date Votable</th>
 
     <th></th>
     <th></th>
@@ -26,7 +26,7 @@
 <% @submissions.each do |submission| %>
   <tr class="subRow">
     <td><%= submission.s_degree %></td>
-    <td><%= submission.created_on%></td>
+    <td><%= submission.created_on.strftime("%m/%d/%y  %I:%M%p")%></td>
     <td><%= link_to_if(isadmin?, submission.user.first_name+" "+submission.user.last_name, submission.user){submission.user.first_name+" "+submission.user.last_name}%></td>
     <td><%= submission.bird.common_name %>
 		<% if submission.bird_id == 31 %>
@@ -37,14 +37,14 @@
     <td><%= submission.sex %></td>
     <td><%= submission.location %></td>
     <td><%= submission.region %></td>
-    <td><%= submission.sight_date_time %></td>
+    <td><%= submission.sight_date_time.strftime("%m/%d/%y  %I:%M%p") %></td>
 
 
     <td><%= submission.media %></td>
     <td><%= submission.status.humanize if submission.status %></td>
     <td><%= submission.rounds %></td>
     <td><%= submission.date_accepted %></td>
-    <td><%= submission.date_votable %></td>
+    <td><%= submission.date_votable.strftime("%m/%d/%y  %I:%M%p") %></td>
 
     <td><%= link_to_if(submission.user_authorized_to_view?(session[:user]), 'Show', submission){} %></td>
     <td><%= link_to_if(submission.user_authorized_to_edit?(session[:user]), 'Edit', edit_submission_path(submission)){} %></td>
