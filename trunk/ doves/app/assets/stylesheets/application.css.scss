@@ -46,6 +46,12 @@ min-width: 90px;
     src: local(caviar_font), url(CaviarDreams.ttf) format('opentype');
 }
 
+.help
+{
+	font-size:small;
+	padding-left:5px;
+}
+
 .logo {
 	float: left;
 	border:none;
@@ -81,7 +87,8 @@ min-width: 90px;
 }
 
 #content {
-	padding-left: 2%;
+	padding-left: 1%;
+	padding-right: 1%;
 	padding-bottom: 3%;
 	background:#fff;
 	margin-left:200px;
@@ -90,7 +97,7 @@ min-width: 90px;
 	z-index:2;
     min-height: 80%;
     position: relative;
-	overflow-y:hidden;
+	/*overflow-y:hidden;*/
 }
 
 
@@ -185,6 +192,7 @@ width:100%;
 .subHead {
 	font-size:16pt;
 	padding: 5px;
+	padding-bottom:2px;
 	/*border-bottom: 2px solid black;*/
 	cursor:pointer;
 	background-color:#4e82c8;
@@ -210,6 +218,10 @@ width:100%;
 
 .subLabel span {
 	width:200px;
+}
+
+.subLabel .required {
+	width:5px;
 }
 
 .black
@@ -320,5 +332,6 @@ border: 2px solid #4e82c8;
 .required{
 font-size:large;
 color:red;
+display:inline;
 margin-left:1em;
 }
