@@ -36,7 +36,7 @@
 
   <h1>View Submission</h1>
   <br>
-  <span id="birdInfoTitle" class="subHead expand">Bird Information</span>
+  <span id="birdInfoTitle" class="subHead expand">Bird Information</span><span class="help">(Click title to show or hide this group)</span>
   <div class="subGroup" id="birdInfo">
   <br>
   <% if isadmin? %>
@@ -106,7 +106,7 @@
   
   <br><br>
   
-  <span id="subInfoTitle" class="subHead expand">Submission Information</span>
+  <span id="subInfoTitle" class="subHead expand">Submission Information</span><span class="help">(Click title to show or hide this group)</span>
   <div class="subGroup" id="subInfo">
 	<br>
 	<div class="subLabel">
@@ -187,7 +187,7 @@
    <br><br>
   
   <% if isadmin? %>
-  <span id="adminInfoTitle" class="subHead expand">Administrator Information</span>
+  <span id="adminInfoTitle" class="subHead expand">Administrator Information</span><span class="help">(Click title to show or hide this group)</span>
   <div class="subGroup" id="adminInfo">
   <br>
 	<div class="subLabel">
@@ -232,7 +232,7 @@
 	<%= render :partial => 'votes/form' if isreviewer?%>
 	<%= render :partial => 'votes/list' if isadmin? %>
 <% end %>
-	<br/>
+	<br/><br>
 	<% if @submission.user_authorized_to_edit?(session[:user]) %>
 <%= button_to 'Edit', edit_submission_path(@submission), :class=>'btn-custom', :form_class=>'inline' %>
 <% end %>   
