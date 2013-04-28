@@ -14,10 +14,13 @@
 
     <th>Media</th>
     <th>Status</th>
-    <th>Rounds</th>
+    <% if (isadmin? || isreviewer?) %>
+		<th>Rounds</th>
+	<% end %>
     <th>Date Accepted</th>
-    <th>Date Votable</th>
-
+    <% if (isadmin? || isreviewer?) %>
+		<th>Date Votable</th>
+	<% end %>
     <th></th>
     <th></th>
     <th></th>
@@ -39,13 +42,15 @@
     <td><%= submission.region %></td>
     <td><%= submission.sight_date_time.strftime("%m/%d/%y  %I:%M%p") %></td>
 
-
     <td><%= submission.media %></td>
     <td><%= submission.status.humanize if submission.status %></td>
-    <td><%= submission.rounds %></td>
-    <td><%= submission.date_accepted %></td>
-    <td><%= submission.date_votable.strftime("%m/%d/%y  %I:%M%p") %></td>
-
+    <% if (isadmin? || isreviewer?) %>
+		<td><%= submission.rounds %></td>
+    <% end %>
+	<td><%= submission.date_accepted %></td>
+    <% if (isadmin? || isreviewer?) %>
+		<td><%= submission.date_votable.strftime("%m/%d/%y  %I:%M%p") %></td>
+	<% end %>
     <td><%= link_to_if(submission.user_authorized_to_view?(session[:user]), 'Show', submission){} %></td>
     <td><%= link_to_if(submission.user_authorized_to_edit?(session[:user]), 'Edit', edit_submission_path(submission)){} %></td>
     <td><%= link_to_if(submission.user_authorized_to_destroy?(session[:user]), 'Destroy', submission, confirm: 'Are you sure?', method: :delete){} %></td>
