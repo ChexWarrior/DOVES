@@ -114,16 +114,17 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
+	if session[:user].id == params[:id]
+		flash.now[:notice] = "You can not delete your own account!" 
+	else
+		@user = User.find(params[:id])		
+		@user.destroy
+		respond_to do |format|
+		  format.html { redirect_to users_url, notice: "User was deleted.#{session[:user].id} #{params[:id]}" }
+		  format.json { head :no_content }
+		end
+	end
 
-    respond_to do |format|
-      format.html { redirect_to users_url }
-      format.json { head :no_content }
-    end
   end
-  
-  
-  
   
 end
