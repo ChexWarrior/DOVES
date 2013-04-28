@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-before_filter :ensure_admin, :except => [:about, :home, :sitemap]
+before_filter :ensure_admin, :except => [:about, :home, :sitemap, :gettingstarted]
   respond_to :html, :js
 
 require 'will_paginate/array'
@@ -18,5 +18,8 @@ def home
 	@post = Post.order("created_on DESC").first
 end
 
+def gettingstarted
+
+end
 
 end
