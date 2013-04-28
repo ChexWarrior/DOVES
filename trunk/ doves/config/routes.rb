@@ -23,6 +23,7 @@ resources :submissions , :shallow => true do
 end
 
 resources :users do
+	post 'edit', :on => :member
 	get 'logout', :on => :collection
 	get 'login', :on => :collection
 	post 'login_attempt', :on => :collection
