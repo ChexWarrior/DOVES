@@ -23,39 +23,44 @@
 
 <%= form_tag birds_path, :method => 'get' do %>
      <%= text_field_tag :search, params[:search], :id => 'search_field'	 %>
-      <%= submit_tag "Search", :class=>"btn-custom",:name => nil %> 
-	  <input type ="button" class="btn-custom" value="Reset" id="reset"/>
+     <%= submit_tag "Search", :class=>"btn-custom",:name => nil %> 
+	 <input type ="button" class="btn-custom" value="Reset" id="reset"/>
 <% end %> 
 
 <% if params[:search] %>
 	  <%= link_to "Show All", birds_path, :method => :get  %><br />
 <% end %> 
 
-
 <table>
   <tr>
-	<th>ID</th>
+	<% if isadmin? %>
+		<th>ID</th>
+	<% end %>
     <th>Common name</th>
     <th>Reviewable</th>
 
 	<% if isadmin? %>
-    <th></th>
-    <th></th>
-    <!-- Third column removed - we don't want 'destroy'<th></th>-->
-	<th>Toggle Reviewable</th><!-- New third column: toggle reviewable -->
+		<th></th>
+		<th></th>
+		<!-- Third column removed - we don't want 'destroy'<th></th>-->
+		<th>Toggle Reviewable</th><!-- New third column: toggle reviewable -->
 	<% end %>
   </tr>
 
 <% @birds.each do |bird| %>
   <tr class="subRow">
-	<td><%= bird.id %></td>
-    <td><%= link_to bird.common_name, bird %></td>
-    <td class="<%= bird.reviewable %>"><%= bird.reviewable.humanize %></td>
 	<% if isadmin? %>
-    <td><%= link_to 'Show', bird %></td>
-    <td><%= link_to 'Edit', edit_bird_path(bird) %></td>
-    <!--No longer allowing 'destroy'<td><%= link_to 'Destroy', bird, confirm: 'Are you sure?', method: :delete %></td>-->
-	<td><%= link_to 'Toggle', toggle_bird_path(bird) %></td>
+		<td><%= bird.id %></td>
+	<% end %>
+    <% if bird.id != 31 || isadmin? %>
+		<td><%= link_to bird.common_name, bird %></td>
+		<td class="<%= bird.reviewable %>"><%= bird.reviewable.humanize %></td>
+	<% end %>
+	<% if isadmin? %>
+		<td><%= link_to 'Show', bird %></td>
+		<td><%= link_to 'Edit', edit_bird_path(bird) %></td>
+		<!--No longer allowing 'destroy'<td><%= link_to 'Destroy', bird, confirm: 'Are you sure?', method: :delete %></td>-->
+		<td><%= link_to 'Toggle', toggle_bird_path(bird) %></td>
 	<% end %>
   </tr>
 <% end %>
