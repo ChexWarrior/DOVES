@@ -27,6 +27,7 @@ before_filter :ensure_reviewer_or_admin
   # GET /votes/new.json
   def new
     @vote = Vote.new
+	
 
     respond_to do |format|
       format.html # new.html.erb
@@ -37,13 +38,14 @@ before_filter :ensure_reviewer_or_admin
   # GET /votes/1/edit
   def edit
     @vote = Vote.find(params[:id])
+	@submission = @vote.submission
   end
   
   # Pending submission controller
   def pending
   # Get user role to determine reviewer and id to determine which results to show.
   @pending = Submission.scoped_by_status("pending").where("date_votable < ?", Time.now())
-  @pending.delete_if{|submission| Vote.scoped_by_submission_id(submission.id).scoped_by_user_id(session[:user].id).scoped_by_round(submission.rounds).exists?}
+  @pending.delete_if{|submission| Vote.scoped_by_submission_id(submission.id).scoped_by_user_id(session[:user].id).scoped_by_round(submission.rounds).scoped_by_cast_vote(true).exists?}
 	# for(int x = 0; x<= id_max; x++)
 	# {
 	# for(int y = 0; y < 3; x++)
@@ -52,8 +54,8 @@ before_filter :ensure_reviewer_or_admin
 			# Vote.find(:all, :conditions =>{:user_id => session[:user].id}, :submission_id => X, :rounds => Y) 
 	# }
 	# }
-  @votes = Vote.includes({:submission => :bird}).scoped_by_user_id(session[:user].id)
-
+  @votes = Vote.includes({:submission => :bird}).scoped_by_user_id(session[:user].id).scoped_by_cast_vote(true)
+  @incomplete_votes = Vote.includes({:submission => :bird}).scoped_by_user_id(session[:user].id).scoped_by_cast_vote(false)
 	
   end
 
@@ -65,32 +67,63 @@ before_filter :ensure_reviewer_or_admin
     @vote = @submission.votes.new(params[:vote])
 	@vote.user_id = session[:user].id
 	@vote.round = @submission.rounds
-	
-    respond_to do |format|
+	if params[:commit] == "Save Comments" 
+		@vote.cast_vote = false
+		respond_to do |format|
       if @vote.save
-        format.html { redirect_to @vote.submission, notice: 'Vote was successfully created.' }
+        format.html { redirect_to @vote.submission, notice: 'Comments were successfully saved.' }
         format.json { render json: @vote, status: :created, location: @vote }
       else
         format.html { render action: "new" }
         format.json { render json: @vote.errors, status: :unprocessable_entity }
       end
     end
+	else
+		@vote.cast_vote = true
+		respond_to do |format|
+      if @vote.save
+        format.html { redirect_to pending_votes_path, notice: 'Vote was successfully cast.' }
+        format.json { render json: @vote, status: :created, location: @vote }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @vote.errors, status: :unprocessable_entity }
+      end
+    end
+	end
+	
+	
+    
   end
 
   # PUT /votes/1
   # PUT /votes/1.json
   def update
     @vote = Vote.find(params[:id])
-
-    respond_to do |format|
+	if params[:commit] == "Save Comments" 
+		@vote.cast_vote = false
+		 respond_to do |format|
       if @vote.update_attributes(params[:vote])
-        format.html { redirect_to @vote, notice: 'Vote was successfully updated.' }
+        format.html { redirect_to @vote.submission, notice: 'Comments were successfully saved.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
         format.json { render json: @vote.errors, status: :unprocessable_entity }
       end
     end
+	else
+		@vote.cast_vote = true
+		 respond_to do |format|
+      if @vote.update_attributes(params[:vote])
+        format.html { redirect_to pending_votes_path, notice: 'Vote was successfully cast.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @vote.errors, status: :unprocessable_entity }
+      end
+    end
+	end
+
+    
   end
 
   # DELETE /votes/1

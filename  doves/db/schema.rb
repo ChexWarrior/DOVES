@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130415181948) do
+ActiveRecord::Schema.define(:version => 20130428174918) do
 
   create_table "birds", :force => true do |t|
     t.string   "common_name"
@@ -106,8 +106,9 @@ ActiveRecord::Schema.define(:version => 20130415181948) do
     t.string   "vote"
     t.text     "comments"
     t.datetime "time"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+    t.boolean  "cast_vote",     :default => true
   end
 
 end
