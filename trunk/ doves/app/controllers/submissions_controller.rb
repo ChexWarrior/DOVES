@@ -72,7 +72,15 @@ class SubmissionsController < ApplicationController
   #					 option to vote if reviewer has not voted yet
     
     @submission = Submission.find(params[:id])
-	@vote = Vote.new
+	if @submission.votes.scoped_by_user_id(session[:user].id).scoped_by_round(@submission.rounds).scoped_by_cast_vote(false).exists?
+		@vote = Vote.scoped_by_submission_id(params[:id]).scoped_by_user_id(session[:user].id).scoped_by_round(@submission.rounds).scoped_by_cast_vote(false).first
+		@path = @vote
+		
+	else
+		@vote = Vote.new
+		@path = [@submission, @vote]
+	end
+
 	@hasVoted = true
 	@count = 1
 	3.times {@submission.multimedia.build}
@@ -89,7 +97,7 @@ class SubmissionsController < ApplicationController
 		#don't show any votes or comments for votes made in this round by other reviewers
 		@votes.delete_if{|vote| vote.round == @submission.rounds} if !isadmin?
 		#don't show the editable vote fields if this user has already voted on this submission in this round
-		@hasVoted = @submission.votes.scoped_by_user_id(session[:user].id).scoped_by_round(@submission.rounds).exists?
+		@hasVoted = @submission.votes.scoped_by_user_id(session[:user].id).scoped_by_round(@submission.rounds).scoped_by_cast_vote(true).exists?
 	end
 	recommend
 	
