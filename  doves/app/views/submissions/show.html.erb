@@ -41,12 +41,12 @@
   <br>
   <% if isadmin? %>
   <div class="subLabel">
-		<span>User</span>
+		<span>Observer</span>
 		<%= link_to @submission.user.name, @submission.user%>
 		</div>
 	<br>
 	<div class="subLabel">
-		<span>User Email</span>
+		<span>Observer Email</span>
 		<span style="color:white;">
 		<%= mail_to @submission.user.email %>
 		
@@ -55,7 +55,7 @@
 	<br>
 	<% end %>
   	<div class="subLabel">
-		<span>Common Name</span>
+		<span>Common Bird Name</span>
 		<%= @submission.bird.common_name %>
 		<% if @submission.bird_id == 31 %>
 		(<%= @submission.common_name %>)
@@ -79,27 +79,27 @@
 	</div>
 	<br>
 	<div class="subLabel">
-		<span style="position.relative; bottom.90px;">Plumage</span>
+		<span style="position.relative; bottom.90px;">General Plumage (Breeding, nonbreeding, etc.)</span>
 		<%= @submission.plumage%>
 	</div>
 	<br>
 	<div class="subLabel">
-		<span style="position.relative; bottom.90px;">Detailed Description</span>
+		<span style="position.relative; bottom.90px;">Detailed Description of Bird</span>
 		<%= simple_format(@submission.detailed_description) %>
 	</div>
 	<br>
 	<div class="subLabel">
-		<span style="position.relative; bottom.90px;">Detailed Behavior</span>
+		<span style="position.relative; bottom.90px;">Detailed Behavior of Bird (Flight pattern, feeding, etc.)</span>
 		<%= simple_format(@submission.detailed_behavior) %>
 	</div>
 	<br>
 	<div class="subLabel">
-		<span style="position.relative; bottom.70px;">Distinguishing Characteristics</span>
+		<span style="position.relative; bottom.70px;">Distinguishing Characteristics From Other Species</span>
 		<%= simple_format(@submission.distinguished_char) %>
 	</div>
 	<br>
 	<div class="subLabel">
-		<span >Habitat Description</span>
+		<span >Bird Habitat Description</span>
 		<%= simple_format(@submission.habitat)%>
 	</div>
   </div>
@@ -110,7 +110,7 @@
   <div class="subGroup" id="subInfo">
 	<br>
 	<div class="subLabel">
-		<span>Co-observers</span>
+		<span>Reporting Observers</span>
 		<%= @submission.coobservers %>
 	</div>
 	<br>
@@ -125,7 +125,7 @@
 	</div>
 	<br>
 	<div class="subLabel">
-		<span>Sight Date Time</span>
+		<span>Sighting Date and Time</span>
 		<%= @submission.sight_date_time.strftime("%m/%d/%y  %I:%M%p") %>
 	</div>
 	<br>
@@ -155,7 +155,7 @@
 	</div>
 	<br>
 	<div class="subLabel">
-		<span>Is an unusual Sighting</span>
+		<span>Is an Unusual Sighting</span>
 		<span id="unusual"><%= @submission.unusual.titleize %></span>
 	</div>
 	<br>
@@ -165,7 +165,7 @@
 	</div>
 	<br>
 	<div class="subLabel">
-		<span >Previous Experience</span>
+		<span >Previous Experience with this Bird</span>
 		<%= simple_format(@submission.prev_bird_exp)%>
 	</div>
 	<br>
