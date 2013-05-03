@@ -64,7 +64,7 @@
 	<span style="font-size:medium;color:red;">(* All fields in this group must be entered, if you don't know the information enter &quot;Unknown&quot; or &quot;None&quot;)</span>
 	<br><br>
   	<div class="subLabel">
-		<span>Common Name</span>
+		<span>Common Bird Name</span>
 		<%= f.text_field :common_name, :value=>@common_name%><span class="required">*</span>
 	</div>
 	<br>
@@ -80,31 +80,31 @@
 	<br>
 	<div class="subLabel">
 		<span>Sex of Bird(s)</span>
-		<%= f.select :sex, [["Unknown","Unknown"],["Male","Male"],["Female","Female"]] %><span class="required">*</span>
+		<%= f.text_field :sex %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
-		<span style="position:relative; bottom:30px;">Plumage test</span>
+		<span style="position:relative; bottom:30px;">General Plumage (Breeding, nonbreeding, etc)</span>
 		<%= f.text_area :plumage, :rows => "5", :cols => "65" %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
-		<span style="position:relative; bottom:40px;">Detailed Description</span>
+		<span style="position:relative; bottom:29px;">Detailed Description of Bird</span>
 		<%= f.text_area :detailed_description, :rows => "5", :cols => "45" %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
-		<span style="position:relative; bottom:40px;">Detailed Behavior</span>
+		<span style="position:relative; bottom:29px;">Detailed Behavior of Bird (Flight pattern, feeding, etc.)</span>
 		<%= f.text_area :detailed_behavior, :rows => "5", :cols => "45" %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
-		<span style="position:relative; bottom:30px;">Distinguishing Characteristics</span>
+		<span style="position:relative; bottom:30px;">Distinguishing Characteristics From Other Species</span>
 		<%= f.text_area :distinguished_char, :rows => "5", :cols => "45" %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
-		<span style="position:relative; bottom:40px;">Habitat Description</span>
+		<span style="position:relative; bottom:29px;">Habitat Description</span>
 		<%= f.text_area :habitat, :rows => "5", :cols => "45" %><span class="required">*</span>
 	</div>
   </div>
@@ -117,7 +117,7 @@
   <br>
   <br>
 	<div class="subLabel">
-		<span>Co-observers</span>
+		<span>Reporting Observers</span>
 		<%= f.text_field :coobservers %><span class="required">*</span>
 
 	</div>
@@ -148,12 +148,12 @@
 	</div>
 	<br>
 	<div class="subLabel">
-		<span style="position:relative; bottom:40px;">Optical Equipment</span>
+		<span style="position:relative; bottom:29px;">Optical Equipment</span>
 		<%= f.text_area :optical_equipment, :rows => "5", :cols => "45" %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
-		<span style="position:relative; bottom:40px;">References Used</span>
+		<span style="position:relative; bottom:29px;">References Used</span>
 		<%= f.text_area :references, :rows => "5", :cols => "45" %><span class="required">*</span>
 	</div>
 	<br>
@@ -170,12 +170,12 @@
 	</div>
 	<br>
 	<div class="subLabel">
-		<span style="position:relative; bottom:40px;">Previous Experience With This Bird Species</span>
+		<span style="position:relative; bottom:29px;">Previous Experience With This Bird Species</span>
 		<%= f.text_area :prev_bird_exp, :rows => "5", :cols => "45" %><span class="required">*</span>
 	</div>
 	<br>
 	<div class="subLabel">
-		<span style="position:relative; bottom:40px;">Notes</span>
+		<span style="position:relative; bottom:29px;">Notes</span>
 		<%= f.text_area :notes, :rows => "5", :cols => "45" %>
 	</div>
 	<br>
@@ -235,12 +235,12 @@
   <div class="subGroup" id="adminInfo">
 	<br>
 	<div class="subLabel">
-		<span style="position:relative; bottom:40px;">Working Notes</span>
+		<span style="position:relative; bottom:29px;">Working Notes</span>
 		<%= f.text_area :working_notes, :rows => "5", :cols => "45" %>
 	</div>
 	<br>
 	<div class="subLabel">
-		<span style="position:relative; bottom:40px;">Administrator Notes</span>
+		<span style="position:relative; bottom:29px;">Administrator Notes</span>
 		<%= f.text_area :admin_notes, :rows => "5", :cols => "45" %>
 	</div>
 	<br>
