@@ -2,13 +2,17 @@
 <br>
 <script>
 	$(document).ready(function(){
-	$("#reset").bind("click", function (){
-		$("#search_field").val("");
-	$("#status").addClass(this.text());
-	});
-	 $("#search_field" ).autocomplete({
-        source: birdArray
-    });
+		$("#reset").bind("click", function (){
+			$("#search_field").val("");
+		$("#status").addClass(this.text());
+		});
+		 $("#search_field" ).autocomplete({
+			source: birdArray
+		});
+		
+		$("#birdTableBody").sortable({
+			
+		});
 	
 	});
 	
@@ -31,7 +35,8 @@
 	  <%= link_to "Show All", birds_path, :method => :get  %><br />
 <% end %> 
 
-<table>
+<table id="birdTable">
+ <thead>
   <tr>
 	<% if isadmin? %>
 		<th>ID</th>
@@ -46,7 +51,8 @@
 		<th>Toggle Reviewable</th><!-- New third column: toggle reviewable -->
 	<% end %>
   </tr>
-
+</thead>
+<tbody id="birdTableBody">
 <% @birds.each do |bird| %>
   <tr class="subRow">
 	<% if isadmin? %>
@@ -64,6 +70,7 @@
 	<% end %>
   </tr>
 <% end %>
+</tbody>
 </table>
 
 <br />
