@@ -1,12 +1,15 @@
 DOVES::Application.routes.draw do
   resources :posts do
 	post 'list', :on => :collection
+	get 'list', :on => :collection
 	end
 
   resources :multimedia
 
   resources :birds do 
 	get 'toggle', :on => :member
+	post :sort, on: :collection
+	get :reorder, on: :collection
 end
 
 resources :votes do

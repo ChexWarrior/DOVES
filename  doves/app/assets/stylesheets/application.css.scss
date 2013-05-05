@@ -160,6 +160,7 @@ ul {
 	padding-right:0px;
 	text-decoration: none;
     padding-left: 25px;
+
 }
 
 a {
@@ -258,6 +259,29 @@ th {
     color: #000
 }
 
+.handle{
+cursor:move;
+padding: 5px;
+}
+
+ol.zebra {
+width: 50%;
+align: center;
+margin-left:auto;
+margin-right:auto;
+padding: 5px;
+
+}
+
+li {
+padding: 5px;
+}
+
+li.zebra:nth-child(even) {
+  	background:#E1EEf4;
+    color: #000;
+}
+
 .even {
 	background:#E1EEf4;
     color: #000
@@ -275,6 +299,7 @@ font-weight: bold}
 	border-radius: 9px;
 	padding: 5px;
 	box-shadow: 10px 10px 10px #888;
+	height:auto;
 }
 
 .newstitle {

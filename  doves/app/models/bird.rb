@@ -1,5 +1,6 @@
 class Bird < ActiveRecord::Base
-
+require "acts_as_list"
+acts_as_list
 validates :common_name, :presence => true, :uniqueness => true
 validates :reviewable, :presence => true
 validate :yesorno

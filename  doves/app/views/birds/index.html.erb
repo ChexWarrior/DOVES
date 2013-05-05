@@ -40,9 +40,11 @@
   <tr>
 	<% if isadmin? %>
 		<th>ID</th>
+		<th>Position</th>
 	<% end %>
     <th>Common name</th>
     <th>Reviewable</th>
+	<th>Regions Reviewable</th>
 
 	<% if isadmin? %>
 		<th></th>
@@ -57,11 +59,14 @@
   <tr class="subRow">
 	<% if isadmin? %>
 		<td><%= bird.id %></td>
+		<td><%= bird.position%></td>
+		
 	<% end %>
     <% if bird.id != 31 || isadmin? %>
 		<td><%= link_to bird.common_name, bird %></td>
 		<td class="<%= bird.reviewable %>"><%= bird.reviewable.humanize %></td>
 	<% end %>
+		<td ><%= bird.region %></td>
 	<% if isadmin? %>
 		<td><%= link_to 'Show', bird %></td>
 		<td><%= link_to 'Edit', edit_bird_path(bird) %></td>

@@ -11,13 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130428174918) do
+ActiveRecord::Schema.define(:version => 20130505191044) do
 
   create_table "birds", :force => true do |t|
     t.string   "common_name"
     t.string   "reviewable"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "position"
+    t.text     "region"
   end
 
   create_table "multimedia", :force => true do |t|
