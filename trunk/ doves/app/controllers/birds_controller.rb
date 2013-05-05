@@ -1,15 +1,29 @@
 class BirdsController < ApplicationController
 
+skip_before_filter :verify_authenticity_token, :only => [:sort]
+
 before_filter :ensure_admin, :except => [:index, :show]
   # GET /birds
   # GET /birds.json
   def index
-    @birds = Bird.search(params[:search])
+    @birds = Bird.order('birds.position asc').search(params[:search])
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @birds }
     end
+  end
+  
+  def reorder
+    @birds = Bird.order('birds.position asc')
+  end
+  
+  def sort
+	@birds = Bird.all
+	@birds.each do |bird|
+	bird.position = params['bird'].index(bird.id.to_s) + 1
+	bird.save
+	end
   end
   
   # GET /birds/1

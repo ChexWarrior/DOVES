@@ -22,7 +22,7 @@
 		}
 	});
 	
-	$("[id$=Admin]").slideUp();
+	$("[id$=Admin]").hide();
 	
 });
    var birdArray = <%= Bird.all.map(&:common_name).sort.to_json.html_safe %>;
