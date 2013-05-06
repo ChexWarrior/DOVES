@@ -35,6 +35,10 @@
 	  <%= link_to "Show All", birds_path, :method => :get  %><br />
 <% end %> 
 
+<% if isadmin? %>
+ <%= link_to "Reorder Birds List", reorder_birds_path %>
+ <% end %>
+
 <table id="birdTable">
  <thead>
   <tr>
