@@ -72,6 +72,7 @@ class SubmissionsController < ApplicationController
   #					 option to vote if reviewer has not voted yet
     
     @submission = Submission.find(params[:id])
+	if session[:user]
 	if @submission.votes.scoped_by_user_id(session[:user].id).scoped_by_round(@submission.rounds).scoped_by_cast_vote(false).exists?
 		@vote = Vote.scoped_by_submission_id(params[:id]).scoped_by_user_id(session[:user].id).scoped_by_round(@submission.rounds).scoped_by_cast_vote(false).first
 		@path = @vote
@@ -80,7 +81,7 @@ class SubmissionsController < ApplicationController
 		@vote = Vote.new
 		@path = [@submission, @vote]
 	end
-
+	end
 	@hasVoted = true
 	@count = 1
 	3.times {@submission.multimedia.build}
