@@ -156,14 +156,16 @@ class SubmissionsController < ApplicationController
 	# if we clicked the "Save as Draft" submit button
 	if params[:commit].downcase == "save as draft"
 		@submission.status = "incomplete"
+		msg = "Submission saved as incomplete. Your submission will not be sent to VARCOM until you complete it and click submit."
 	elsif params[:commit].downcase == "submit"
 		@submission.status = "new"
+		msg = "Thank you for your submission! It will be reviewed by an administrator. You can view the status of your submission from your profile page."
 	end
 	
     respond_to do |format|
       if @submission.save
 		
-        format.html { redirect_to @submission, notice: 'Submission was successfully created.' }
+        format.html { redirect_to @submission, notice: msg }
         format.json { render json: @submission, status: :created, location: @submission }
       else
 		@submission.status = "incomplete"
