@@ -20,6 +20,11 @@
     Yes<%= f.radio_button :reviewable, "yes" %>
     No<%= f.radio_button :reviewable, "no" %>
   </div>
+    <div class="field">
+    <%= f.label :region %><br />
+    <%= f.text_area :region %>
+  </div>
+  
   <div class="actions">
     <%= f.submit :class=> 'btn-custom'%>
   </div>

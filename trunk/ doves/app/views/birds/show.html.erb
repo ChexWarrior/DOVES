@@ -10,6 +10,11 @@
   <%= @bird.reviewable.humanize %>
 </p>
 
+<p>
+  <b>Exceptions:</b>
+  <%= @bird.region %>
+</p>
+
 <% if (@submissions.length > 0) then%>
  <div id="search">
     <%= render :partial => 'submissions/list' %>
@@ -18,7 +23,7 @@
  <div>No sightings found for this bird.</div>
  <% end %>
 
-<%= link_to 'Back', birds_path %><% if isadmin?%> |
+<%= link_to 'Review List', birds_path %><% if isadmin?%> |
 <%= link_to 'Edit', edit_bird_path(@bird) %> | 
 <%= link_to 'New', new_bird_path %>
 <% end %>

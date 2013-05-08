@@ -1,5 +1,6 @@
-<h1>Reviewable Birds</h1>
-<br>
+<h1>Review List for Virginia</h1>
+
+<h3>Effective October, 2012</h3>
 <script>
 	$(document).ready(function(){
 		$("#reset").bind("click", function (){
@@ -24,6 +25,9 @@
 <% if flash[:notice] %>
 	<div id="notice" ><%= flash[:notice] %></div>
 <% end %>
+<p>The following species, field-identifiable superspecies/subspecies, and color morphs have already been documented and accepted in the Commonwealth of Virginia and are reviewable statewide except as indicated.</p>
+
+<p>Eastern Coastal Plain is defined as the following counties/cities: Accomack, Chesapeake, Gloucester, Hampton, Lancaster, Mathews, Middlesex, Newport News, Norfolk, Northampton, Northumberland, Poquoson, Portsmouth, Richmond County, Suffolk, Virginia Beach, Westmoreland.</p>
 
 <%= form_tag birds_path, :method => 'get' do %>
      <%= text_field_tag :search, params[:search], :id => 'search_field'	 %>
@@ -35,9 +39,10 @@
 	  <%= link_to "Show All", birds_path, :method => :get  %><br />
 <% end %> 
 
+
 <% if isadmin? %>
  <%= link_to "Reorder Birds List", reorder_birds_path %>
- <% end %>
+<% end %>
 
 <table id="birdTable">
  <thead>
@@ -48,7 +53,7 @@
 	<% end %>
     <th>Common name</th>
     <th>Reviewable</th>
-	<th>Regions Reviewable</th>
+	<th>Exceptions</th>
 
 	<% if isadmin? %>
 		<th></th>
