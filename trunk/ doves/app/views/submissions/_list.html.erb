@@ -40,7 +40,7 @@
     <td><%= submission.sex %></td>
     <td><%= submission.location %></td>
     <td><%= submission.region %></td>
-    <td><%= submission.sight_date_time.strftime("%m/%d/%y  %I:%M%p") %></td>
+    <td><%= submission.sight_date_time.strftime("%m/%d/%y  %I:%M%p") if submission.sight_date_time %></td>
 
     <td><%= submission.media %></td>
     <td><%= submission.status.humanize if submission.status %></td>
@@ -49,7 +49,7 @@
     <% end %>
 	<td><%= submission.date_accepted %></td>
     <% if (isadmin? || isreviewer?) %>
-		<td><%= submission.date_votable.strftime("%m/%d/%y  %I:%M%p") %></td>
+		<td><%= submission.date_votable.strftime("%m/%d/%y  %I:%M%p") if submission.date_votable %></td>
 	<% end %>
     <td><%= link_to_if(submission.user_authorized_to_view?(session[:user]), 'Show', submission){} %></td>
     <td><%= link_to_if(submission.user_authorized_to_edit?(session[:user]), 'Edit', edit_submission_path(submission)){} %></td>
