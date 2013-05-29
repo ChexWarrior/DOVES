@@ -22,6 +22,7 @@ end
   
 resources :submissions , :shallow => true do
 	resources :votes
+	post 'edit', :on => :member
 	get 'pending', :on => :collection
 	get 'new_submissions', :on => :collection
 end

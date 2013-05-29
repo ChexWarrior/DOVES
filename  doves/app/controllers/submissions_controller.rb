@@ -84,7 +84,7 @@ class SubmissionsController < ApplicationController
 	end
 	@hasVoted = true
 	@count = 1
-	3.times {@submission.multimedia.build}
+	
 	@multimedia=@submission.multimedia
 	
 	subStatus = @submission.status
@@ -109,8 +109,13 @@ class SubmissionsController < ApplicationController
   def new
     @submission = Submission.new
 	@submission.status = "incomplete"
-	3.times {@submission.multimedia.build}
+
+	# @multimedia is for displaying existing attachments
 	@multimedia=@submission.multimedia
+		
+	@image = Array.new(3) { @submission.multimedia.build }
+	@audio = @submission.multimedia.build
+	@video = @submission.multimedia.build
 	
     respond_to do |format|
       format.html # new.html.erb
@@ -122,8 +127,12 @@ class SubmissionsController < ApplicationController
   def edit
    recommend
     @submission = Submission.find(params[:id])
-	3.times {@submission.multimedia.build}
+
 	@multimedia=@submission.multimedia
+		
+	@image = Array.new(3) { @submission.multimedia.build }
+	@audio = @submission.multimedia.build
+	@video = @submission.multimedia.build	
 	
 	if @submission.bird_id == 31
 		@common_name=@submission.common_name
@@ -142,9 +151,7 @@ class SubmissionsController < ApplicationController
 	@submission.user_id = session[:user].id
 	@bird = Bird.find_by_common_name(@submission.common_name)
 
-	3.times {@submission.multimedia.build}
 	@multimedia=@submission.multimedia
-
 
 	if @bird.nil? then
 		@submission.bird_id=31  #default to "Other" if we don't find a bird with that name
@@ -180,9 +187,7 @@ class SubmissionsController < ApplicationController
   def update
     @submission = Submission.find(params[:id])
 	
-	3.times {@submission.multimedia.build}
 	@multimedia=@submission.multimedia
-
 	
 	@bird = Bird.find_by_common_name(params[:submission][:common_name])
 	if @bird.nil? then
